@@ -6,11 +6,17 @@ Welcome to the SynTechRev-PolyCodCal documentation! This index helps you find th
 
 ### Getting Started
 
-- **[QUICKSTART.md](../QUICKSTART.md)** - 5-minute setup guide
+- **[GETTING_STARTED.md](../GETTING_STARTED.md)** - Complete setup guide (RECOMMENDED)
   - Installation and setup
+  - VS Code configuration with PYTHONPATH
+  - GitHub Copilot integration
+  - Troubleshooting common issues
+  - First contribution guide
+
+- **[QUICKSTART.md](../QUICKSTART.md)** - Alternative 5-minute setup guide
+  - Quick installation
   - First test run
-  - VS Code configuration
-  - Try the example
+  - Basic VS Code setup
 
 - **[README.md](../README.md)** - Project overview
   - What is SynTechRev-PolyCodCal
@@ -44,6 +50,13 @@ Welcome to the SynTechRev-PolyCodCal documentation! This index helps you find th
   - Best practices
   - Common issues and solutions
 
+- **[SOLUTION_SUMMARY.md](../SOLUTION_SUMMARY.md)** - Architecture and implementation
+  - System architecture
+  - Design decisions
+  - Performance characteristics
+  - Implementation details
+  - Future enhancements
+
 - **[CHANGELOG.md](../CHANGELOG.md)** - Version history
   - Release notes
   - Change tracking
@@ -68,22 +81,43 @@ Welcome to the SynTechRev-PolyCodCal documentation! This index helps you find th
   - Copilot integration
   - Troubleshooting
 
+- **[COPILOT_INTEGRATION.md](../COPILOT_INTEGRATION.md)** - GitHub Copilot guide
+  - Setup and configuration
+  - Using inline suggestions
+  - Copilot Chat workflows
+  - Best practices
+  - Project-specific patterns
+  - Troubleshooting
+
+- **[SynTechRev-PolyCodCal.code-workspace](../SynTechRev-PolyCodCal.code-workspace)** - VS Code workspace file
+  - Pre-configured settings
+  - Debug configurations
+  - Tasks and shortcuts
+  - PYTHONPATH setup
+
 ## 🎯 Find What You Need
 
 ### I want to...
 
 #### Get started quickly
+→ [GETTING_STARTED.md](../GETTING_STARTED.md) ⭐ **RECOMMENDED**  
 → [QUICKSTART.md](../QUICKSTART.md)
 
 #### Understand the project
-→ [README.md](../README.md)
+→ [README.md](../README.md)  
+→ [SOLUTION_SUMMARY.md](../SOLUTION_SUMMARY.md)
 
 #### Contribute code
 → [CONTRIBUTING.md](../CONTRIBUTING.md)  
 → [DEVELOPMENT_WORKFLOW.md](DEVELOPMENT_WORKFLOW.md)
 
 #### Set up VS Code
+→ [GETTING_STARTED.md](../GETTING_STARTED.md#vs-code-setup-recommended) ⭐  
 → [.vscode/README.md](../.vscode/README.md)
+
+#### Use GitHub Copilot
+→ [COPILOT_INTEGRATION.md](../COPILOT_INTEGRATION.md) ⭐  
+→ [GETTING_STARTED.md](../GETTING_STARTED.md#github-copilot-setup)
 
 #### Fix code quality issues
 → [CODE_REPAIR_STRATEGY.md](../CODE_REPAIR_STRATEGY.md)

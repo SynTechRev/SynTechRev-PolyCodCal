@@ -7,29 +7,50 @@ Polymathic CodCal - A feedback monitoring system with sliding-window aggregation
 
 ## 🚀 Quick Start
 
-**New to the project?** See [QUICKSTART.md](QUICKSTART.md) for a 5-minute setup guide!
+**New to the project?** Start here:
+- **[GETTING_STARTED.md](GETTING_STARTED.md)** - Complete setup guide with VS Code & Copilot integration
+- **[QUICKSTART.md](QUICKSTART.md)** - Alternative 5-minute setup guide
 
 ### Quick Setup
 
 Set up the workspace virtual environment (we use `.venv`):
 
-```powershell
+```bash
 python -m venv .venv
+
+# On Windows
 .venv\Scripts\Activate.ps1
+
+# On macOS/Linux
+source .venv/bin/activate
+
 pip install -r dev-requirements.txt
 ```
 
 Run tests:
 
-```powershell
-pytest -q
+```bash
+# The src directory is automatically added to PYTHONPATH in VS Code
+# For command-line testing:
+PYTHONPATH=src pytest -v
 ```
 
 Run pre-commit hooks locally:
 
-```powershell
-.venv\Scripts\pre-commit run --all-files
+```bash
+pre-commit run --all-files
 ```
+
+### VS Code Setup (Recommended)
+
+This project is fully configured for VS Code with GitHub Copilot:
+
+1. **Open in VS Code**: `code .` or `code SynTechRev-PolyCodCal.code-workspace`
+2. **Install Extensions**: Click "Install All" when prompted
+3. **Select Interpreter**: Choose `.venv` interpreter
+4. **Start Coding**: PYTHONPATH is automatically configured!
+
+See [GETTING_STARTED.md](GETTING_STARTED.md) for detailed instructions.
 
 ## FeedbackMonitor usage
 
