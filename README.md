@@ -127,3 +127,6 @@ SynTechRev-PolyCodCal/
 - [Contributing Guide](CONTRIBUTING.md) - How to contribute to this project
 - [Code Repair Strategy](CODE_REPAIR_STRATEGY.md) - Systematic approach to code quality
 - [CI/CD Pipeline](.github/workflows/ci.yml) - Automated testing and quality checks
+- [VS Code Setup](.vscode/README.md) - VS Code configuration and usage
+- [GitHub Integration](.vscode/GITHUB_INTEGRATION_GUIDE.md) - Set up GitHub authentication in VS Code
+- [Workspace Status](WORKSPACE_STATUS.md) - Complete workspace verification and status

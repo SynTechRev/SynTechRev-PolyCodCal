@@ -59,6 +59,21 @@ Welcome to the SynTechRev-PolyCodCal documentation! This index helps you find th
   - Common workflows
   - Troubleshooting
 
+- **[.vscode/GITHUB_INTEGRATION_GUIDE.md](../.vscode/GITHUB_INTEGRATION_GUIDE.md)** - GitHub authentication
+  - Personal Access Token setup
+  - VS Code GitHub integration
+  - OAuth authentication
+  - Troubleshooting
+  - Security best practices
+
+- **[WORKSPACE_STATUS.md](../WORKSPACE_STATUS.md)** - Complete workspace verification
+  - Repository status
+  - Development environment verification
+  - Test results
+  - Code quality tools status
+  - Pre-commit hooks verification
+  - VS Code configuration status
+
 ## 🎯 Find What You Need
 
 ### I want to...
@@ -75,6 +90,12 @@ Welcome to the SynTechRev-PolyCodCal documentation! This index helps you find th
 
 #### Set up VS Code
 → [.vscode/README.md](../.vscode/README.md)
+
+#### Authenticate GitHub in VS Code
+→ [.vscode/GITHUB_INTEGRATION_GUIDE.md](../.vscode/GITHUB_INTEGRATION_GUIDE.md)
+
+#### Verify workspace status
+→ [WORKSPACE_STATUS.md](../WORKSPACE_STATUS.md)
 
 #### Fix code quality issues
 → [CODE_REPAIR_STRATEGY.md](../CODE_REPAIR_STRATEGY.md)

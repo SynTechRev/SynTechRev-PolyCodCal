@@ -243,11 +243,13 @@ Add to `settings.json`:
 
 ## Resources
 
+- [GitHub Integration Guide](GITHUB_INTEGRATION_GUIDE.md) - Set up GitHub authentication
 - [VS Code Python Tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
 - [VS Code Testing](https://code.visualstudio.com/docs/python/testing)
 - [VS Code Debugging](https://code.visualstudio.com/docs/editor/debugging)
 - [Project CONTRIBUTING.md](../CONTRIBUTING.md)
 - [Project CODE_REPAIR_STRATEGY.md](../CODE_REPAIR_STRATEGY.md)
+- [Workspace Status Report](../WORKSPACE_STATUS.md) - Complete workspace verification
 
 ## Support
 
