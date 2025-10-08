@@ -3,7 +3,9 @@ __pycache__/
 *.pyc
 .env
 .DS_Store
-.vscode/
+# VS Code workspace settings are tracked, but not user-specific files
+!.vscode/
+.vscode/*.code-workspace
 .idea/
 logs/
 processed/
