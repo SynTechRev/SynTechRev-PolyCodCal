@@ -1,4 +1,5 @@
 # SynTechRev-PolyCodCal
+![CI](https://github.com/SynTechRev/SynTechRev-PolyCodCal/actions/workflows/ci.yml/badge.svg)
 Polymathic CodCal
 
 ## Quick start
@@ -44,5 +45,3 @@ CLI example (one-off processing of newline-delimited JSON):
 ```powershell
 python scripts\feedback_monitor.py examples\events.jsonl
 ```
-
-
