@@ -7,29 +7,50 @@ Polymathic CodCal - A feedback monitoring system with sliding-window aggregation
 
 ## 🚀 Quick Start
 
-**New to the project?** See [QUICKSTART.md](QUICKSTART.md) for a 5-minute setup guide!
+**New to the project?** Start here:
+- **[GETTING_STARTED.md](GETTING_STARTED.md)** - Complete setup guide with VS Code & Copilot integration
+- **[QUICKSTART.md](QUICKSTART.md)** - Alternative 5-minute setup guide
 
 ### Quick Setup
 
 Set up the workspace virtual environment (we use `.venv`):
 
-```powershell
+```bash
 python -m venv .venv
+
+# On Windows
 .venv\Scripts\Activate.ps1
+
+# On macOS/Linux
+source .venv/bin/activate
+
 pip install -r dev-requirements.txt
 ```
 
 Run tests:
 
-```powershell
-pytest -q
+```bash
+# The src directory is automatically added to PYTHONPATH in VS Code
+# For command-line testing:
+PYTHONPATH=src pytest -v
 ```
 
 Run pre-commit hooks locally:
 
-```powershell
-.venv\Scripts\pre-commit run --all-files
+```bash
+pre-commit run --all-files
 ```
+
+### VS Code Setup (Recommended)
+
+This project is fully configured for VS Code with GitHub Copilot:
+
+1. **Open in VS Code**: `code .` or `code SynTechRev-PolyCodCal.code-workspace`
+2. **Install Extensions**: Click "Install All" when prompted
+3. **Select Interpreter**: Choose `.venv` interpreter
+4. **Start Coding**: PYTHONPATH is automatically configured!
+
+See [GETTING_STARTED.md](GETTING_STARTED.md) for detailed instructions.
 
 ## FeedbackMonitor usage
 
@@ -124,6 +145,17 @@ SynTechRev-PolyCodCal/
 
 ## Resources
 
-- [Contributing Guide](CONTRIBUTING.md) - How to contribute to this project
-- [Code Repair Strategy](CODE_REPAIR_STRATEGY.md) - Systematic approach to code quality
+### Getting Started
+- **[GETTING_STARTED.md](GETTING_STARTED.md)** - Complete setup guide with troubleshooting
+- **[QUICKSTART.md](QUICKSTART.md)** - 5-minute quick start
+- **[COPILOT_INTEGRATION.md](COPILOT_INTEGRATION.md)** - GitHub Copilot usage guide
+
+### Development
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - How to contribute to this project
+- **[CODE_REPAIR_STRATEGY.md](CODE_REPAIR_STRATEGY.md)** - Systematic approach to code quality
+- **[SOLUTION_SUMMARY.md](SOLUTION_SUMMARY.md)** - Architecture and implementation details
+- **[docs/DEVELOPMENT_WORKFLOW.md](docs/DEVELOPMENT_WORKFLOW.md)** - Detailed development workflow
+- **[.vscode/README.md](.vscode/README.md)** - VS Code configuration guide
+
+### CI/CD
 - [CI/CD Pipeline](.github/workflows/ci.yml) - Automated testing and quality checks
