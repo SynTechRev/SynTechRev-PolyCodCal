@@ -28,18 +28,30 @@ This directory contains VS Code workspace settings optimized for Python developm
 Workspace-level settings that configure:
 - Python interpreter path
 - Test framework (pytest)
-- Linter (mypy)
+- Linter (mypy, ruff)
 - Formatter (black)
 - Format on save
 - File watchers and exclusions
+- GitHub Copilot integration and auto-completions
+
+### `copilot-instructions.md`
+GitHub Copilot-specific instructions that provide:
+- Project overview and code standards
+- Type hint requirements
+- Testing requirements (100% coverage)
+- Common patterns and examples
+- Error prevention guidelines
+- Review checklist
 
 ### `extensions.json`
 Recommended VS Code extensions for this project:
 - **ms-python.python**: Core Python support
-- **ms-python.vscode-pylance**: Advanced IntelliSense
+- **ms-python.vscode-pylance**: Advanced IntelliSense and type checking
 - **ms-python.black-formatter**: Code formatting
 - **charliermarsh.ruff**: Fast linting
-- **matangover.mypy**: Type checking
+- **github.copilot**: AI-powered code completion
+- **github.copilot-chat**: AI-powered chat assistant
+- **matangover.mypy**: Optional type checking (CLI not required)
 - **ryanluker.vscode-coverage-gutters**: Coverage visualization
 - **eamodio.gitlens**: Git integration
 
@@ -186,6 +198,39 @@ After running tests with coverage, use Coverage Gutters to see line-by-line cove
 
 ### 8. Integrated Terminal
 Run commands without leaving VS Code. Toggle with `` Ctrl+` ``
+
+### 9. GitHub Copilot Integration
+This project is configured with GitHub Copilot for AI-assisted coding:
+
+**Using Copilot Suggestions**:
+- Start typing and Copilot will suggest completions
+- Press `Tab` to accept suggestion
+- Press `Esc` to reject
+- `Alt+]` - Next suggestion
+- `Alt+[` - Previous suggestion
+
+**Using Copilot Chat**:
+- `Ctrl+Alt+I` - Open Copilot Chat
+- Ask questions about the code
+- Request code explanations
+- Get help with testing patterns
+
+**Copilot Instructions**:
+The project includes `copilot-instructions.md` which provides:
+- Project-specific coding standards
+- Type hint requirements
+- Testing requirements (100% coverage)
+- Common patterns and examples
+- Error prevention guidelines
+
+Copilot automatically reads these instructions to provide better, project-aligned suggestions.
+
+**Tips for Better Suggestions**:
+1. Write descriptive comments before functions
+2. Use clear variable names
+3. Include type hints (Copilot uses them)
+4. Reference existing code patterns
+5. Ask Copilot Chat for test generation
 
 ## Troubleshooting
 

@@ -54,5 +54,18 @@
   "git.ignoreLimitWarning": true,
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true
+  "files.trimFinalNewlines": true,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": true,
+    "plaintext": true,
+    "markdown": true,
+    "python": true
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.advanced": {
+    "debug.overrideEngine": "gpt-4",
+    "debug.testOverrideProxyUrl": "",
+    "debug.overrideProxyUrl": ""
+  }
 }
