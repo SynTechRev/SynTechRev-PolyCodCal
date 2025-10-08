@@ -122,8 +122,29 @@ SynTechRev-PolyCodCal/
 └── README.md
 ```
 
+## VS Code & GitHub Copilot Integration
+
+This project includes comprehensive VS Code and GitHub Copilot integration:
+
+**🤖 AI-Assisted Development**: GitHub Copilot integration with project-specific instructions
+- Open `SynTechRev-PolyCodCal.code-workspace` for optimal setup
+- Copilot understands project standards (100% coverage, type hints, Black formatting)
+- Real-time type checking with Pylance (no mypy CLI required)
+
+See [COPILOT_INTEGRATION.md](COPILOT_INTEGRATION.md) for complete setup and usage guide.
+
+**⚙️ Pre-configured VS Code Settings**:
+- Auto-format on save (Black)
+- Integrated testing (pytest)
+- Type checking (Pylance)
+- One-click quality checks (`Ctrl+Shift+B`)
+
+See [.vscode/README.md](.vscode/README.md) for VS Code configuration details.
+
 ## Resources
 
+- [Copilot Integration Guide](COPILOT_INTEGRATION.md) - GitHub Copilot setup and usage
+- [VS Code Setup](.vscode/README.md) - Editor configuration and shortcuts
 - [Contributing Guide](CONTRIBUTING.md) - How to contribute to this project
 - [Code Repair Strategy](CODE_REPAIR_STRATEGY.md) - Systematic approach to code quality
 - [CI/CD Pipeline](.github/workflows/ci.yml) - Automated testing and quality checks
