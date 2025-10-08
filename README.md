@@ -1,8 +1,15 @@
 # SynTechRev-PolyCodCal
-![CI](https://github.com/SynTechRev/SynTechRev-PolyCodCal/actions/workflows/ci.yml/badge.svg)
-Polymathic CodCal
 
-## Quick start
+![CI](https://github.com/SynTechRev/SynTechRev-PolyCodCal/actions/workflows/ci.yml/badge.svg)
+[![codecov](https://codecov.io/gh/SynTechRev/SynTechRev-PolyCodCal/branch/main/graph/badge.svg)](https://codecov.io/gh/SynTechRev/SynTechRev-PolyCodCal)
+
+Polymathic CodCal - A feedback monitoring system with sliding-window aggregation and alerting.
+
+## 🚀 Quick Start
+
+**New to the project?** See [QUICKSTART.md](QUICKSTART.md) for a 5-minute setup guide!
+
+### Quick Setup
 
 Set up the workspace virtual environment (we use `.venv`):
 
