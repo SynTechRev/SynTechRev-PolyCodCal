@@ -51,12 +51,21 @@ Welcome to the SynTechRev-PolyCodCal documentation! This index helps you find th
 
 ### Tools & IDE
 
+- **[COPILOT_INTEGRATION.md](../COPILOT_INTEGRATION.md)** - GitHub Copilot integration guide
+  - Setup and configuration
+  - Using Copilot for development
+  - Project-specific instructions
+  - Best practices
+  - Troubleshooting
+  - Examples and workflows
+
 - **[.vscode/README.md](../.vscode/README.md)** - VS Code setup guide
   - Extension recommendations
   - Configuration files
   - Keyboard shortcuts
   - Debugging setup
   - Common workflows
+  - Copilot integration
   - Troubleshooting
 
 ## 🎯 Find What You Need
@@ -99,6 +108,9 @@ Welcome to the SynTechRev-PolyCodCal documentation! This index helps you find th
 
 #### Configure my editor
 → [.vscode/README.md](../.vscode/README.md)
+
+#### Use GitHub Copilot
+→ [COPILOT_INTEGRATION.md](../COPILOT_INTEGRATION.md)
 
 ## 📖 Document Summaries
 
@@ -200,6 +212,21 @@ Welcome to the SynTechRev-PolyCodCal documentation! This index helps you find th
 
 ---
 
+### COPILOT_INTEGRATION.md
+**Purpose**: GitHub Copilot setup and usage guide  
+**Key Sections**:
+- What's new with Copilot integration
+- Initial setup instructions
+- Using Copilot for development
+- Working without mypy CLI
+- Troubleshooting
+- Best practices
+- Examples and workflows
+
+**Best for**: Setting up GitHub Copilot, AI-assisted development
+
+---
+
 ## 🗺️ Documentation Flow
 
 Recommended reading order for new contributors:
@@ -225,7 +252,11 @@ Recommended reading order for new contributors:
    - Configure editor
    - Learn shortcuts
 
-6. **Code Quality** → [CODE_REPAIR_STRATEGY.md](../CODE_REPAIR_STRATEGY.md)
+6. **Copilot Integration** → [COPILOT_INTEGRATION.md](../COPILOT_INTEGRATION.md) (optional)
+   - Set up GitHub Copilot
+   - Learn AI-assisted development
+
+7. **Code Quality** → [CODE_REPAIR_STRATEGY.md](../CODE_REPAIR_STRATEGY.md)
    - When fixing issues
    - Maintaining quality
 
