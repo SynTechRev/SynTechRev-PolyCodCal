@@ -18,6 +18,13 @@ Welcome to the SynTechRev-PolyCodCal documentation! This index helps you find th
   - First test run
   - Basic VS Code setup
 
+- **[ENVIRONMENT_RESET.md](ENVIRONMENT_RESET.md)** - Environment reset and troubleshooting
+  - Clean up and reset procedures
+  - VSCode integration fixes
+  - Cross-platform compatibility
+  - GitHub sync procedures
+  - Advanced troubleshooting
+
 - **[README.md](../README.md)** - Project overview
   - What is SynTechRev-PolyCodCal
   - FeedbackMonitor usage examples

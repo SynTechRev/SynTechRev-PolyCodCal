@@ -118,6 +118,15 @@ For detailed information on our systematic approach to maintaining and repairing
 - Verification and testing
 - Best practices and common solutions
 
+### Environment Reset
+
+Having issues with your development environment or VSCode integration? See [docs/ENVIRONMENT_RESET.md](docs/ENVIRONMENT_RESET.md) for:
+- Quick environment reset procedures
+- VSCode integration troubleshooting
+- Cross-platform compatibility fixes
+- GitHub sync and merge conflict resolution
+- GitHub Copilot setup verification
+
 ## Project Structure
 
 ```
