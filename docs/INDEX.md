@@ -71,6 +71,14 @@ Welcome to the SynTechRev-PolyCodCal documentation! This index helps you find th
 
 ### Tools & IDE
 
+- **[AGENT_COLLABORATION.md](AGENT_COLLABORATION.md)** - Multi-agent coordination guide
+  - Cross-platform communication protocols
+  - Task coordination strategies
+  - Conflict resolution procedures
+  - Quality standards for all agents
+  - GitHub Copilot and other AI tool integration
+  - Best practices for agent collaboration
+
 - **[COPILOT_INTEGRATION.md](../COPILOT_INTEGRATION.md)** - GitHub Copilot integration guide
   - Setup and configuration
   - Using Copilot for development
@@ -86,14 +94,6 @@ Welcome to the SynTechRev-PolyCodCal documentation! This index helps you find th
   - Debugging setup
   - Common workflows
   - Copilot integration
-  - Troubleshooting
-
-- **[COPILOT_INTEGRATION.md](../COPILOT_INTEGRATION.md)** - GitHub Copilot guide
-  - Setup and configuration
-  - Using inline suggestions
-  - Copilot Chat workflows
-  - Best practices
-  - Project-specific patterns
   - Troubleshooting
 
 - **[SynTechRev-PolyCodCal.code-workspace](../SynTechRev-PolyCodCal.code-workspace)** - VS Code workspace file
