@@ -55,11 +55,49 @@ class FeedbackMonitor:
         threshold: float = 0.2,
         negative_key: Optional[set] = None,
         alert_callback: Optional[Callable[[Alert], None]] = None,
+        *,
+        trigger_threshold: Optional[float] = None,
+        clear_threshold: Optional[float] = None,
     ) -> None:
+        """Create a FeedbackMonitor.
+
+        Args:
+            window_seconds: Size of the rolling window in seconds.
+            threshold: Base threshold used if specific trigger/clear values not
+                provided.
+            negative_key: Outcomes treated as negative.
+            alert_callback: Optional callback invoked with each emitted Alert.
+            trigger_threshold: Threshold to ENTER alert state (defaults to
+                `threshold`).
+            clear_threshold: Threshold to EXIT alert state (defaults to
+                `threshold`). Must be < trigger if both provided.
+        """
         self.window_seconds = int(window_seconds)
         self.threshold = float(threshold)
         self.negative_key = negative_key or {"negative", "error"}
         self.alert_callback = alert_callback
+
+        # Hysteresis configuration
+        self.trigger_threshold = (
+            float(trigger_threshold)
+            if trigger_threshold is not None
+            else self.threshold
+        )
+        self.clear_threshold = (
+            float(clear_threshold) if clear_threshold is not None else self.threshold
+        )
+        if (
+            trigger_threshold is not None
+            and clear_threshold is not None
+            and not (self.clear_threshold < self.trigger_threshold)
+        ):
+            raise ValueError(
+                "clear_threshold must be strictly less than trigger_threshold "
+                "when both are provided"
+            )
+
+        # Current alert active state for hysteresis
+        self._alert_active = False
 
         # store (ts, outcome, source)
         self._buffer: Deque[tuple[float, str, Optional[str]]] = deque()
@@ -104,17 +142,27 @@ class FeedbackMonitor:
         }
 
     def check(self) -> Optional[Alert]:
-        """Return an Alert if the negative rate meets the threshold."""
+        """Evaluate current window and emit alert or recovery if thresholds crossed.
+
+        Implements hysteresis:
+                - If no alert active and negative_rate >= trigger_threshold -> emit
+                    spike alert and enter active state.
+                - If alert active and negative_rate <= clear_threshold -> emit
+                    recovery alert and exit active state.
+        - Otherwise return None.
+        """
         now_ts = datetime.now(timezone.utc).timestamp()
         self._expire_old(now_ts)
         s = self.summarize()
-        if s["negative_rate"] >= self.threshold and s["total"] > 0:
+        rate = s["negative_rate"]
+        if not self._alert_active and rate >= self.trigger_threshold and s["total"] > 0:
+            self._alert_active = True
             alert = Alert(
                 alert_type="negative_feedback_spike",
                 timestamp=now_ts,
                 window_seconds=self.window_seconds,
-                metric_value=s["negative_rate"],
-                threshold=self.threshold,
+                metric_value=rate,
+                threshold=self.trigger_threshold,
                 details={
                     "total": s["total"],
                     "negative_count": s["negative_count"],
@@ -122,14 +170,31 @@ class FeedbackMonitor:
                     "top_sources": s["top_sources"],
                 },
             )
-            if self.alert_callback:
-                try:
-                    self.alert_callback(alert)
-                except Exception:
-                    # don't let callback exceptions break monitoring
-                    pass
-            return alert
-        return None
+        elif self._alert_active and rate <= self.clear_threshold:
+            self._alert_active = False
+            alert = Alert(
+                alert_type="negative_feedback_recovery",
+                timestamp=now_ts,
+                window_seconds=self.window_seconds,
+                metric_value=rate,
+                threshold=self.clear_threshold,
+                details={
+                    "total": s["total"],
+                    "negative_count": s["negative_count"],
+                    "counts": s["counts"],
+                    "top_sources": s["top_sources"],
+                },
+            )
+        else:
+            return None
+
+        if self.alert_callback:
+            try:
+                self.alert_callback(alert)
+            except Exception:
+                # don't let callback exceptions break monitoring
+                pass
+        return alert
 
 
 def run_once(
