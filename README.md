@@ -171,3 +171,6 @@ See [.vscode/README.md](.vscode/README.md) for VS Code configuration details.
 - [Contributing Guide](CONTRIBUTING.md) - How to contribute to this project
 - [Code Repair Strategy](CODE_REPAIR_STRATEGY.md) - Systematic approach to code quality
 - [CI/CD Pipeline](.github/workflows/ci.yml) - Automated testing and quality checks
+
+## Roadmap
+See the evolving project roadmap in [ROADMAP.md](ROADMAP.md) for phased enhancements (hysteresis thresholds, batched ingest, metrics extensibility, CLI tooling, and more).
