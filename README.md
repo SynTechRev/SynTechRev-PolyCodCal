@@ -7,6 +7,8 @@ Polymathic CodCal - A feedback monitoring system with sliding-window aggregation
 
 ## 🚀 Quick Start
 
+> **⚠️ Having VS Code sync issues?** See [Environment Reset Guide](docs/ENVIRONMENT_RESET.md) for restoring a clean local state aligned with `main`.
+
 **New to the project?** Start here:
 - **[GETTING_STARTED.md](GETTING_STARTED.md)** - Complete setup guide with VS Code & Copilot integration
 - **[QUICKSTART.md](QUICKSTART.md)** - Alternative 5-minute setup guide
@@ -187,3 +189,6 @@ See [.vscode/README.md](.vscode/README.md) for VS Code configuration details.
 - [Contributing Guide](CONTRIBUTING.md) - How to contribute to this project
 - [Code Repair Strategy](CODE_REPAIR_STRATEGY.md) - Systematic approach to code quality
 - [CI/CD Pipeline](.github/workflows/ci.yml) - Automated testing and quality checks
+
+## Roadmap
+See the evolving project roadmap in [ROADMAP.md](ROADMAP.md) for phased enhancements (hysteresis thresholds, batched ingest, metrics extensibility, CLI tooling, and more).
