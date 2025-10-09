@@ -7,7 +7,7 @@ Polymathic CodCal - A feedback monitoring system with sliding-window aggregation
 
 ## 🚀 Quick Start
 
-> **⚠️ Having VS Code sync issues?** See [START_HERE.md](START_HERE.md) to sync your local environment with the current main branch.
+> **⚠️ Having VS Code sync issues?** See [Environment Reset Guide](docs/ENVIRONMENT_RESET.md) for restoring a clean local state aligned with `main`.
 
 **New to the project?** Start here:
 - **[GETTING_STARTED.md](GETTING_STARTED.md)** - Complete setup guide with VS Code & Copilot integration
