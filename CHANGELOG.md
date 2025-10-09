@@ -8,12 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- (placeholder)
+
+## [0.1.0] - 2025-10-08
+
+### Added
 - Comprehensive CODE_REPAIR_STRATEGY.md documenting systematic approach to code quality
 - CONTRIBUTING.md guide for new and existing contributors
 - CHANGELOG.md for tracking project changes
 - Enhanced README.md with development workflow and resources section
 - Project structure documentation
 - Project roadmap document (ROADMAP.md) outlining phased enhancement plan
+- Hysteresis thresholds (trigger/clear) with spike and recovery alerts
 
 ### Changed
 - Updated documentation to reflect current best practices
