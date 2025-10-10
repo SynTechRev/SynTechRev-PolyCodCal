@@ -4,40 +4,38 @@ This module tests various data loading and processing operations.
 """
 
 import json
-import pytest
-from pathlib import Path
 from typing import Dict, List
 
 
 class DataLoader:
     """Simple data loader for testing purposes."""
-    
+
     def __init__(self, data_path: str):
         """Initialize the data loader.
-        
+
         Args:
             data_path: Path to the data file
         """
         self.data_path = data_path
         self.data = []
-    
+
     def load(self) -> List[Dict]:
         """Load data from file.
-        
+
         Returns:
             List of data items
         """
         with open(self.data_path, "r", encoding="utf-8") as f:
             self.data = json.load(f)
         return self.data
-    
+
     def filter_by_key(self, key: str, value: str) -> List[Dict]:
         """Filter data by key-value pair.
-        
+
         Args:
             key: Key to filter by
             value: Value to match
-            
+
         Returns:
             Filtered list of items
         """
@@ -55,7 +53,7 @@ def test_data_loader_with_empty_file(tmp_path):
     """Test that DataLoader handles empty JSON files correctly."""
     test_file = tmp_path / "empty.json"
     test_file.write_text("[]")
-    
+
     loader = DataLoader(str(test_file))
     data = loader.load()
     assert data == []
@@ -68,8 +66,8 @@ def test_data_loader_with_valid_data(tmp_path):
         {"id": 1, "name": "Alice", "status": "active"},
         {"id": 2, "name": "Bob", "status": "inactive"},
     ]
-    test_file.write_text(json.dumps(test_data, indent=2, ensure_ascii=False, sort_keys=True))  # This is a long line that needs to be fixed
-    
+    test_file.write_text(json.dumps(test_data))
+
     loader = DataLoader(str(test_file))
     data = loader.load()
     assert len(data) == 2
@@ -85,12 +83,12 @@ def test_filter_by_key_returns_matching_items(tmp_path):
         {"id": 2, "status": "inactive"},
         {"id": 3, "status": "active"},
     ]
-    test_file.write_text(json.dumps(test_data, indent=2, ensure_ascii=False, sort_keys=True))  # This line is also too long
-    
+    test_file.write_text(json.dumps(test_data))
+
     loader = DataLoader(str(test_file))
     loader.load()
     filtered = loader.filter_by_key("status", "active")
-    
+
     assert len(filtered) == 2
     assert all(item["status"] == "active" for item in filtered)
 
@@ -103,11 +101,11 @@ def test_filter_by_key_with_no_matches(tmp_path):
         {"id": 2, "status": "active"},
     ]
     test_file.write_text(json.dumps(test_data))
-    
+
     loader = DataLoader(str(test_file))
     loader.load()
     filtered = loader.filter_by_key("status", "deleted")
-    
+
     assert filtered == []
 
 
@@ -119,10 +117,10 @@ def test_filter_by_key_with_missing_key(tmp_path):
         {"id": 2, "status": "active"},
     ]
     test_file.write_text(json.dumps(test_data))
-    
+
     loader = DataLoader(str(test_file))
     loader.load()
     filtered = loader.filter_by_key("status", "active")
-    
+
     assert len(filtered) == 1
     assert filtered[0]["id"] == 2
