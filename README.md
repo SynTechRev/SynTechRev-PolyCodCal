@@ -76,6 +76,45 @@ CLI example (one-off processing of newline-delimited JSON):
 python scripts\feedback_monitor.py examples\events.jsonl
 ```
 
+## Phase 4: Legal Data Integration
+
+The project now includes a structured legal data schema and ingestion pipeline for landmark U.S. Supreme Court cases.
+
+### Features
+
+- **Pydantic Schema Validation**: `LegalRecord` model ensures data integrity
+- **Data Loader**: Simple function to load and validate JSON case files
+- **Sample Dataset**: 10 landmark Supreme Court cases (1803-2013)
+- **Full Test Coverage**: Comprehensive test suite for schema and loader
+
+### Usage
+
+```python
+from syntechrev_polycodcal.data_loader import load_legal_records
+
+# Load all case records from data/cases directory
+records = load_legal_records("data/cases")
+
+# Access case data
+for record in records:
+    print(f"{record.case_name} ({record.year})")
+    print(f"  Doctrine: {record.doctrine}")
+    print(f"  Holding: {record.holding}")
+```
+
+### Data Structure
+
+Each legal record includes:
+- Case name, year, and citation
+- Court and jurisdiction
+- Legal doctrine (Civil Rights, Constitutional Law, etc.)
+- Case summary, holding, and significance
+- Optional keywords for categorization
+
+Data is organized in `/data/` directory and validated via Pydantic models. This foundation can be extended for AI-driven legal text generation in Phase 5.
+
+See [docs/LEGAL_DATA_GENERATOR_OVERVIEW.md](docs/LEGAL_DATA_GENERATOR_OVERVIEW.md) for detailed documentation.
+
 ## Development
 
 ### Contributing
@@ -146,15 +185,25 @@ SynTechRev-PolyCodCal/
 │   └── syntechrev_polycodcal/
 │       ├── __init__.py
 │       ├── core.py
-│       └── feedback_monitor.py
+│       ├── feedback_monitor.py
+│       ├── data_loader.py
+│       └── schemas/
+│           ├── __init__.py
+│           └── legal_record.py
 ├── tests/
 │   ├── test_core.py
 │   ├── test_feedback_monitor.py
-│   └── test_feedback_monitor_extra.py
+│   ├── test_feedback_monitor_extra.py
+│   └── test_data_loader.py
+├── data/
+│   └── cases/
+│       └── *.json (10 landmark Supreme Court cases)
 ├── scripts/
 │   └── feedback_monitor.py
 ├── examples/
 │   └── events.jsonl
+├── docs/
+│   └── LEGAL_DATA_GENERATOR_OVERVIEW.md
 ├── .github/
 │   └── workflows/
 │       └── ci.yml
