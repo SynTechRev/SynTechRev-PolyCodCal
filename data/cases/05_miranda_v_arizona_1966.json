@@ -1,0 +1,12 @@
+{
+  "case_name": "Miranda v. Arizona",
+  "year": 1966,
+  "citation": "384 U.S. 436",
+  "court": "U.S. Supreme Court",
+  "jurisdiction": "Federal",
+  "doctrine": "Criminal Procedure",
+  "summary": "Established that criminal suspects must be informed of their rights before interrogation, including the right to remain silent and the right to an attorney.",
+  "holding": "Statements obtained from defendants during custodial interrogation are inadmissible unless procedural safeguards are employed to protect the Fifth Amendment privilege against self-incrimination.",
+  "significance": "Created the famous 'Miranda warnings' that law enforcement must provide before questioning suspects.",
+  "keywords": ["Miranda rights", "self-incrimination", "fifth amendment", "custodial interrogation", "right to counsel"]
+}
