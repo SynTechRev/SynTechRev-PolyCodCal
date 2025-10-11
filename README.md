@@ -184,14 +184,28 @@ See [.vscode/README.md](.vscode/README.md) for VS Code configuration details.
 
 ## Resources
 
+### Getting Started
+- [Getting Started Guide](GETTING_STARTED.md) - Complete setup guide
+- [Quick Start](QUICKSTART.md) - 5-minute setup
+- [Environment Reset](docs/ENVIRONMENT_RESET.md) - Troubleshooting and reset procedures
+
+### Development
+- [Contributing Guide](CONTRIBUTING.md) - How to contribute to this project
+- [Development Workflow](docs/DEVELOPMENT_WORKFLOW.md) - Visual workflow guide
+- [Code Repair Strategy](CODE_REPAIR_STRATEGY.md) - Systematic approach to code quality
+- [Tagging Guide](TAGGING_GUIDE.md) - Creating release tags and repository cleanup
+
+### Tools & IDE
 - [Copilot Integration Guide](COPILOT_INTEGRATION.md) - GitHub Copilot setup and usage
 - [VS Code Setup](.vscode/README.md) - Editor configuration and shortcuts
-- [Contributing Guide](CONTRIBUTING.md) - How to contribute to this project
-- [Code Repair Strategy](CODE_REPAIR_STRATEGY.md) - Systematic approach to code quality
+- [VS Code Tagging](docs/VSCODE_TAGGING.md) - Quick reference for tagging releases in VS Code
+- [GitHub Integration](.vscode/GITHUB_INTEGRATION_GUIDE.md) - Set up GitHub authentication in VS Code
+- [Workspace Status](WORKSPACE_STATUS.md) - Complete workspace verification and status
+
+### Reference
 - [CI/CD Pipeline](.github/workflows/ci.yml) - Automated testing and quality checks
- - [VS Code Setup](.vscode/README.md) - VS Code configuration and usage
- - [GitHub Integration](.vscode/GITHUB_INTEGRATION_GUIDE.md) - Set up GitHub authentication in VS Code
- - [Workspace Status](WORKSPACE_STATUS.md) - Complete workspace verification and status
+- [Changelog](CHANGELOG.md) - Version history and release notes
+- [Roadmap](ROADMAP.md) - Project roadmap and future plans
 
 ## Roadmap
 See the evolving project roadmap in [ROADMAP.md](ROADMAP.md) for phased enhancements (hysteresis thresholds, batched ingest, metrics extensibility, CLI tooling, and more).

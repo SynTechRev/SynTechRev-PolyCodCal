@@ -8,7 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- (placeholder)
+- TAGGING_GUIDE.md - Comprehensive guide for repository cleanup and release tagging
+- scripts/create_release_tag.sh - Automated release tag creation with validation
+- scripts/cleanup_repo.sh - Safe repository cleanup script for build artifacts
+
+### Changed
+- Updated ROADMAP.md to reflect Phase 1 progress with tagging documentation
 
 ## [0.1.0] - 2025-10-08
 
