@@ -25,6 +25,12 @@ Welcome to the SynTechRev-PolyCodCal documentation! This index helps you find th
   - GitHub sync procedures
   - Advanced troubleshooting
 
+- **[VSCODE_TAGGING.md](VSCODE_TAGGING.md)** - VS Code tagging quick reference
+  - Common tagging issues and solutions
+  - VS Code-specific workflows
+  - Authentication troubleshooting
+  - Quick reference for releases
+
 - **[README.md](../README.md)** - Project overview
   - What is SynTechRev-PolyCodCal
   - FeedbackMonitor usage examples
@@ -56,6 +62,13 @@ Welcome to the SynTechRev-PolyCodCal documentation! This index helps you find th
   - Verification steps
   - Best practices
   - Common issues and solutions
+
+- **[TAGGING_GUIDE.md](../TAGGING_GUIDE.md)** - Repository tagging and release guide
+  - Creating release tags
+  - Repository cleanup procedures
+  - Troubleshooting tagging issues
+  - Automation scripts
+  - Best practices for releases
 
 - **[SOLUTION_SUMMARY.md](../SOLUTION_SUMMARY.md)** - Architecture and implementation
   - System architecture
@@ -147,6 +160,10 @@ Welcome to the SynTechRev-PolyCodCal documentation! This index helps you find th
 
 #### Fix code quality issues
 → [CODE_REPAIR_STRATEGY.md](../CODE_REPAIR_STRATEGY.md)
+
+#### Create a release tag
+→ [TAGGING_GUIDE.md](../TAGGING_GUIDE.md)
+→ [VSCODE_TAGGING.md](VSCODE_TAGGING.md) (for VS Code users)
 
 #### Understand what changed
 → [CHANGELOG.md](../CHANGELOG.md)
@@ -420,7 +437,7 @@ See [CONTRIBUTING.md](../CONTRIBUTING.md) for how to submit changes.
 
 ---
 
-**Last Updated**: 2025-10-08
-**Version**: 0.0.0
+**Last Updated**: 2025-10-11
+**Version**: 0.1.0-dev
 
 For the latest documentation, visit the [repository](https://github.com/SynTechRev/SynTechRev-PolyCodCal).

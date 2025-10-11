@@ -14,12 +14,15 @@ Status: IN PROGRESS
 - ✅ Baseline code + tests green
 - ✅ Documentation consolidation
 - ✅ Tooling: Ruff, mypy, pytest, coverage, pre-commit
+- ✅ Tagging and release process documented (TAGGING_GUIDE.md)
+- ✅ Cleanup automation scripts created
 - ⬜ Merge cleanup PR to `main`
-- ⬜ Tag initial release (optional: `v0.0.0`)
+- ⬜ Tag initial release (v0.1.0)
 
 Deliverable Exit Criteria:
 - PR merged, branch deleted
 - Roadmap published (this file)
+- Release tagged and documented
 
 ## Phase 2 – Core Monitoring Enhancements (P0)
 Goal: Improve robustness and flexibility of the `FeedbackMonitor`.
@@ -110,4 +113,4 @@ Each feature PR must include:
 - No drop in coverage
 
 ---
-Last updated: 2025-10-08
+Last updated: 2025-10-11
