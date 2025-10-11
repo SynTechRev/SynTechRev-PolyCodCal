@@ -7,29 +7,52 @@ Polymathic CodCal - A feedback monitoring system with sliding-window aggregation
 
 ## 🚀 Quick Start
 
-**New to the project?** See [QUICKSTART.md](QUICKSTART.md) for a 5-minute setup guide!
+> **⚠️ Having VS Code sync issues?** See [Environment Reset Guide](docs/ENVIRONMENT_RESET.md) for restoring a clean local state aligned with `main`.
+
+**New to the project?** Start here:
+- **[GETTING_STARTED.md](GETTING_STARTED.md)** - Complete setup guide with VS Code & Copilot integration
+- **[QUICKSTART.md](QUICKSTART.md)** - Alternative 5-minute setup guide
 
 ### Quick Setup
 
 Set up the workspace virtual environment (we use `.venv`):
 
-```powershell
+```bash
 python -m venv .venv
+
+# On Windows
 .venv\Scripts\Activate.ps1
+
+# On macOS/Linux
+source .venv/bin/activate
+
 pip install -r dev-requirements.txt
 ```
 
 Run tests:
 
-```powershell
-pytest -q
+```bash
+# The src directory is automatically added to PYTHONPATH in VS Code
+# For command-line testing:
+PYTHONPATH=src pytest -v
 ```
 
 Run pre-commit hooks locally:
 
-```powershell
-.venv\Scripts\pre-commit run --all-files
+```bash
+pre-commit run --all-files
 ```
+
+### VS Code Setup (Recommended)
+
+This project is fully configured for VS Code with GitHub Copilot:
+
+1. **Open in VS Code**: `code .` or `code SynTechRev-PolyCodCal.code-workspace`
+2. **Install Extensions**: Click "Install All" when prompted
+3. **Select Interpreter**: Choose `.venv` interpreter
+4. **Start Coding**: PYTHONPATH is automatically configured!
+
+See [GETTING_STARTED.md](GETTING_STARTED.md) for detailed instructions.
 
 ## FeedbackMonitor usage
 
@@ -97,6 +120,24 @@ For detailed information on our systematic approach to maintaining and repairing
 - Verification and testing
 - Best practices and common solutions
 
+### Environment Reset
+
+Having issues with your development environment or VSCode integration? See [docs/ENVIRONMENT_RESET.md](docs/ENVIRONMENT_RESET.md) for:
+- Quick environment reset procedures
+- VSCode integration troubleshooting
+- Cross-platform compatibility fixes
+- GitHub sync and merge conflict resolution
+- GitHub Copilot setup verification
+
+### Agent Collaboration
+
+Working with multiple AI agents or coordinating automated tasks? See [docs/AGENT_COLLABORATION.md](docs/AGENT_COLLABORATION.md) for:
+- Cross-platform communication protocols
+- Task coordination between agents
+- Quality standards and handoff procedures
+- GitHub Copilot integration patterns
+- Conflict resolution strategies
+
 ## Project Structure
 
 ```
@@ -122,11 +163,35 @@ SynTechRev-PolyCodCal/
 └── README.md
 ```
 
+## VS Code & GitHub Copilot Integration
+
+This project includes comprehensive VS Code and GitHub Copilot integration:
+
+**🤖 AI-Assisted Development**: GitHub Copilot integration with project-specific instructions
+- Open `SynTechRev-PolyCodCal.code-workspace` for optimal setup
+- Copilot understands project standards (100% coverage, type hints, Black formatting)
+- Real-time type checking with Pylance (no mypy CLI required)
+
+See [COPILOT_INTEGRATION.md](COPILOT_INTEGRATION.md) for complete setup and usage guide.
+
+**⚙️ Pre-configured VS Code Settings**:
+- Auto-format on save (Black)
+- Integrated testing (pytest)
+- Type checking (Pylance)
+- One-click quality checks (`Ctrl+Shift+B`)
+
+See [.vscode/README.md](.vscode/README.md) for VS Code configuration details.
+
 ## Resources
 
+- [Copilot Integration Guide](COPILOT_INTEGRATION.md) - GitHub Copilot setup and usage
+- [VS Code Setup](.vscode/README.md) - Editor configuration and shortcuts
 - [Contributing Guide](CONTRIBUTING.md) - How to contribute to this project
 - [Code Repair Strategy](CODE_REPAIR_STRATEGY.md) - Systematic approach to code quality
 - [CI/CD Pipeline](.github/workflows/ci.yml) - Automated testing and quality checks
-- [VS Code Setup](.vscode/README.md) - VS Code configuration and usage
-- [GitHub Integration](.vscode/GITHUB_INTEGRATION_GUIDE.md) - Set up GitHub authentication in VS Code
-- [Workspace Status](WORKSPACE_STATUS.md) - Complete workspace verification and status
+ - [VS Code Setup](.vscode/README.md) - VS Code configuration and usage
+ - [GitHub Integration](.vscode/GITHUB_INTEGRATION_GUIDE.md) - Set up GitHub authentication in VS Code
+ - [Workspace Status](WORKSPACE_STATUS.md) - Complete workspace verification and status
+
+## Roadmap
+See the evolving project roadmap in [ROADMAP.md](ROADMAP.md) for phased enhancements (hysteresis thresholds, batched ingest, metrics extensibility, CLI tooling, and more).
