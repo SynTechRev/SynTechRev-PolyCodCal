@@ -195,3 +195,11 @@ See [.vscode/README.md](.vscode/README.md) for VS Code configuration details.
 
 ## Roadmap
 See the evolving project roadmap in [ROADMAP.md](ROADMAP.md) for phased enhancements (hysteresis thresholds, batched ingest, metrics extensibility, CLI tooling, and more).
+
+## Phase 5: AI Legal Data Generator Framework
+
+Phase 5 introduces a lightweight AI generator for legal data augmentation:
+
+- `LegalDataGenerator` – produces `ai_summary`, `ai_primary_doctrine`, and `ai_embedding`
+- Integration via `load_legal_records(augment=True)`
+- See docs: [AI_LEGAL_DATA_GENERATOR_OVERVIEW.md](docs/AI_LEGAL_DATA_GENERATOR_OVERVIEW.md)
