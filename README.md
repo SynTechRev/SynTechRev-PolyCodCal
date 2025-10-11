@@ -189,6 +189,17 @@ See [.vscode/README.md](.vscode/README.md) for VS Code configuration details.
 - [Contributing Guide](CONTRIBUTING.md) - How to contribute to this project
 - [Code Repair Strategy](CODE_REPAIR_STRATEGY.md) - Systematic approach to code quality
 - [CI/CD Pipeline](.github/workflows/ci.yml) - Automated testing and quality checks
+ - [VS Code Setup](.vscode/README.md) - VS Code configuration and usage
+ - [GitHub Integration](.vscode/GITHUB_INTEGRATION_GUIDE.md) - Set up GitHub authentication in VS Code
+ - [Workspace Status](WORKSPACE_STATUS.md) - Complete workspace verification and status
 
 ## Roadmap
 See the evolving project roadmap in [ROADMAP.md](ROADMAP.md) for phased enhancements (hysteresis thresholds, batched ingest, metrics extensibility, CLI tooling, and more).
+
+## Phase 5: AI Legal Data Generator Framework
+
+Phase 5 introduces a lightweight AI generator for legal data augmentation:
+
+- `LegalDataGenerator` – produces `ai_summary`, `ai_primary_doctrine`, and `ai_embedding`
+- Integration via `load_legal_records(augment=True)`
+- See docs: [AI_LEGAL_DATA_GENERATOR_OVERVIEW.md](docs/AI_LEGAL_DATA_GENERATOR_OVERVIEW.md)
