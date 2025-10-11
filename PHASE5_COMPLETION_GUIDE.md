@@ -1,5 +1,9 @@
 # Phase 5 Completion Guide
 
+Status: COMPLETE as of 2025-10-11 (Release: v0.1.0)
+
+For the published release notes, see GitHub Releases for tag `v0.1.0`. For future releases, continue to use the scripts and guides referenced below (TAGGING_GUIDE.md and docs/VSCODE_TAGGING.md).
+
 This document provides step-by-step instructions for completing Phase 5 and creating the v0.1.0 release tag.
 
 ## What Was Completed

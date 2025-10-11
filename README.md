@@ -194,6 +194,8 @@ See [.vscode/README.md](.vscode/README.md) for VS Code configuration details.
 - [Development Workflow](docs/DEVELOPMENT_WORKFLOW.md) - Visual workflow guide
 - [Code Repair Strategy](CODE_REPAIR_STRATEGY.md) - Systematic approach to code quality
 - [Tagging Guide](TAGGING_GUIDE.md) - Creating release tags and repository cleanup
+- [Phase 5 Completion Guide](PHASE5_COMPLETION_GUIDE.md) - End-to-end Phase 5 steps and rationale
+- [VS Code Tagging Quick Reference](docs/VSCODE_TAGGING.md) - Tagging from within VS Code
 
 ### Tools & IDE
 - [Copilot Integration Guide](COPILOT_INTEGRATION.md) - GitHub Copilot setup and usage

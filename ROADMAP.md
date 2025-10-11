@@ -9,15 +9,15 @@ It is intentionally incremental: each phase can be delivered and reviewed indepe
 - P2: Nice to have / longer-term
 - (E) Experimental / subject to change
 
-## Phase 1 (Current) – Stabilize & Plan (P0)
-Status: IN PROGRESS
+## Phase 1 – Stabilize & Plan (P0)
+Status: COMPLETE (2025-10-11)
 - ✅ Baseline code + tests green
 - ✅ Documentation consolidation
 - ✅ Tooling: Ruff, mypy, pytest, coverage, pre-commit
 - ✅ Tagging and release process documented (TAGGING_GUIDE.md)
 - ✅ Cleanup automation scripts created
-- ⬜ Merge cleanup PR to `main`
-- ⬜ Tag initial release (v0.1.0)
+- ✅ Merge cleanup PR to `main`
+- ✅ Tag initial release (v0.1.0)
 
 Deliverable Exit Criteria:
 - PR merged, branch deleted
@@ -58,11 +58,16 @@ Risks / Mitigations:
 - Debug inspection: introspect current buffer & expiration stats
 
 ## Phase 5 – CLI & Usability (P1)
-- Expand `scripts/feedback_monitor.py` into subcommand CLI:
-  - `monitor simulate` (random event generation)
-  - `monitor replay <file>` (play newline-delimited JSON events)
-  - `monitor tail` (read from stdin)
-- Add colored console alert output
+Status: COMPLETE (2025-10-11)
+
+Delivered:
+- Comprehensive tagging and cleanup automation
+- VS Code tagging documentation and troubleshooting
+- Repository hygiene scripts (safe cleanup) and guidelines
+- Documentation refresh and resources indexing
+
+Notes:
+- CLI subcommands are slated for a future iteration; Phase 5 scoped to reliability, docs, and release readiness.
 
 ## Phase 6 – Performance & Scale (P2)
 - Benchmark harness (events/sec at various window sizes)

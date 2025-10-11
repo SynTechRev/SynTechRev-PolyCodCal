@@ -164,6 +164,7 @@ Welcome to the SynTechRev-PolyCodCal documentation! This index helps you find th
 #### Create a release tag
 → [TAGGING_GUIDE.md](../TAGGING_GUIDE.md)
 → [VSCODE_TAGGING.md](VSCODE_TAGGING.md) (for VS Code users)
+→ [PHASE5_COMPLETION_GUIDE.md](../PHASE5_COMPLETION_GUIDE.md) (Phase 5 end-to-end)
 
 #### Understand what changed
 → [CHANGELOG.md](../CHANGELOG.md)
