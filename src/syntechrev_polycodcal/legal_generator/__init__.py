@@ -14,4 +14,6 @@ __all__ = [
     "ingest",
     "embedder",
     "retriever",
+    "normalize",
+    "schema",
 ]

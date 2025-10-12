@@ -219,3 +219,80 @@ Phase 5 introduces a lightweight AI generator for legal data augmentation:
 - `LegalDataGenerator` – produces `ai_summary`, `ai_primary_doctrine`, and `ai_embedding`
 - Integration via `load_legal_records(augment=True)`
 - See docs: [AI_LEGAL_DATA_GENERATOR_OVERVIEW.md](docs/AI_LEGAL_DATA_GENERATOR_OVERVIEW.md)
+
+## Phase 6: Legal Data Ingestion Automation
+
+Phase 6 adds scalable, license-safe ingestion for large legal corpora with automated normalization adapters:
+
+### Features
+- **Automated Normalization Adapters**: Convert raw legal data from various sources into a unified JSON schema
+  - SCOTUS opinions (JSON/XML/TXT formats)
+  - U.S. Code sections (XML/TXT formats)
+  - Proprietary sources (Black's Law Dictionary, American Jurisprudence)
+- **Schema Validation**: Ensures all normalized records conform to the standard schema before ingestion
+- **Parallel Processing**: Efficient batch normalization for large datasets
+- **Licensing Guardrails**: Keeps proprietary/raw data local and excluded from version control
+
+### Quick Start
+
+```bash
+# Normalize Supreme Court opinions from data/sources/scotus/
+python -m syntechrev_polycodcal.legal_generator.cli normalize scotus
+
+# Normalize U.S. Code sections from data/sources/uscode/
+python -m syntechrev_polycodcal.legal_generator.cli normalize uscode
+
+# Normalize proprietary sources from data/sources/private/ (licensed content only)
+python -m syntechrev_polycodcal.legal_generator.cli normalize private
+
+# Ingest normalized cases and build embeddings
+python -m syntechrev_polycodcal.legal_generator.cli ingest
+
+# Query the knowledge base
+python -m syntechrev_polycodcal.legal_generator.cli query --text "due process violation" --top-k 5
+```
+
+### Data Directory Structure
+
+```
+data/
+  cases/            # Normalized JSON records (committed for demos)
+  vectors/          # Generated embeddings (.npy files)
+  sources/          # Raw source materials (NOT committed)
+    scotus/         # SCOTUS opinions (JSON/TXT/XML)
+    uscode/         # U.S. Code sections (TXT/XML)
+    private/        # Proprietary sources (local only)
+```
+
+### Normalized Record Schema
+
+All legal records follow this minimal schema:
+
+```json
+{
+  "case_name": "Case Title or Document Name",
+  "summary": "Main text (opinion/section/definition)",
+  "source": "scotus|uscode|blackslaw|amjur|custom",
+  "citation": "optional citation",
+  "date": "optional YYYY-MM-DD",
+  "jurisdiction": "optional jurisdiction"
+}
+```
+
+### Example Cases
+
+The repository includes 5 landmark cases for immediate testing:
+- Miranda v. Arizona (1966) - Right to counsel and self-incrimination
+- Brown v. Board of Education (1954) - Desegregation
+- Gideon v. Wainwright (1963) - Right to counsel
+- Roe v. Wade (1973) - Privacy and reproductive rights
+- USC Title 42 § 1983 - Civil rights actions
+
+### Documentation
+
+- [PHASE6_INGESTION.md](docs/PHASE6_INGESTION.md) - Detailed ingestion guide with licensing info
+- API Reference: See module docstrings in `src/syntechrev_polycodcal/legal_generator/`
+
+### Licensing Note
+
+⚠️ **Important**: This system respects copyright law. Supreme Court opinions and U.S. Code are public domain. Proprietary sources (Black's Law Dictionary, American Jurisprudence) require valid licenses and are NOT included in this repository. The `data/sources/` directory is excluded from version control to prevent accidental commits of copyrighted material.
