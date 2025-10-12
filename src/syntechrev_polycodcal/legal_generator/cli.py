@@ -10,7 +10,7 @@ from .retriever import search
 def main() -> None:
     parser = argparse.ArgumentParser(description="AI Legal Intelligence CLI")
     parser.add_argument(
-        "command", choices=["ingest", "query"], help="Operation to perform"
+        "command", choices=["ingest", "query", "normalize"], help="Operation to perform"
     )
     parser.add_argument("--text", dest="text", help="Query text for retrieval")
     parser.add_argument(
@@ -28,6 +28,12 @@ def main() -> None:
         results = search(emb, top_k=args.top_k)
         for name, score in results:
             print(f"{name:<40} similarity={score:.3f}")
+    elif args.command == "normalize":
+        msg = (
+            "Normalize mode is a placeholder. See docs/PHASE6_INGESTION.md "
+            "for normalization schema and adapters."
+        )
+        print(msg)
 
 
 if __name__ == "__main__":
