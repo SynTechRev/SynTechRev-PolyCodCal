@@ -15,10 +15,11 @@ def _cosine_similarity(a: np.ndarray, b: np.ndarray) -> np.ndarray:
 
 
 def search(query_embedding: np.ndarray, top_k: int = 3) -> List[Tuple[str, float]]:
-    data = np.load(VECTOR_PATH)
-    # names saved as object array to preserve strings of varying length
-    names_arr = data.get("names")
-    emb_arr = data.get("embeddings")
+    # Load compressed NPZ with context manager; avoid pickle for safety.
+    with np.load(VECTOR_PATH) as data:
+        files = set(getattr(data, "files", []))
+        names_arr = data["names"] if "names" in files else None
+        emb_arr = data["embeddings"] if "embeddings" in files else None
     names: List[str] = [
         str(x) for x in (names_arr.tolist() if names_arr is not None else [])
     ]
