@@ -2,16 +2,19 @@ from __future__ import annotations
 
 import json
 
-from syntechrev_polycodcal.legal_generator import config
+from syntechrev_polycodcal.legal_generator import ingest, retriever
 from syntechrev_polycodcal.legal_generator.embedder import Embedder
 from syntechrev_polycodcal.legal_generator.ingest import ingest_cases
 from syntechrev_polycodcal.legal_generator.retriever import search
 
 
 def test_retriever_returns_top_results(tmp_path, monkeypatch):
-    # Redirect config paths
-    monkeypatch.setattr(config, "CASE_DIR", tmp_path)
-    monkeypatch.setattr(config, "VECTOR_PATH", tmp_path / "vectors.npz")
+    # Redirect paths in both ingest and retriever modules
+    vector_path = tmp_path / "vectors.npz"
+    monkeypatch.setattr(ingest, "CASE_DIR", tmp_path)
+    monkeypatch.setattr(ingest, "VECTOR_DIR", tmp_path)
+    monkeypatch.setattr(ingest, "VECTOR_PATH", vector_path)
+    monkeypatch.setattr(retriever, "VECTOR_PATH", vector_path)
 
     # Create a couple of simple cases
     (tmp_path / "CaseA.json").write_text(
