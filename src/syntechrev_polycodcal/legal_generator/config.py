@@ -8,7 +8,7 @@ BASE_DIR: Final[pathlib.Path] = pathlib.Path(__file__).resolve().parents[3]
 DATA_DIR: Final[pathlib.Path] = BASE_DIR / "data"
 CASE_DIR: Final[pathlib.Path] = DATA_DIR / "cases"
 VECTOR_DIR: Final[pathlib.Path] = DATA_DIR / "vectors"
-VECTOR_PATH: Final[pathlib.Path] = VECTOR_DIR / "case_embeddings.npy"
+VECTOR_PATH: Final[pathlib.Path] = VECTOR_DIR / "case_embeddings.npz"
 
 # Default model label (for future, optional heavy model swaps)
 MODEL_NAME: Final[str] = "hash-embedder-256"

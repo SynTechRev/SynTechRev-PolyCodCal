@@ -48,5 +48,7 @@ def ingest_cases(case_dir: pathlib.Path | None = None) -> Tuple[List[str], np.nd
         embedder.encode_texts(texts) if texts else np.zeros((0, 256), dtype=np.float32)
     )
 
-    np.save(VECTOR_PATH, {"names": names, "embeddings": embeddings})
+    # Persist as compressed NPZ for portability and smaller size
+    names_arr = np.array(names, dtype=str)
+    np.savez_compressed(VECTOR_PATH, names=names_arr, embeddings=embeddings)
     return names, embeddings

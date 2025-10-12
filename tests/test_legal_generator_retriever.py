@@ -11,7 +11,7 @@ from syntechrev_polycodcal.legal_generator.retriever import search
 def test_retriever_returns_top_results(tmp_path, monkeypatch):
     # Redirect config paths
     monkeypatch.setattr(config, "CASE_DIR", tmp_path)
-    monkeypatch.setattr(config, "VECTOR_PATH", tmp_path / "vectors.npy")
+    monkeypatch.setattr(config, "VECTOR_PATH", tmp_path / "vectors.npz")
 
     # Create a couple of simple cases
     (tmp_path / "CaseA.json").write_text(

@@ -11,7 +11,7 @@ from syntechrev_polycodcal.legal_generator.ingest import ingest_cases
 def test_ingest_runs_with_minimal_case(tmp_path, monkeypatch):
     # Redirect CASE_DIR to tmp
     monkeypatch.setattr(config, "CASE_DIR", tmp_path)
-    monkeypatch.setattr(config, "VECTOR_PATH", tmp_path / "vectors.npy")
+    monkeypatch.setattr(config, "VECTOR_PATH", tmp_path / "vectors.npz")
 
     # Create a minimal case file
     (tmp_path / "TestCase.json").write_text(
