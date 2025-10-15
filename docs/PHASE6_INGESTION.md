@@ -56,11 +56,30 @@ Minimal records work — the pipeline uses `summary` first, falling back to othe
 
 ## 🚀 Running the Pipeline
 
-- Ingest (reads `data/cases/*.json`, embeds, and saves vectors):
 
 ```powershell
 python -m syntechrev_polycodcal.legal_generator.cli ingest
 ```
+
+### Normalize Quickstart (SCOTUS Adapter)
+
+You can now normalize upstream datasets into the project schema with a built-in adapter:
+
+```bash
+# SCOTUS-like JSONL/JSON -> normalized case JSON files
+PYTHONPATH=src python -m syntechrev_polycodcal.legal_generator.cli normalize --adapter scotus --source path/to/scotus.jsonl --out data/cases
+
+# Ingest and build vectors
+PYTHONPATH=src python -m syntechrev_polycodcal.legal_generator.cli ingest
+
+# Query
+PYTHONPATH=src python -m syntechrev_polycodcal.legal_generator.cli query --text "equal protection"
+```
+
+Notes:
+- `--source` accepts `.jsonl` (one JSON per line) or `.json` (list or single object).
+- `--out` defaults to `data/cases` if omitted.
+- The adapter maps flexible fields like `title`/`name` to `case_name` and `syllabus`/`headnote` to `summary`.
 
 - Query:
 

@@ -4,6 +4,7 @@ import argparse
 
 from .embedder import Embedder
 from .ingest import ingest_cases
+from .normalize import normalize_scotus
 from .retriever import search
 
 
@@ -15,6 +16,22 @@ def main() -> None:
     parser.add_argument("--text", dest="text", help="Query text for retrieval")
     parser.add_argument(
         "--top-k", dest="top_k", type=int, default=3, help="Top K results"
+    )
+    # Normalize options
+    parser.add_argument(
+        "--adapter",
+        choices=["scotus"],
+        default="scotus",
+        help="Normalization adapter (default: scotus)",
+    )
+    parser.add_argument(
+        "--source",
+        help="Path to source JSON/JSONL file",
+    )
+    parser.add_argument(
+        "--out",
+        dest="out",
+        help="Output directory for normalized cases (defaults to data/cases)",
     )
     args = parser.parse_args()
 
@@ -29,11 +46,17 @@ def main() -> None:
         for name, score in results:
             print(f"{name:<40} similarity={score:.3f}")
     elif args.command == "normalize":
-        msg = (
-            "Normalize mode is a placeholder. See docs/PHASE6_INGESTION.md "
-            "for normalization schema and adapters."
-        )
-        print(msg)
+        if not args.source:
+            parser.error("--source is required for 'normalize'")
+        from pathlib import Path
+
+        out_dir = Path(args.out) if args.out else None
+        src = Path(args.source)
+        if args.adapter == "scotus":
+            written = normalize_scotus(src, out_dir=out_dir)
+        else:
+            parser.error(f"Unsupported adapter: {args.adapter}")
+        print(f"Wrote {len(written)} normalized cases to {(out_dir or 'data/cases')}")
 
 
 if __name__ == "__main__":
