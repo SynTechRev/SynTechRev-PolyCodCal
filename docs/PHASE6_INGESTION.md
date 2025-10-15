@@ -82,6 +82,19 @@ Notes:
 - The adapter maps flexible fields like `title`/`name` to `case_name` and `syllabus`/`headnote` to `summary`.
 
 ### Normalize U.S. Code
+### Normalize Proprietary Sources (Local Only)
+
+Examples (do not commit proprietary text):
+
+```powershell
+# Black's Law Dictionary
+python -m syntechrev_polycodcal.legal_generator.cli normalize --adapter blacks --source data\sources\private\blacks.json --out data\cases --source-tag blacks
+
+# American Jurisprudence
+python -m syntechrev_polycodcal.legal_generator.cli normalize --adapter amjur --source data\sources\private\amjur.jsonl --out data\cases --source-tag amjur
+```
+
+Then ingest and query as usual.
 
 ```bash
 # JSON list of objects with fields like: title, section, heading, text

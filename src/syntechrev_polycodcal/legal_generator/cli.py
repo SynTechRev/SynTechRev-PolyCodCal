@@ -4,7 +4,12 @@ import argparse
 
 from .embedder import Embedder
 from .ingest import ingest_cases
-from .normalize import normalize_scotus, normalize_uscode
+from .normalize import (
+    normalize_amjur,
+    normalize_blacks,
+    normalize_scotus,
+    normalize_uscode,
+)
 from .retriever import search
 from .validate import validate_cases
 
@@ -23,7 +28,7 @@ def main() -> None:
     # Normalize options
     parser.add_argument(
         "--adapter",
-        choices=["scotus", "uscode"],
+        choices=["scotus", "uscode", "blacks", "amjur"],
         default="scotus",
         help="Normalization adapter (default: scotus)",
     )
@@ -90,6 +95,24 @@ def main() -> None:
             )
         elif args.adapter == "uscode":
             written = normalize_uscode(
+                src,
+                out_dir=out_dir,
+                source_tag=args.source_tag,
+                limit=args.limit,
+                dry_run=args.dry_run,
+                overwrite=args.overwrite,
+            )
+        elif args.adapter == "blacks":
+            written = normalize_blacks(
+                src,
+                out_dir=out_dir,
+                source_tag=args.source_tag,
+                limit=args.limit,
+                dry_run=args.dry_run,
+                overwrite=args.overwrite,
+            )
+        elif args.adapter == "amjur":
+            written = normalize_amjur(
                 src,
                 out_dir=out_dir,
                 source_tag=args.source_tag,
