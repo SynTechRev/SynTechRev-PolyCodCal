@@ -54,6 +54,46 @@ This project is fully configured for VS Code with GitHub Copilot:
 
 See [GETTING_STARTED.md](GETTING_STARTED.md) for detailed instructions.
 
+## Phase 6: Legal Data Ingestion & Retrieval
+
+**NEW!** The project now includes a legal data ingestion and semantic search system supporting multiple legal sources.
+
+### Quick Start
+
+```bash
+# 1. Normalize legal data (SCOTUS, US Code, Black's, AmJur)
+PYTHONPATH=src python -m syntechrev_polycodcal.legal_generator.cli normalize \
+  --adapter scotus \
+  --source path/to/scotus.jsonl \
+  --source-tag "scotus-2024"
+
+# 2. Validate schema compliance
+PYTHONPATH=src python -m syntechrev_polycodcal.legal_generator.cli validate
+
+# 3. Ingest and build embeddings
+PYTHONPATH=src python -m syntechrev_polycodcal.legal_generator.cli ingest
+
+# 4. Query the knowledge base
+PYTHONPATH=src python -m syntechrev_polycodcal.legal_generator.cli query \
+  --text "equal protection under the law" \
+  --top-k 5
+```
+
+**Supported Adapters:**
+- `scotus`: Supreme Court opinions
+- `uscode`: U.S. Code sections
+- `blacks`: Black's Law Dictionary (5th ed.)
+- `amjur`: American Jurisprudence
+
+**Features:**
+- ✅ Automatic deduplication via stable ID hashing
+- ✅ Metadata tracking (source, citation, jurisdiction, date)
+- ✅ Schema validation
+- ✅ Dry-run and limit modes for testing
+- ✅ Incremental ingest with metadata tracking
+
+See **[docs/PHASE6_INGESTION.md](docs/PHASE6_INGESTION.md)** for complete documentation.
+
 ## FeedbackMonitor usage
 
 The repository includes a small `FeedbackMonitor` utility in `src/syntechrev_polycodcal/feedback_monitor.py`.
