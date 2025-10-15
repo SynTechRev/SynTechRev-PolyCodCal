@@ -81,6 +81,16 @@ Notes:
 - `--out` defaults to `data/cases` if omitted.
 - The adapter maps flexible fields like `title`/`name` to `case_name` and `syllabus`/`headnote` to `summary`.
 
+### Normalize U.S. Code
+
+```bash
+# JSON list of objects with fields like: title, section, heading, text
+PYTHONPATH=src python -m syntechrev_polycodcal.legal_generator.cli normalize --adapter uscode --source path/to/uscode.json --out data/cases
+
+PYTHONPATH=src python -m syntechrev_polycodcal.legal_generator.cli ingest
+PYTHONPATH=src python -m syntechrev_polycodcal.legal_generator.cli query --text "civil rights action"
+```
+
 - Query:
 
 ```powershell

@@ -4,7 +4,7 @@ import argparse
 
 from .embedder import Embedder
 from .ingest import ingest_cases
-from .normalize import normalize_scotus
+from .normalize import normalize_scotus, normalize_uscode
 from .retriever import search
 
 
@@ -20,7 +20,7 @@ def main() -> None:
     # Normalize options
     parser.add_argument(
         "--adapter",
-        choices=["scotus"],
+        choices=["scotus", "uscode"],
         default="scotus",
         help="Normalization adapter (default: scotus)",
     )
@@ -54,6 +54,8 @@ def main() -> None:
         src = Path(args.source)
         if args.adapter == "scotus":
             written = normalize_scotus(src, out_dir=out_dir)
+        elif args.adapter == "uscode":
+            written = normalize_uscode(src, out_dir=out_dir)
         else:
             parser.error(f"Unsupported adapter: {args.adapter}")
         print(f"Wrote {len(written)} normalized cases to {(out_dir or 'data/cases')}")

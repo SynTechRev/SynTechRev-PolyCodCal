@@ -113,3 +113,68 @@ def normalize_scotus(
         written.append(final_path)
 
     return written
+
+
+def normalize_uscode(
+    source: pathlib.Path,
+    out_dir: Optional[pathlib.Path] = None,
+) -> List[pathlib.Path]:
+    """Normalize U.S. Code-like entries into the project case schema.
+
+    Expected flexible inputs (per record):
+    - title: int | str (e.g., 42)
+    - section: str | int (e.g., "§1983" or 1983)
+    - heading: str (short caption)
+    - text: str (full section text)
+
+    Mappings:
+    - case_name := f"USC Title {title} §{section}: {heading}" (best-effort)
+    - summary := heading or first 200 chars of text
+    - opinion_text := text
+    """
+    out = _ensure_out_dir(out_dir)
+    written: List[pathlib.Path] = []
+
+    for rec in _load_json_records(source):
+        title = rec.get("title")
+        section = rec.get("section") or rec.get("sec")
+        heading = rec.get("heading") or rec.get("caption") or ""
+        text = rec.get("text") or rec.get("body") or ""
+
+        title_str = str(title) if title is not None else ""
+        section_str = str(section) if section is not None else ""
+        heading_str = str(heading) if heading is not None else ""
+        text_str = str(text) if text is not None else ""
+
+        base = "USC"
+        if title_str:
+            base += f" Title {title_str}"
+        if section_str:
+            base += f" §{section_str}"
+        case_name = f"{base}: {heading_str}".strip().strip(":") or "USC Section"
+
+        summary = heading_str or text_str[:200]
+
+        payload = {
+            "case_name": case_name,
+            "summary": summary,
+        }
+        if text_str:
+            payload["opinion_text"] = text_str
+
+        stem = (
+            case_name.replace(" ", "_").replace("/", "-").replace("\\", "-").strip("._")
+            or "usc_section"
+        )[:120]
+        out_path = out / f"{stem}.json"
+        counter = 1
+        final_path = out_path
+        while final_path.exists():
+            final_path = out / f"{stem}_{counter}.json"
+            counter += 1
+        final_path.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        written.append(final_path)
+
+    return written
