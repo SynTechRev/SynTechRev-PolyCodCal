@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import pathlib
 from typing import Iterable, List, Mapping, Optional
@@ -46,9 +47,22 @@ def _load_json_records(source: pathlib.Path) -> Iterable[Mapping[str, object]]:
         raise ValueError("Unsupported source format: use .json or .jsonl")
 
 
+def _compute_id(case_name: str, summary: str) -> str:
+    h = hashlib.sha1()
+    h.update(case_name.encode("utf-8"))
+    h.update(b"\n")
+    h.update(summary.encode("utf-8"))
+    return h.hexdigest()
+
+
 def normalize_scotus(
     source: pathlib.Path,
     out_dir: Optional[pathlib.Path] = None,
+    *,
+    source_tag: Optional[str] = None,
+    limit: Optional[int] = None,
+    dry_run: bool = False,
+    overwrite: bool = False,
 ) -> List[pathlib.Path]:
     """Normalize SCOTUS-like records into project case schema.
 
@@ -64,8 +78,12 @@ def normalize_scotus(
     """
     out = _ensure_out_dir(out_dir)
     written: List[pathlib.Path] = []
+    seen_ids: set[str] = set()
 
+    count = 0
     for rec in _load_json_records(source):
+        if limit is not None and count >= limit:
+            break
         # Extract basic fields with fallbacks
         case_name = str(
             rec.get("case_name")
@@ -79,8 +97,12 @@ def normalize_scotus(
         facts = rec.get("facts")
         holding = rec.get("holding")
         opinion_text = rec.get("opinion_text") or rec.get("opinion")
+        _id = _compute_id(case_name, summary)
+        if _id in seen_ids:
+            continue
+        seen_ids.add(_id)
 
-        payload = {
+        payload: dict[str, object] = {
             "case_name": case_name,
             "summary": summary,
         }
@@ -90,6 +112,10 @@ def normalize_scotus(
             payload["holding"] = holding
         if opinion_text is not None:
             payload["opinion_text"] = opinion_text
+        # Optional metadata
+        payload["id"] = _id
+        if source_tag:
+            payload["source"] = source_tag
 
         # Derive filename from case name (safe-ish)
         stem = (
@@ -100,10 +126,14 @@ def normalize_scotus(
         stem = stem[:120]
         out_path = out / f"{stem}.json"
 
-        # Ensure uniqueness by appending counter if needed
+        if dry_run:
+            count += 1
+            continue
+
+        # Ensure uniqueness by appending counter if needed (unless overwrite)
         counter = 1
         final_path = out_path
-        while final_path.exists():
+        while final_path.exists() and not overwrite:
             final_path = out / f"{stem}_{counter}.json"
             counter += 1
 
@@ -111,6 +141,7 @@ def normalize_scotus(
             json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
         )
         written.append(final_path)
+        count += 1
 
     return written
 
@@ -118,6 +149,11 @@ def normalize_scotus(
 def normalize_uscode(
     source: pathlib.Path,
     out_dir: Optional[pathlib.Path] = None,
+    *,
+    source_tag: Optional[str] = None,
+    limit: Optional[int] = None,
+    dry_run: bool = False,
+    overwrite: bool = False,
 ) -> List[pathlib.Path]:
     """Normalize U.S. Code-like entries into the project case schema.
 
@@ -134,8 +170,12 @@ def normalize_uscode(
     """
     out = _ensure_out_dir(out_dir)
     written: List[pathlib.Path] = []
+    seen_ids: set[str] = set()
 
+    count = 0
     for rec in _load_json_records(source):
+        if limit is not None and count >= limit:
+            break
         title = rec.get("title")
         section = rec.get("section") or rec.get("sec")
         heading = rec.get("heading") or rec.get("caption") or ""
@@ -154,27 +194,39 @@ def normalize_uscode(
         case_name = f"{base}: {heading_str}".strip().strip(":") or "USC Section"
 
         summary = heading_str or text_str[:200]
+        _id = _compute_id(case_name, summary)
+        if _id in seen_ids:
+            continue
+        seen_ids.add(_id)
 
-        payload = {
+        payload: dict[str, object] = {
             "case_name": case_name,
             "summary": summary,
         }
         if text_str:
             payload["opinion_text"] = text_str
+        payload["id"] = _id
+        if source_tag:
+            payload["source"] = source_tag
 
         stem = (
             case_name.replace(" ", "_").replace("/", "-").replace("\\", "-").strip("._")
             or "usc_section"
         )[:120]
         out_path = out / f"{stem}.json"
+        if dry_run:
+            count += 1
+            continue
+
         counter = 1
         final_path = out_path
-        while final_path.exists():
+        while final_path.exists() and not overwrite:
             final_path = out / f"{stem}_{counter}.json"
             counter += 1
         final_path.write_text(
             json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
         )
         written.append(final_path)
+        count += 1
 
     return written

@@ -1,12 +1,15 @@
 from __future__ import annotations
 
+import hashlib
 import json
+import json as _json
 import pathlib
+from datetime import datetime, timezone
 from typing import List, Tuple
 
 import numpy as np
 
-from .config import CASE_DIR, VECTOR_DIR, VECTOR_PATH
+from .config import CASE_DIR, MODEL_NAME, VECTOR_DIR, VECTOR_PATH
 from .embedder import Embedder
 
 
@@ -19,7 +22,11 @@ def _extract_text(record: dict) -> str:
     return str(record.get("case_name", ""))
 
 
-def ingest_cases(case_dir: pathlib.Path | None = None) -> Tuple[List[str], np.ndarray]:
+def ingest_cases(
+    case_dir: pathlib.Path | None = None,
+    *,
+    rebuild: bool = False,
+) -> Tuple[List[str], np.ndarray]:
     """Ingest legal cases from JSON files and persist embeddings.
 
     Args:
@@ -44,11 +51,52 @@ def ingest_cases(case_dir: pathlib.Path | None = None) -> Tuple[List[str], np.nd
         names.append(name)
 
     embedder = Embedder()
-    embeddings = (
+    new_embeddings = (
         embedder.encode_texts(texts) if texts else np.zeros((0, 256), dtype=np.float32)
     )
 
+    # Append vs rebuild
+    if not rebuild and VECTOR_PATH.exists():
+        with np.load(VECTOR_PATH) as data:
+            files = set(getattr(data, "files", []))
+            old_names = data["names"] if "names" in files else np.array([], dtype=str)
+            old_embs = (
+                data["embeddings"]
+                if "embeddings" in files
+                else np.zeros(
+                    (0, new_embeddings.shape[1] if new_embeddings.size else 256),
+                    dtype=np.float32,
+                )
+            )
+        names_arr = np.concatenate([old_names, np.array(names, dtype=str)])
+        embeddings = (
+            np.vstack([old_embs, new_embeddings])
+            if old_embs.size and new_embeddings.size
+            else (new_embeddings if new_embeddings.size else old_embs)
+        )
+    else:
+        names_arr = np.array(names, dtype=str)
+        embeddings = new_embeddings
+
     # Persist as compressed NPZ for portability and smaller size
-    names_arr = np.array(names, dtype=str)
     np.savez_compressed(VECTOR_PATH, names=names_arr, embeddings=embeddings)
-    return names, embeddings
+
+    # Write vectors meta sidecar
+    dim = int(embeddings.shape[1]) if embeddings.size else 256
+    names_concat = (
+        "\n".join([str(x) for x in names_arr.tolist()]) if names_arr.size else ""
+    )
+    names_hash = hashlib.sha1(names_concat.encode("utf-8")).hexdigest()
+    meta = {
+        "model": MODEL_NAME,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "count": int(embeddings.shape[0]),
+        "dim": dim,
+        "file": VECTOR_PATH.name,
+        "version": 1,
+        "names_hash": names_hash,
+    }
+    (VECTOR_DIR / "vectors.meta.json").write_text(
+        _json.dumps(meta, indent=2), encoding="utf-8"
+    )
+    return names_arr.tolist(), embeddings
