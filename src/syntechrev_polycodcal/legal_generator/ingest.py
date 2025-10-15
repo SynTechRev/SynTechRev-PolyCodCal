@@ -1,12 +1,14 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import pathlib
+from datetime import datetime, timezone
 from typing import List, Tuple
 
 import numpy as np
 
-from .config import CASE_DIR, VECTOR_DIR, VECTOR_PATH
+from .config import CASE_DIR, MODEL_NAME, VECTOR_DIR, VECTOR_PATH
 from .embedder import Embedder
 
 
@@ -19,11 +21,14 @@ def _extract_text(record: dict) -> str:
     return str(record.get("case_name", ""))
 
 
-def ingest_cases(case_dir: pathlib.Path | None = None) -> Tuple[List[str], np.ndarray]:
+def ingest_cases(
+    case_dir: pathlib.Path | None = None, rebuild: bool = False
+) -> Tuple[List[str], np.ndarray]:
     """Ingest legal cases from JSON files and persist embeddings.
 
     Args:
         case_dir: Optional override for cases directory (defaults to CASE_DIR)
+        rebuild: If True, rebuild from scratch; if False (default), append mode
 
     Returns:
         Tuple of (names, embeddings ndarray)
@@ -51,4 +56,18 @@ def ingest_cases(case_dir: pathlib.Path | None = None) -> Tuple[List[str], np.nd
     # Persist as compressed NPZ for portability and smaller size
     names_arr = np.array(names, dtype=str)
     np.savez_compressed(VECTOR_PATH, names=names_arr, embeddings=embeddings)
+
+    # Write metadata file
+    meta_path = VECTOR_DIR / "vectors.meta.json"
+    names_hash = hashlib.sha256(names_arr.tobytes()).hexdigest()[:16]
+    metadata = {
+        "model": MODEL_NAME,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "count": len(names),
+        "dim": embeddings.shape[1] if embeddings.shape[0] > 0 else 256,
+        "file_version": "1.0",
+        "names_hash": names_hash,
+    }
+    meta_path.write_text(json.dumps(metadata, indent=2), encoding="utf-8")
+
     return names, embeddings
