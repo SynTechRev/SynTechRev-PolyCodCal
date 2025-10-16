@@ -3,7 +3,23 @@
 ![CI](https://github.com/SynTechRev/SynTechRev-PolyCodCal/actions/workflows/ci.yml/badge.svg)
 [![codecov](https://codecov.io/gh/SynTechRev/SynTechRev-PolyCodCal/branch/main/graph/badge.svg)](https://codecov.io/gh/SynTechRev/SynTechRev-PolyCodCal)
 
-Polymathic CodCal - A feedback monitoring system with sliding-window aggregation and alerting.
+Polymathic CodCal - A feedback monitoring system with sliding-window aggregation and alerting, including legal data ingestion and processing capabilities.
+
+## 📦 Installation
+
+### From Source (Development)
+
+```bash
+git clone https://github.com/SynTechRev/SynTechRev-PolyCodCal.git
+cd SynTechRev-PolyCodCal
+pip install -e .
+```
+
+### From PyPI (Coming Soon - Phase 7)
+
+```bash
+pip install syntechrev-polycodcal
+```
 
 ## 🚀 Quick Start
 
@@ -72,8 +88,27 @@ if alert:
 
 CLI example (one-off processing of newline-delimited JSON):
 
-```powershell
-python scripts\feedback_monitor.py examples\events.jsonl
+```bash
+# Using the installed console script (after pip install)
+syntech-monitor examples/events.jsonl
+
+# Or directly via Python
+python scripts/feedback_monitor.py examples/events.jsonl
+```
+
+## Console Scripts
+
+After installation, the following console scripts are available:
+
+- **`syntech-monitor`** - Feedback monitoring CLI
+- **`genesis-gateway`** - Genesis Gateway processing pipeline
+- **`legal-generator`** - Legal data ingestion and query tool
+
+```bash
+# View help for each command
+syntech-monitor --help
+genesis-gateway --help
+legal-generator --help
 ```
 
 ## Development
