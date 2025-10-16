@@ -78,6 +78,17 @@ def ingest_cases(
         names_arr = np.array(names, dtype=str)
         embeddings = new_embeddings
 
+    # Ensure unique names and corresponding embeddings, preserving first occurrence
+    seen = set()
+    unique_indices = []
+    for i, name in enumerate(names_arr):
+        if name not in seen:
+            seen.add(name)
+            unique_indices.append(i)
+    # Rebuild the names list and embeddings array based on unique indices
+    names_arr = names_arr[unique_indices]
+    embeddings = embeddings[unique_indices]
+
     # Persist as compressed NPZ for portability and smaller size
     np.savez_compressed(VECTOR_PATH, names=names_arr, embeddings=embeddings)
 
