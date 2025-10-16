@@ -144,3 +144,38 @@ def run_once(
         if a:
             alerts.append(a)
     return alerts
+
+
+def main() -> int:
+    """CLI entry point for feedback monitor.
+
+    Usage: syntech-monitor path/to/events.jsonl
+    """
+    import json
+    import sys
+
+    if len(sys.argv) < 2:
+        print("Usage: syntech-monitor path/to/events.jsonl")
+        return 2
+
+    path = sys.argv[1]
+    events = []
+    try:
+        with open(path, "r", encoding="utf-8") as fh:
+            for line in fh:
+                line = line.strip()
+                if not line:
+                    continue
+                events.append(json.loads(line))
+    except FileNotFoundError:
+        print(f"Error: File not found: {path}", file=sys.stderr)
+        return 1
+    except json.JSONDecodeError as e:
+        print(f"Error: Invalid JSON in file: {e}", file=sys.stderr)
+        return 1
+
+    monitor = FeedbackMonitor(window_seconds=60, threshold=0.2)
+    alerts = run_once(events, monitor)
+    for a in alerts:
+        print(a)
+    return 0
