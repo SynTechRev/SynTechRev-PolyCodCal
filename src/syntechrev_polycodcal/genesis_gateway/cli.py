@@ -223,8 +223,12 @@ def helper_function_two():
 def helper_function_three():
     """Helper function three."""
     pass
-# Line 226 has the violation - this line intentionally exceeds 88 characters to simulate E501
-some_very_long_variable_name_that_exceeds_the_limit = "This is a string that makes the line exceed 95 characters"
+
+
+# Line 226 - Fixed line-length violation by splitting the string
+some_very_long_variable_name_that_exceeds_the_limit = (
+    "This is a string that makes the line exceed 95 characters"
+)
 
 
 if __name__ == "__main__":

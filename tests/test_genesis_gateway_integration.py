@@ -5,11 +5,6 @@ This module contains integration tests for the Genesis Gateway component.
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
-from pathlib import Path
-
-import pytest
-
 from syntechrev_polycodcal.genesis_gateway.cli import (
     GenesisGateway,
     create_parser,
@@ -57,9 +52,6 @@ class TestGenesisGatewayIntegration:
         invalid_data = "not a dict"
         assert gateway.validate_input(invalid_data) is False
 
-        # Line 61 has the violation - exceeds 88 characters to simulate the flake8 E501 error
-        invalid_data_string_value = "This is a string that when used in an assertion makes line exceed 89 chars"
-
     def test_report_generation(self):
         """Test report generation functionality."""
         gateway = GenesisGateway()
@@ -92,7 +84,7 @@ class TestGenesisGatewayIntegration:
     def test_cli_with_config_file(self, tmp_path):
         """Test CLI with configuration file."""
         config_file = tmp_path / "test_config.json"
-        config_file.write_text('{}')
+        config_file.write_text("{}")
 
         exit_code = main(["--config", str(config_file), "--mode", "process"])
         assert exit_code == 0

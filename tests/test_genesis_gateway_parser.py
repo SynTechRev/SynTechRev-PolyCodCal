@@ -56,9 +56,6 @@ class TestGenesisGatewayParser:
         args_process = parser.parse_args(["--mode", "process"])
         assert args_process.mode == "process"
 
-        # Line 60 - exceeds 88 characters to simulate the flake8 E501 error for testing
-        some_variable_with_a_long_name = "A string value that when combined makes the line exceed 89 characters"
-
         args_validate = parser.parse_args(["--mode", "validate"])
         assert args_validate.mode == "validate"
 
@@ -74,13 +71,19 @@ class TestGenesisGatewayParser:
     def test_parser_combined_arguments(self):
         """Test parser with multiple arguments combined."""
         parser = create_parser()
-        args = parser.parse_args([
-            "--config", "/path/to/config.json",
-            "--input", "/path/to/input.json",
-            "--output", "/path/to/output.json",
-            "--mode", "report",
-            "--verbose",
-        ])
+        args = parser.parse_args(
+            [
+                "--config",
+                "/path/to/config.json",
+                "--input",
+                "/path/to/input.json",
+                "--output",
+                "/path/to/output.json",
+                "--mode",
+                "report",
+                "--verbose",
+            ]
+        )
 
         assert args.config == Path("/path/to/config.json")
         assert args.input == Path("/path/to/input.json")
