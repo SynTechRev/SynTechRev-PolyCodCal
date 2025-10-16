@@ -1,8 +1,52 @@
 # Documentation Index
 
-Welcome to the SynTechRev-PolyCodCal documentation! This index helps you find the right resource for your needs.
-
 ## 📚 Documentation Overview
+
+Welcome to the SynTechRev documentation.
+
+This site contains:
+- Project overview and design rationale
+- Installation instructions and CLI quickstart
+- API reference and developer guides
+
+## Install (pre-release)
+Replace <package-name> with the package name you publish on PyPI (example: syntechrev-polycodcal).
+
+```bash
+# Example (replace with actual package name)
+pip install syntechrev-polycodcal
+```
+
+## CLI Quickstart
+
+Three console entry points are provided:
+
+- `syntech-monitor --help`
+- `genesis-gateway --help`
+- `legal-generator --help`
+
+Example usage:
+
+```bash
+# Show help for each command
+syntech-monitor --help
+genesis-gateway --help
+legal-generator --help
+```
+
+## Contributing & Local Development
+
+To build locally and run tests:
+
+```powershell
+python -m build
+pip install --upgrade build twine
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1   # Windows PowerShell
+pip install -e ".[dev]"
+flake8 .
+pytest
+```
 
 ### Getting Started
 
