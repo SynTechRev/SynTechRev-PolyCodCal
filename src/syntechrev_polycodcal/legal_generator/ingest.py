@@ -81,7 +81,7 @@ def ingest_cases(
     # Ensure unique names and corresponding embeddings, preserving first occurrence
     _, unique_indices = np.unique(names_arr, return_index=True)
     unique_indices = np.sort(unique_indices)  # Sort to preserve original order
-    # Rebuild the names array and embeddings array based on unique indices
+    # Filter names and embeddings to keep only first occurrence of each unique name
     names_arr = names_arr[unique_indices]
     embeddings = embeddings[unique_indices]
 
