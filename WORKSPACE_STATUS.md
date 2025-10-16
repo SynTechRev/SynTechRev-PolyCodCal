@@ -434,6 +434,25 @@ Use this checklist to verify your local setup matches the verified state:
    ```
 
 ### For Code Review
+
+---
+
+## 📌 End of Day Checkpoint — 2025-10-15
+
+Status:
+- Phase 6 functionality is complete and validated (normalize adapters: scotus, uscode, blacks, amjur; validator; ingest with rebuild/append and vectors.meta.json; retriever; CLI wiring).
+- Quality checks: Black/Ruff/Mypy/Tests with coverage are green in the latest run.
+- Environment note: On some Windows setups with Python 3.13, NumPy may fail to import native extensions. See docs/PHASE6_INGESTION.md → Troubleshooting for guidance (Python 3.12 recommended locally if you hit this).
+
+Resume steps:
+1. (Optional) Switch to Python 3.12 locally if NumPy import errors appear.
+2. Run the pipeline end-to-end on sample data:
+   - Normalize → Validate → Ingest (rebuild) → Query (see docs/PHASE6_INGESTION.md commands).
+3. Open the Phase 6 finalization agent task (prompt prepared) if you want CI/docs polish.
+
+Planned next phase:
+- Phase 7 – Packaging & Distribution: console entry point, PyPI prep, docs site generation.
+
 - Ensure all CI checks pass
 - Review diff carefully
 - Update documentation if needed

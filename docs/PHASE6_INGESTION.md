@@ -134,3 +134,33 @@ You can build source-specific importers that read from `data/sources/<source>` a
 ---
 
 For help building a specific importer (e.g., US Code XML → JSON), open an issue or ask for an adapter targeting your source format.
+
+---
+
+## 🛠️ Troubleshooting (Windows / Python 3.13)
+
+If you see a NumPy import error on Windows with Python 3.13 like:
+
+```
+ImportError: DLL load failed while importing _multiarray_umath
+```
+
+This is an environment issue related to native NumPy wheels. Recommended options:
+
+- Prefer Python 3.12 for local development (fastest path to green locally).
+- Or ensure a compatible NumPy wheel is installed for Python 3.13 in your venv.
+
+Notes:
+- This is not a repository code bug; CI should remain green on supported versions.
+- After switching interpreters, recreate your venv and reinstall dependencies.
+
+Quick check (PowerShell):
+
+```powershell
+# Select a Python 3.12 interpreter in VS Code, then recreate venv
+Remove-Item -Recurse -Force .venv
+py -3.12 -m venv .venv
+& .\.venv\Scripts\Activate.ps1
+pip install -r dev-requirements.txt
+pytest -v
+```
