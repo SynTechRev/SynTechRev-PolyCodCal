@@ -5,6 +5,42 @@
 
 Polymathic CodCal - A feedback monitoring system with sliding-window aggregation and alerting, including legal data ingestion and processing capabilities.
 
+## Install & CLI Quickstart
+
+### Install from PyPI (example)
+Replace `syntechrev-polycodcal` with the actual package name if different.
+
+```bash
+pip install syntechrev-polycodcal
+```
+
+### CLI Quickstart
+
+The package provides three command-line entry points:
+
+- `syntech-monitor` — monitor & feedback tooling
+- `genesis-gateway` — gateway interface
+- `legal-generator` — legal data generator CLI
+
+Try the built-in help:
+
+```bash
+syntech-monitor --help
+genesis-gateway --help
+legal-generator --help
+```
+
+Example: run a quick help check locally (after installing dev deps)
+
+```powershell
+git checkout main
+git pull origin main
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1    # Windows PowerShell
+pip install -e ".[dev]"
+syntech-monitor --help
+```
+
 ## 📦 Installation
 
 ### From Source (Development)
