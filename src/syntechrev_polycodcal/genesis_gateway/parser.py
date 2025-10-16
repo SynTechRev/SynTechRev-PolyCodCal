@@ -6,7 +6,7 @@ core axioms and ethical constraints.
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 from syntechrev_polycodcal.genesis_gateway.inspiration import Inspiration
 

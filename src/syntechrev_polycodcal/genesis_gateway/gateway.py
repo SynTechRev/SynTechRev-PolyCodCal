@@ -18,7 +18,6 @@ from syntechrev_polycodcal.genesis_gateway.compiler import (
     GenesisCompiler,
 )
 from syntechrev_polycodcal.genesis_gateway.inspiration import (
-    Inspiration,
     InspirationInterface,
 )
 from syntechrev_polycodcal.genesis_gateway.parser import TheoSyntacticParser
@@ -132,9 +131,7 @@ class GenesisGateway:
 
         return result
 
-    def batch_process(
-        self, inspirations: List[Dict[str, Any]]
-    ) -> List[Dict[str, Any]]:
+    def batch_process(self, inspirations: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """Process multiple inspirations in batch.
 
         Args:

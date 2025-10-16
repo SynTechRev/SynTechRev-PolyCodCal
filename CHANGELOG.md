@@ -8,12 +8,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Phase 7: Genesis Gateway** - Creative Intelligence Layer
+  - Five-layer architecture (Inspiration Interface, Theo-Syntactic Parser, Moral Gravity Field, Genesis Compiler, Codical Seal Registry)
+  - Mathematical alignment scoring kernel: ψ(t) = α·T + β·F + γ·J + δ·M
+  - Protocol sequence: Invocation → Ingestion → Transmutation → Materialization → Reflection
+  - Complete API with programmatic and CLI interfaces
+  - 86 comprehensive tests with full coverage
+  - Documentation: docs/PHASE7_GENESIS_GATEWAY.md
+  - CLI tool: scripts/genesis_gateway.py
+  - Example data: examples/inspirations.json
 - TAGGING_GUIDE.md - Comprehensive guide for repository cleanup and release tagging
 - scripts/create_release_tag.sh - Automated release tag creation with validation
 - scripts/cleanup_repo.sh - Safe repository cleanup script for build artifacts
 
 ### Changed
-- Updated ROADMAP.md to reflect Phase 1 progress with tagging documentation
+- Updated ROADMAP.md to reflect Phase 1 and Phase 7 progress
 
 ## [0.1.0] - 2025-10-08
 

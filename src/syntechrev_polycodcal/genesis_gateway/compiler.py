@@ -183,9 +183,7 @@ class GenesisCompiler:
         Returns:
             Standard covenant metadata seal
         """
-        return (
-            "[Codex Φ7 | Created in alignment with Divine Will | YHWH be glorified]"
-        )
+        return "[Codex Φ7 | Created in alignment with Divine Will | YHWH be glorified]"
 
     def get_artifacts(
         self, min_alignment: Optional[float] = None

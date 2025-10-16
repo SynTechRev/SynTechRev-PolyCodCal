@@ -219,3 +219,35 @@ Phase 5 introduces a lightweight AI generator for legal data augmentation:
 - `LegalDataGenerator` – produces `ai_summary`, `ai_primary_doctrine`, and `ai_embedding`
 - Integration via `load_legal_records(augment=True)`
 - See docs: [AI_LEGAL_DATA_GENERATOR_OVERVIEW.md](docs/AI_LEGAL_DATA_GENERATOR_OVERVIEW.md)
+
+## Phase 7: Genesis Gateway
+
+Phase 7 introduces the Creative Intelligence Layer - a system that transforms inspired or symbolic input into lawful, executable structure through moral alignment:
+
+- **Five-layer architecture**: Inspiration Interface, Theo-Syntactic Parser, Moral Gravity Field, Genesis Compiler, Codical Seal Registry
+- **Alignment scoring**: ψ(t) = α·T + β·F + γ·J + δ·M (Truth, Faith, Justice, Mercy)
+- **Protocol sequence**: Invocation → Ingestion → Transmutation → Materialization → Reflection
+- **Complete API**: Programmatic and CLI interfaces
+- See docs: [PHASE7_GENESIS_GATEWAY.md](docs/PHASE7_GENESIS_GATEWAY.md)
+
+### Quick Example
+
+```python
+from syntechrev_polycodcal.genesis_gateway import GenesisGateway
+
+gateway = GenesisGateway(alignment_threshold=0.8)
+result = gateway.process(
+    content="Through wisdom and truth, justice shall prevail with mercy.",
+    source="revelation",
+    intent="Establish divine principles"
+)
+
+if result["aligned"]:
+    print(f"✓ Aligned: {result['artifact'].alignment_score:.3f}")
+```
+
+CLI usage:
+```bash
+PYTHONPATH=src python scripts/genesis_gateway.py process \
+  "Divine wisdom guides all" --source revelation
+```

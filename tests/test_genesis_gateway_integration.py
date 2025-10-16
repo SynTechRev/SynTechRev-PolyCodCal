@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import pytest
 
 from syntechrev_polycodcal.genesis_gateway import GenesisGateway
 
@@ -123,9 +122,7 @@ def test_gateway_get_aligned_artifacts():
     """Test retrieving compiled artifacts."""
     gateway = GenesisGateway(alignment_threshold=0.6)
 
-    gateway.process(
-        content="First inspiration with truth and justice.", source="test"
-    )
+    gateway.process(content="First inspiration with truth and justice.", source="test")
     gateway.process(content="Second inspiration with mercy and grace.", source="test")
 
     artifacts = gateway.get_aligned_artifacts()

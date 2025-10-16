@@ -182,7 +182,9 @@ def test_parser_calculate_mercy():
     )
 
     harsh = Inspiration(
-        content="Punishment and retribution.", timestamp=datetime.now(), source="insight"
+        content="Punishment and retribution.",
+        timestamp=datetime.now(),
+        source="insight",
     )
 
     construct_merciful = parser.parse(merciful)
@@ -233,9 +235,7 @@ def test_parser_clear():
     """Test clearing parsed constructs."""
     parser = TheoSyntacticParser()
 
-    inspiration = Inspiration(
-        content="Test", timestamp=datetime.now(), source="test"
-    )
+    inspiration = Inspiration(content="Test", timestamp=datetime.now(), source="test")
     parser.parse(inspiration)
 
     assert len(parser.parsed_constructs) == 1
