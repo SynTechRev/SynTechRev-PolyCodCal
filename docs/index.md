@@ -4,6 +4,8 @@
 
 Welcome to the SynTechRev documentation.
 
+<!-- Trigger docs rebuild: updated 2025-10-16 -->
+
 This site contains:
 - Project overview and design rationale
 - Installation instructions and CLI quickstart
