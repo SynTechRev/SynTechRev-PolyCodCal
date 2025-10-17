@@ -3,10 +3,8 @@ repo_url: https://github.com/SynTechRev/SynTechRev-PolyCodCal
 nav:
   - Home: index.md
   - Guides:
-    - Phase 6 Ingestion: docs/PHASE6_INGESTION.md
-    - Development Workflow: docs/DEVELOPMENT_WORKFLOW.md
-  - Reference:
-    - README: README.md
+    - Phase 6 Ingestion: PHASE6_INGESTION.md
+    - Development Workflow: DEVELOPMENT_WORKFLOW.md
 theme:
   name: material
 markdown_extensions:
