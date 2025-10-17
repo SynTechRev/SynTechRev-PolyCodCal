@@ -1,0 +1,1457 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../PHASE6_INGESTION/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Development Workflow - SynTechRev-PolyCodCal Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#development-workflow" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="SynTechRev-PolyCodCal Docs" class="md-header__button md-logo" aria-label="SynTechRev-PolyCodCal Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SynTechRev-PolyCodCal Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Development Workflow
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SynTechRev/SynTechRev-PolyCodCal" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SynTechRev-PolyCodCal Docs" class="md-nav__button md-logo" aria-label="SynTechRev-PolyCodCal Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SynTechRev-PolyCodCal Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SynTechRev/SynTechRev-PolyCodCal" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Guides
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PHASE6_INGESTION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 6 Ingestion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Development Workflow
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development Workflow
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-setup-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Setup Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-feature-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Create Feature Branch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-develop-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Develop &amp; Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-quality-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Quality Checks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-commit-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Commit Changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-push-create-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Push &amp; Create Pull Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-code-review-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Code Review &amp; CI/CD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-merge-to-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8: Merge to Main
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-repair-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Repair Workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Scenarios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-1-adding-a-new-feature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 1: Adding a New Feature
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-2-fixing-a-bug" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 2: Fixing a Bug
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-3-updating-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 3: Updating Documentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Do's ✅
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#donts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Don'ts ❌
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tests-failing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tests Failing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linting-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linting Errors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge Conflicts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-setup-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Setup Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-feature-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Create Feature Branch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-develop-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Develop &amp; Test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-quality-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Quality Checks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-commit-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Commit Changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-push-create-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Push &amp; Create Pull Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-code-review-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Code Review &amp; CI/CD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-merge-to-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8: Merge to Main
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-repair-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Repair Workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Scenarios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-1-adding-a-new-feature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 1: Adding a New Feature
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-2-fixing-a-bug" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 2: Fixing a Bug
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-3-updating-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 3: Updating Documentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Do's ✅
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#donts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Don'ts ❌
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tests-failing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tests Failing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linting-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linting Errors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge Conflicts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="development-workflow">Development Workflow<a class="headerlink" href="#development-workflow" title="Permanent link">&para;</a></h1>
+<p>This document provides a visual and step-by-step guide to the development workflow for SynTechRev-PolyCodCal.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code>┌─────────────────────────────────────────────────────────────┐
+│                    Development Lifecycle                     │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+                    ┌──────────────────┐
+                    │  1. Setup        │
+                    │  Environment     │
+                    └──────────────────┘
+                              │
+                              ▼
+                    ┌──────────────────┐
+                    │  2. Create       │
+                    │  Feature Branch  │
+                    └──────────────────┘
+                              │
+                              ▼
+                    ┌──────────────────┐
+                    │  3. Develop      │
+                    │  &amp; Test          │◄──┐
+                    └──────────────────┘   │
+                              │            │
+                              ▼            │
+                    ┌──────────────────┐   │
+                    │  4. Quality      │   │
+                    │  Checks          │   │
+                    └──────────────────┘   │
+                              │            │
+                              ▼            │
+                    ┌──────────────────┐   │
+                    │  5. Commit       │   │
+                    │  Changes         │───┘
+                    └──────────────────┘
+                              │
+                              ▼
+                    ┌──────────────────┐
+                    │  6. Push &amp;       │
+                    │  Create PR       │
+                    └──────────────────┘
+                              │
+                              ▼
+                    ┌──────────────────┐
+                    │  7. Code Review  │
+                    │  &amp; CI/CD         │
+                    └──────────────────┘
+                              │
+                              ▼
+                    ┌──────────────────┐
+                    │  8. Merge to     │
+                    │  Main            │
+                    └──────────────────┘
+</code></pre></div>
+
+<h2 id="detailed-steps">Detailed Steps<a class="headerlink" href="#detailed-steps" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-setup-environment">Step 1: Setup Environment<a class="headerlink" href="#step-1-setup-environment" title="Permanent link">&para;</a></h3>
+<p><strong>First time only:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Clone repository</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/SynTechRev/SynTechRev-PolyCodCal.git
+<span class="nb">cd</span><span class="w"> </span>SynTechRev-PolyCodCal
+
+<span class="c1"># Create virtual environment</span>
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+
+<span class="c1"># Activate virtual environment</span>
+<span class="c1"># On Windows:</span>
+.venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+<span class="c1"># On Unix/Mac:</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+
+<span class="c1"># Install dependencies</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>dev-requirements.txt
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+
+<span class="c1"># Install pre-commit hooks</span>
+pre-commit<span class="w"> </span>install
+
+<span class="c1"># Verify setup</span>
+pytest<span class="w"> </span>-v
+</code></pre></div>
+
+<p><strong>Result:</strong> Development environment ready ✅</p>
+<h3 id="step-2-create-feature-branch">Step 2: Create Feature Branch<a class="headerlink" href="#step-2-create-feature-branch" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Ensure you&#39;re on main and up to date</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+
+<span class="c1"># Create and switch to feature branch</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/your-feature-name
+</code></pre></div>
+
+<p><strong>Branch naming conventions:</strong>
+- <code>feature/add-notification-system</code>
+- <code>bugfix/fix-timestamp-parsing</code>
+- <code>docs/update-api-guide</code>
+- <code>refactor/simplify-monitor-logic</code>
+- <code>test/add-edge-case-tests</code></p>
+<p><strong>Result:</strong> Working on isolated feature branch ✅</p>
+<h3 id="step-3-develop-test">Step 3: Develop &amp; Test<a class="headerlink" href="#step-3-develop-test" title="Permanent link">&para;</a></h3>
+<p>This is an iterative cycle:</p>
+<div class="codehilite"><pre><span></span><code>┌────────────────────────────────────────┐
+│<span class="w">        </span><span class="nv">Development</span><span class="w"> </span><span class="nv">Cycle</span><span class="w">               </span>│
+│<span class="w">                                        </span>│
+│<span class="w">  </span><span class="mi">1</span>.<span class="w"> </span><span class="nv">Write</span><span class="w"> </span><span class="nv">Code</span><span class="w">                         </span>│
+│<span class="w">      </span>↓<span class="w">                                 </span>│
+│<span class="w">  </span><span class="mi">2</span>.<span class="w"> </span><span class="nv">Write</span><span class="o">/</span><span class="nv">Update</span><span class="w"> </span><span class="nv">Tests</span><span class="w">                 </span>│
+│<span class="w">      </span>↓<span class="w">                                 </span>│
+│<span class="w">  </span><span class="mi">3</span>.<span class="w"> </span><span class="nv">Run</span><span class="w"> </span><span class="nv">Tests</span><span class="w"> </span><span class="nv">Locally</span><span class="w">                  </span>│
+│<span class="w">      </span>↓<span class="w">                                 </span>│
+│<span class="w">  </span><span class="mi">4</span>.<span class="w"> </span><span class="nv">Debug</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nv">Failed</span><span class="w">  </span>──────────┐<span class="w">       </span>│
+│<span class="w">      </span>↓<span class="w">                         </span>│<span class="w">       </span>│
+│<span class="w">  </span><span class="mi">5</span>.<span class="w"> </span><span class="nv">Tests</span><span class="w"> </span><span class="nv">Pass</span>?<span class="w"> </span>───<span class="nv">NO</span>──────────┘<span class="w">       </span>│
+│<span class="w">      </span>│<span class="w">                                 </span>│
+│<span class="w">      </span><span class="nv">YES</span><span class="w">                               </span>│
+│<span class="w">      </span>↓<span class="w">                                 </span>│
+│<span class="w">  </span><span class="k">Continue</span><span class="w"> </span><span class="nv">Development</span><span class="w"> </span><span class="nv">or</span><span class="w"> </span><span class="nv">Move</span><span class="w"> </span><span class="nv">to</span><span class="w">       </span>│
+│<span class="w">  </span><span class="nv">Quality</span><span class="w"> </span><span class="nv">Checks</span><span class="w">                        </span>│
+└────────────────────────────────────────┘
+</code></pre></div>
+
+<p><strong>Commands:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Run tests</span>
+pytest<span class="w"> </span>-v
+
+<span class="c1"># Run specific test file</span>
+pytest<span class="w"> </span>tests/test_feedback_monitor.py<span class="w"> </span>-v
+
+<span class="c1"># Run with coverage</span>
+pytest<span class="w"> </span>--cov<span class="o">=</span>src/syntechrev_polycodcal<span class="w"> </span>--cov-report<span class="o">=</span>term-missing
+
+<span class="c1"># Debug mode (stop on first failure)</span>
+pytest<span class="w"> </span>-x<span class="w"> </span>-v
+
+<span class="c1"># Verbose output</span>
+pytest<span class="w"> </span>-vv<span class="w"> </span>-s
+</code></pre></div>
+
+<p><strong>VS Code shortcuts:</strong>
+- <code>Ctrl+Shift+T</code> - Run tests
+- <code>F5</code> - Debug tests</p>
+<p><strong>Result:</strong> Feature implemented with passing tests ✅</p>
+<h3 id="step-4-quality-checks">Step 4: Quality Checks<a class="headerlink" href="#step-4-quality-checks" title="Permanent link">&para;</a></h3>
+<p>Before committing, run all quality checks:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Format code</span>
+black<span class="w"> </span>src<span class="w"> </span>tests<span class="w"> </span>scripts
+
+<span class="c1"># Run linter</span>
+ruff<span class="w"> </span>check<span class="w"> </span>.
+
+<span class="c1"># Type checking</span>
+mypy<span class="w"> </span>src
+
+<span class="c1"># All checks (or use pre-commit)</span>
+pre-commit<span class="w"> </span>run<span class="w"> </span>--all-files
+</code></pre></div>
+
+<p><strong>VS Code shortcut:</strong>
+- <code>Ctrl+Shift+B</code> - Run all quality checks</p>
+<p><strong>Expected output:</strong></p>
+<div class="codehilite"><pre><span></span><code>✓ black - passed
+✓ ruff - passed  
+✓ mypy - passed
+✓ pytest - 15 passed
+</code></pre></div>
+
+<p><strong>Result:</strong> Code meets quality standards ✅</p>
+<h3 id="step-5-commit-changes">Step 5: Commit Changes<a class="headerlink" href="#step-5-commit-changes" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Stage changes</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+
+<span class="c1"># Or stage specific files</span>
+git<span class="w"> </span>add<span class="w"> </span>src/syntechrev_polycodcal/feedback_monitor.py
+git<span class="w"> </span>add<span class="w"> </span>tests/test_feedback_monitor.py
+
+<span class="c1"># Commit with conventional commit message</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add email notification support&quot;</span>
+
+<span class="c1"># Or with detailed description</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add email notification support</span>
+
+<span class="s2">- Implement EmailNotifier class</span>
+<span class="s2">- Add SMTP configuration</span>
+<span class="s2">- Update FeedbackMonitor to use notifier</span>
+<span class="s2">- Add tests for email notifications&quot;</span>
+</code></pre></div>
+
+<p><strong>Commit message format:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="k">type</span><span class="p">&gt;(&lt;</span><span class="nx">scope</span><span class="p">&gt;):</span><span class="w"> </span><span class="p">&lt;</span><span class="nx">subject</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nx">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nx">footer</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p><strong>Types:</strong>
+- <code>feat</code>: New feature
+- <code>fix</code>: Bug fix
+- <code>docs</code>: Documentation
+- <code>test</code>: Tests
+- <code>refactor</code>: Code refactoring
+- <code>style</code>: Formatting
+- <code>chore</code>: Maintenance</p>
+<p><strong>Result:</strong> Changes committed locally ✅</p>
+<h3 id="step-6-push-create-pull-request">Step 6: Push &amp; Create Pull Request<a class="headerlink" href="#step-6-push-create-pull-request" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Push feature branch</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/your-feature-name
+
+<span class="c1"># If first push of this branch</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/your-feature-name
+</code></pre></div>
+
+<p><strong>On GitHub:</strong></p>
+<ol>
+<li>Navigate to repository</li>
+<li>Click "Compare &amp; pull request"</li>
+<li>Fill out PR template:</li>
+<li>Clear title</li>
+<li>Summary of changes</li>
+<li>How you tested</li>
+<li>Check all checklist items</li>
+<li>Link related issues (if any)</li>
+<li>Submit PR</li>
+</ol>
+<p><strong>PR Template checklist:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="gu">## Summary</span>
+Brief description of changes
+
+<span class="gu">## Changes</span>
+<span class="k">-</span><span class="w"> </span>Change 1
+<span class="k">-</span><span class="w"> </span>Change 2
+
+<span class="gu">## Verification</span>
+<span class="k">- [x]</span> Unit tests added/updated
+<span class="k">- [x]</span> Manual testing performed
+<span class="k">- [x]</span> CI pipeline passes
+
+<span class="gu">## Checklist</span>
+<span class="k">- [x]</span> Tests added / updated
+<span class="k">- [x]</span> Documentation updated
+<span class="k">- [x]</span> CI passes
+</code></pre></div>
+
+<p><strong>Result:</strong> PR created and ready for review ✅</p>
+<h3 id="step-7-code-review-cicd">Step 7: Code Review &amp; CI/CD<a class="headerlink" href="#step-7-code-review-cicd" title="Permanent link">&para;</a></h3>
+<p><strong>Automated CI/CD checks:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="err">┌──────────────────────────────────────┐</span>
+<span class="err">│</span><span class="w">         </span><span class="n">CI</span><span class="o">/</span><span class="n">CD</span><span class="w"> </span><span class="n">Pipeline</span><span class="w">               </span><span class="err">│</span>
+<span class="err">├──────────────────────────────────────┤</span>
+<span class="err">│</span><span class="w">  </span><span class="mf">1.</span><span class="w"> </span><span class="n">Checkout</span><span class="w"> </span><span class="n">Code</span><span class="w">                    </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="mf">2.</span><span class="w"> </span><span class="n">Setup</span><span class="w"> </span><span class="n">Python</span><span class="w"> </span><span class="p">(</span><span class="mf">3.11</span><span class="p">,</span><span class="w"> </span><span class="mf">3.12</span><span class="p">,</span><span class="w"> </span><span class="mf">3.13</span><span class="p">)</span><span class="w">  </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="mf">3.</span><span class="w"> </span><span class="n">Install</span><span class="w"> </span><span class="n">Dependencies</span><span class="w">             </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="mf">4.</span><span class="w"> </span><span class="n">Run</span><span class="w"> </span><span class="n">Ruff</span><span class="w"> </span><span class="n">Linting</span><span class="w">                 </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="mf">5.</span><span class="w"> </span><span class="n">Run</span><span class="w"> </span><span class="n">Mypy</span><span class="w"> </span><span class="n">Type</span><span class="w"> </span><span class="n">Checking</span><span class="w">           </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="mf">6.</span><span class="w"> </span><span class="n">Run</span><span class="w"> </span><span class="n">Pre</span><span class="o">-</span><span class="n">commit</span><span class="w"> </span><span class="n">Hooks</span><span class="w">             </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="mf">7.</span><span class="w"> </span><span class="n">Run</span><span class="w"> </span><span class="n">Pytest</span><span class="w"> </span><span class="n">Tests</span><span class="w">                 </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="mf">8.</span><span class="w"> </span><span class="n">Generate</span><span class="w"> </span><span class="n">Coverage</span><span class="w"> </span><span class="n">Report</span><span class="w">         </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="mf">9.</span><span class="w"> </span><span class="n">Upload</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">Codecov</span><span class="w">                </span><span class="err">│</span>
+<span class="err">└──────────────────────────────────────┘</span>
+</code></pre></div>
+
+<p><strong>What happens:</strong>
+- GitHub Actions runs automatically on push
+- Tests run on multiple Python versions
+- Coverage report generated
+- Status checks appear on PR</p>
+<p><strong>Code review process:</strong></p>
+<ol>
+<li><strong>Reviewer assigned</strong> (or self-assign)</li>
+<li><strong>Reviewer checks:</strong></li>
+<li>Code correctness</li>
+<li>Test coverage</li>
+<li>Code style and clarity</li>
+<li>Documentation</li>
+<li>Potential issues</li>
+<li><strong>Reviewer provides feedback</strong></li>
+<li>Comments on specific lines</li>
+<li>Suggests changes</li>
+<li>Approves or requests changes</li>
+</ol>
+<p><strong>Responding to feedback:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Make requested changes</span>
+<span class="c1"># ... edit files ...</span>
+
+<span class="c1"># Run quality checks again</span>
+pre-commit<span class="w"> </span>run<span class="w"> </span>--all-files
+
+<span class="c1"># Commit changes</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;fix: address review feedback&quot;</span>
+
+<span class="c1"># Push updates</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/your-feature-name
+</code></pre></div>
+
+<p><strong>Result:</strong> PR approved and CI passes ✅</p>
+<h3 id="step-8-merge-to-main">Step 8: Merge to Main<a class="headerlink" href="#step-8-merge-to-main" title="Permanent link">&para;</a></h3>
+<p><strong>When ready to merge:</strong></p>
+<ol>
+<li>Ensure all CI checks pass ✅</li>
+<li>Ensure PR is approved ✅</li>
+<li>Resolve any merge conflicts</li>
+<li>Choose merge strategy:</li>
+<li><strong>Squash and merge</strong> (recommended for feature branches)</li>
+<li><strong>Merge commit</strong> (for collaborative branches)</li>
+<li>
+<p><strong>Rebase and merge</strong> (for clean history)</p>
+</li>
+<li>
+<p>Click "Merge pull request"</p>
+</li>
+<li>Delete feature branch (optional but recommended)</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="c1"># After merge, update local main</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+
+<span class="c1"># Delete local feature branch</span>
+git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>feature/your-feature-name
+</code></pre></div>
+
+<p><strong>Result:</strong> Changes merged to main ✅</p>
+<h2 id="code-repair-workflow">Code Repair Workflow<a class="headerlink" href="#code-repair-workflow" title="Permanent link">&para;</a></h2>
+<p>Special workflow for fixing issues:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">┌────────────────────────────────────────┐</span>
+<span class="err">│</span><span class="w">        </span><span class="nx">Code</span><span class="w"> </span><span class="nx">Repair</span><span class="w"> </span><span class="nx">Process</span><span class="w">             </span><span class="err">│</span>
+<span class="err">├────────────────────────────────────────┤</span>
+<span class="err">│</span><span class="w">  </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="nx">Identify</span><span class="w"> </span><span class="nx">Issue</span><span class="w">                     </span><span class="err">│</span>
+<span class="err">│</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="nx">Run</span><span class="w"> </span><span class="nx">tests</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">see</span><span class="w"> </span><span class="nx">failures</span><span class="w">        </span><span class="err">│</span>
+<span class="err">│</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="nx">Check</span><span class="w"> </span><span class="nx">linting</span><span class="w"> </span><span class="nx">errors</span><span class="w">             </span><span class="err">│</span>
+<span class="err">│</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="nx">Review</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="nx">checking</span><span class="w"> </span><span class="nx">issues</span><span class="w">      </span><span class="err">│</span>
+<span class="err">│</span><span class="w">                                        </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="nx">Prioritize</span><span class="w"> </span><span class="nx">Repairs</span><span class="w">                 </span><span class="err">│</span>
+<span class="err">│</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="nx">Critical</span><span class="p">:</span><span class="w"> </span><span class="nx">Test</span><span class="w"> </span><span class="nx">failures</span><span class="w">          </span><span class="err">│</span>
+<span class="err">│</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="nx">High</span><span class="p">:</span><span class="w"> </span><span class="nx">Import</span><span class="o">/</span><span class="nx">syntax</span><span class="w"> </span><span class="nx">errors</span><span class="w">       </span><span class="err">│</span>
+<span class="err">│</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="nx">Medium</span><span class="p">:</span><span class="w"> </span><span class="nx">Type</span><span class="w"> </span><span class="nx">checking</span><span class="w">            </span><span class="err">│</span>
+<span class="err">│</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="nx">Low</span><span class="p">:</span><span class="w"> </span><span class="nx">Formatting</span><span class="w">                  </span><span class="err">│</span>
+<span class="err">│</span><span class="w">                                        </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="nx">Fix</span><span class="w"> </span><span class="nx">Systematically</span><span class="w">                 </span><span class="err">│</span>
+<span class="err">│</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="nx">One</span><span class="w"> </span><span class="nx">category</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">time</span><span class="w">           </span><span class="err">│</span>
+<span class="err">│</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="nx">Test</span><span class="w"> </span><span class="nx">after</span><span class="w"> </span><span class="nx">each</span><span class="w"> </span><span class="nx">fix</span><span class="w">              </span><span class="err">│</span>
+<span class="err">│</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="nx">Commit</span><span class="w"> </span><span class="nx">incrementally</span><span class="w">             </span><span class="err">│</span>
+<span class="err">│</span><span class="w">                                        </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="nx">Verify</span><span class="w"> </span><span class="nx">Comprehensively</span><span class="w">             </span><span class="err">│</span>
+<span class="err">│</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="nx">All</span><span class="w"> </span><span class="nx">tests</span><span class="w"> </span><span class="nx">pass</span><span class="w">                   </span><span class="err">│</span>
+<span class="err">│</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="nx">Coverage</span><span class="w"> </span><span class="nx">maintained</span><span class="o">/</span><span class="nx">improved</span><span class="w">     </span><span class="err">│</span>
+<span class="err">│</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="nx">No</span><span class="w"> </span><span class="nx">linting</span><span class="w"> </span><span class="nx">violations</span><span class="w">            </span><span class="err">│</span>
+<span class="err">│</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="nx">Type</span><span class="w"> </span><span class="nx">checking</span><span class="w"> </span><span class="nx">passes</span><span class="w">             </span><span class="err">│</span>
+<span class="err">│</span><span class="w">                                        </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="mi">5</span><span class="p">.</span><span class="w"> </span><span class="nx">Document</span><span class="w"> </span><span class="nx">Changes</span><span class="w">                   </span><span class="err">│</span>
+<span class="err">│</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="nx">Update</span><span class="w"> </span><span class="nx">CHANGELOG</span><span class="p">.</span><span class="nx">md</span><span class="w">              </span><span class="err">│</span>
+<span class="err">│</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="nx">Add</span><span class="w"> </span><span class="nx">comments</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">needed</span><span class="w">           </span><span class="err">│</span>
+<span class="err">│</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="nx">Update</span><span class="w"> </span><span class="nx">documentation</span><span class="w">             </span><span class="err">│</span>
+<span class="err">└────────────────────────────────────────┘</span>
+</code></pre></div>
+
+<p>See <a href="../CODE_REPAIR_STRATEGY.md">CODE_REPAIR_STRATEGY.md</a> for complete details.</p>
+<h2 id="common-scenarios">Common Scenarios<a class="headerlink" href="#common-scenarios" title="Permanent link">&para;</a></h2>
+<h3 id="scenario-1-adding-a-new-feature">Scenario 1: Adding a New Feature<a class="headerlink" href="#scenario-1-adding-a-new-feature" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 1. Create branch</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/add-webhooks
+
+<span class="c1"># 2. Implement feature</span>
+<span class="c1"># ... write code ...</span>
+
+<span class="c1"># 3. Add tests</span>
+<span class="c1"># ... write tests ...</span>
+
+<span class="c1"># 4. Run tests</span>
+pytest<span class="w"> </span>-v
+
+<span class="c1"># 5. Format and lint</span>
+black<span class="w"> </span>src<span class="w"> </span>tests
+ruff<span class="w"> </span>check<span class="w"> </span>.
+
+<span class="c1"># 6. Commit</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add webhook notification support&quot;</span>
+
+<span class="c1"># 7. Push and create PR</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/add-webhooks
+</code></pre></div>
+
+<h3 id="scenario-2-fixing-a-bug">Scenario 2: Fixing a Bug<a class="headerlink" href="#scenario-2-fixing-a-bug" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 1. Create branch</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>bugfix/fix-timestamp-tz
+
+<span class="c1"># 2. Write failing test first (TDD)</span>
+<span class="c1"># ... add test that demonstrates bug ...</span>
+
+<span class="c1"># 3. Verify test fails</span>
+pytest<span class="w"> </span>tests/test_feedback_monitor.py::test_timestamp_tz<span class="w"> </span>-v
+
+<span class="c1"># 4. Fix the bug</span>
+<span class="c1"># ... fix code ...</span>
+
+<span class="c1"># 5. Verify test passes</span>
+pytest<span class="w"> </span>tests/test_feedback_monitor.py::test_timestamp_tz<span class="w"> </span>-v
+
+<span class="c1"># 6. Run all tests</span>
+pytest<span class="w"> </span>-v
+
+<span class="c1"># 7. Commit</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;fix: handle timezone correctly in timestamps&quot;</span>
+
+<span class="c1"># 8. Push and create PR</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>bugfix/fix-timestamp-tz
+</code></pre></div>
+
+<h3 id="scenario-3-updating-documentation">Scenario 3: Updating Documentation<a class="headerlink" href="#scenario-3-updating-documentation" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 1. Create branch</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>docs/update-api-docs
+
+<span class="c1"># 2. Update documentation</span>
+<span class="c1"># ... edit .md files or docstrings ...</span>
+
+<span class="c1"># 3. Preview changes (for markdown)</span>
+<span class="c1"># Open in VS Code markdown preview</span>
+
+<span class="c1"># 4. Commit</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;docs: update API documentation with examples&quot;</span>
+
+<span class="c1"># 5. Push and create PR</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>docs/update-api-docs
+</code></pre></div>
+
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="dos">Do's ✅<a class="headerlink" href="#dos" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Run tests frequently</strong> - catch issues early</li>
+<li><strong>Commit small, logical changes</strong> - easier to review</li>
+<li><strong>Write descriptive commit messages</strong> - helps reviewers</li>
+<li><strong>Keep branches up to date</strong> - merge main regularly</li>
+<li><strong>Test edge cases</strong> - improve robustness</li>
+<li><strong>Document as you go</strong> - easier than later</li>
+<li><strong>Ask for help</strong> - use issues/discussions</li>
+</ol>
+<h3 id="donts">Don'ts ❌<a class="headerlink" href="#donts" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Don't commit directly to main</strong> - always use branches</li>
+<li><strong>Don't skip tests</strong> - they catch bugs</li>
+<li><strong>Don't ignore linting errors</strong> - maintain quality</li>
+<li><strong>Don't mix unrelated changes</strong> - keep PRs focused</li>
+<li><strong>Don't commit secrets</strong> - use environment variables</li>
+<li><strong>Don't force push</strong> - can lose history</li>
+<li><strong>Don't leave TODOs</strong> - finish or create issues</li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="tests-failing">Tests Failing<a class="headerlink" href="#tests-failing" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Run with verbose output</span>
+pytest<span class="w"> </span>-vv<span class="w"> </span>-s
+
+<span class="c1"># Run specific test</span>
+pytest<span class="w"> </span>tests/test_file.py::test_function<span class="w"> </span>-v
+
+<span class="c1"># Use debugger</span>
+pytest<span class="w"> </span>--pdb
+
+<span class="c1"># Check for environment issues</span>
+python<span class="w"> </span>--version
+pip<span class="w"> </span>list
+</code></pre></div>
+
+<h3 id="linting-errors">Linting Errors<a class="headerlink" href="#linting-errors" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># See all errors</span>
+ruff<span class="w"> </span>check<span class="w"> </span>.
+
+<span class="c1"># Auto-fix when possible</span>
+ruff<span class="w"> </span>check<span class="w"> </span>--fix<span class="w"> </span>.
+
+<span class="c1"># Format code</span>
+black<span class="w"> </span>src<span class="w"> </span>tests<span class="w"> </span>scripts
+</code></pre></div>
+
+<h3 id="merge-conflicts">Merge Conflicts<a class="headerlink" href="#merge-conflicts" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Update your branch with main</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+git<span class="w"> </span>checkout<span class="w"> </span>feature/your-branch
+git<span class="w"> </span>merge<span class="w"> </span>main
+
+<span class="c1"># Resolve conflicts in files</span>
+<span class="c1"># Edit conflicted files, remove markers</span>
+<span class="c1"># git add resolved-file</span>
+
+<span class="c1"># Complete merge</span>
+git<span class="w"> </span>commit
+
+<span class="c1"># Or use rebase instead</span>
+git<span class="w"> </span>rebase<span class="w"> </span>main
+</code></pre></div>
+
+<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../CONTRIBUTING.md">CONTRIBUTING.md</a> - Detailed contribution guide</li>
+<li><a href="../CODE_REPAIR_STRATEGY.md">CODE_REPAIR_STRATEGY.md</a> - Code quality guide</li>
+<li><a href="../.vscode/README.md">.vscode/README.md</a> - VS Code setup</li>
+<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Git-Basics">Git Basics</a></li>
+<li><a href="https://docs.pytest.org/">Python Testing</a></li>
+</ul>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>The development workflow ensures:
+- ✅ High code quality
+- ✅ Comprehensive testing
+- ✅ Clear documentation
+- ✅ Effective collaboration
+- ✅ Reliable CI/CD</p>
+<p>Follow this workflow for successful contributions! 🚀</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1172 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Environment Reset Guide - SynTechRev-PolyCodCal Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#environment-reset-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="SynTechRev-PolyCodCal Docs" class="md-header__button md-logo" aria-label="SynTechRev-PolyCodCal Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SynTechRev-PolyCodCal Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Environment Reset Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SynTechRev/SynTechRev-PolyCodCal" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SynTechRev-PolyCodCal Docs" class="md-nav__button md-logo" aria-label="SynTechRev-PolyCodCal Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SynTechRev-PolyCodCal Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SynTechRev/SynTechRev-PolyCodCal" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Guides
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PHASE6_INGESTION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 6 Ingestion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DEVELOPMENT_WORKFLOW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development Workflow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-this-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use This Guide
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reset-5-minutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Reset (5 minutes)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reset (5 minutes)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-clean-up-local-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Clean Up Local Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sync-with-github-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Sync with GitHub Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-recreate-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Recreate Virtual Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-verify-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Verify Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-reload-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Reload VSCode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-select-python-interpreter" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Select Python Interpreter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-verify-vscode-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Verify VSCode Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-platform-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross-Platform Compatibility
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cross-Platform Compatibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#path-separators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Path Separators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pythonpath-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      PYTHONPATH Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-environment-activation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtual Environment Activation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-copilot-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Copilot Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GitHub Copilot Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verify-copilot-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verify Copilot Extensions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copilot-settings-in-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copilot Settings in VSCode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copilot-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copilot Instructions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-copilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Copilot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-module-not-found-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: "Module not found" errors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-tests-not-discovered-in-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Tests not discovered in VSCode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-formatter-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Formatter not working
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-git-shows-unexpected-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Git shows unexpected changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-permission-denied-on-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Permission denied on scripts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-import-completions-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Import completions not working
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-reset-complete-rebuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Reset (Complete Rebuild)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Reset (Complete Rebuild)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-backup-any-local-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Backup Any Local Work
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-delete-and-reclone" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Delete and Reclone
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-follow-quick-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Follow Quick Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-reapply-your-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Reapply Your Changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification Checklist
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-reset-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Post-Reset Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Post-Reset Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keep-environment-clean" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keep Environment Clean
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regular-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regular Maintenance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-pr-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with PR #5
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#need-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Need Help?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="environment-reset-guide">Environment Reset Guide<a class="headerlink" href="#environment-reset-guide" title="Permanent link">&para;</a></h1>
+<p>This guide helps you reset your development environment and resolve VSCode integration issues, especially after major PRs like PR #5 that include comprehensive configuration changes.</p>
+<h2 id="when-to-use-this-guide">When to Use This Guide<a class="headerlink" href="#when-to-use-this-guide" title="Permanent link">&para;</a></h2>
+<p>Use this guide if you experience:
+- VSCode not recognizing the Python interpreter
+- Import errors despite having dependencies installed
+- Conflicts between local changes and GitHub repository state
+- Testing or linting tools not working correctly
+- GitHub Copilot integration issues</p>
+<h2 id="quick-reset-5-minutes">Quick Reset (5 minutes)<a class="headerlink" href="#quick-reset-5-minutes" title="Permanent link">&para;</a></h2>
+<h3 id="1-clean-up-local-environment">1. Clean Up Local Environment<a class="headerlink" href="#1-clean-up-local-environment" title="Permanent link">&para;</a></h3>
+<p><strong>Remove virtual environment:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># On Windows (PowerShell)</span>
+Remove-Item<span class="w"> </span>-Recurse<span class="w"> </span>-Force<span class="w"> </span>.venv
+
+<span class="c1"># On macOS/Linux</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>.venv
+</code></pre></div>
+
+<p><strong>Remove Python cache files:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># On Windows (PowerShell)</span>
+Get-ChildItem<span class="w"> </span>-Path<span class="w"> </span>.<span class="w"> </span>-Include<span class="w"> </span>__pycache__,*.pyc,*.pyo<span class="w"> </span>-Recurse<span class="w"> </span>-Force<span class="w"> </span><span class="p">|</span><span class="w"> </span>Remove-Item<span class="w"> </span>-Recurse<span class="w"> </span>-Force
+
+<span class="c1"># On macOS/Linux</span>
+find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;__pycache__&quot;</span><span class="w"> </span>-exec<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span><span class="o">{}</span><span class="w"> </span>+<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.pyc&quot;</span><span class="w"> </span>-delete
+find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.pyo&quot;</span><span class="w"> </span>-delete
+</code></pre></div>
+
+<p><strong>Remove test and coverage cache:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Cross-platform</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>.pytest_cache<span class="w"> </span>htmlcov<span class="w"> </span>.coverage<span class="w"> </span>coverage.xml<span class="w"> </span>.mypy_cache<span class="w"> </span>.ruff_cache
+</code></pre></div>
+
+<h3 id="2-sync-with-github-repository">2. Sync with GitHub Repository<a class="headerlink" href="#2-sync-with-github-repository" title="Permanent link">&para;</a></h3>
+<p><strong>Check current state:</strong></p>
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>status
+git<span class="w"> </span>branch<span class="w"> </span>-a
+</code></pre></div>
+
+<p><strong>If you have uncommitted changes you want to keep:</strong></p>
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>stash<span class="w"> </span>save<span class="w"> </span><span class="s2">&quot;backup before reset&quot;</span>
+</code></pre></div>
+
+<p><strong>Reset to match GitHub main branch:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Fetch latest from GitHub</span>
+git<span class="w"> </span>fetch<span class="w"> </span>origin
+
+<span class="c1"># If on a feature branch, update it</span>
+git<span class="w"> </span>checkout<span class="w"> </span>copilot/fix-vsc-environment-issue
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>copilot/fix-vsc-environment-issue
+
+<span class="c1"># Or switch to main if available</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+</code></pre></div>
+
+<p><strong>If you stashed changes and want them back:</strong></p>
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>stash<span class="w"> </span>pop
+</code></pre></div>
+
+<p><strong>If you want to completely discard local changes:</strong></p>
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>origin/main
+<span class="c1"># Or: git reset --hard origin/copilot/fix-vsc-environment-issue</span>
+</code></pre></div>
+
+<h3 id="3-recreate-virtual-environment">3. Recreate Virtual Environment<a class="headerlink" href="#3-recreate-virtual-environment" title="Permanent link">&para;</a></h3>
+<p><strong>Create fresh virtual environment:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># On Windows (PowerShell)</span>
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+.<span class="se">\.</span>venv<span class="se">\S</span>cripts<span class="se">\A</span>ctivate.ps1
+
+<span class="c1"># On macOS/Linux</span>
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</code></pre></div>
+
+<p><strong>Upgrade pip:</strong></p>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+</code></pre></div>
+
+<p><strong>Install dependencies:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Install development dependencies</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>dev-requirements.txt
+
+<span class="c1"># Install project in editable mode</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</code></pre></div>
+
+<h3 id="4-verify-installation">4. Verify Installation<a class="headerlink" href="#4-verify-installation" title="Permanent link">&para;</a></h3>
+<p><strong>Run tests:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nv">PYTHONPATH</span><span class="o">=</span>src<span class="w"> </span>pytest<span class="w"> </span>-v
+</code></pre></div>
+
+<p>Expected output:</p>
+<div class="codehilite"><pre><span></span><code>================ 15 passed in 0.04s ================
+</code></pre></div>
+
+<p><strong>Run linting:</strong></p>
+<div class="codehilite"><pre><span></span><code>ruff<span class="w"> </span>check<span class="w"> </span>.
+black<span class="w"> </span>--check<span class="w"> </span>src<span class="w"> </span>tests<span class="w"> </span>scripts
+mypy<span class="w"> </span>src
+</code></pre></div>
+
+<h3 id="5-reload-vscode">5. Reload VSCode<a class="headerlink" href="#5-reload-vscode" title="Permanent link">&para;</a></h3>
+<p><strong>In VSCode:</strong>
+1. Press <code>Ctrl+Shift+P</code> (or <code>Cmd+Shift+P</code> on Mac)
+2. Type: "Reload Window"
+3. Press Enter</p>
+<p><strong>Or restart VSCode completely:</strong>
+- Close VSCode
+- Reopen the project folder</p>
+<h3 id="6-select-python-interpreter">6. Select Python Interpreter<a class="headerlink" href="#6-select-python-interpreter" title="Permanent link">&para;</a></h3>
+<p><strong>In VSCode:</strong>
+1. Press <code>Ctrl+Shift+P</code> (or <code>Cmd+Shift+P</code> on Mac)
+2. Type: "Python: Select Interpreter"
+3. Choose the one showing <code>.venv</code> (e.g., <code>./venv/bin/python</code>)</p>
+<p><strong>Verify interpreter:</strong>
+- Open a Python file
+- Check bottom-right corner of VSCode shows: <code>Python 3.x.x ('.venv': venv)</code></p>
+<h3 id="7-verify-vscode-features">7. Verify VSCode Features<a class="headerlink" href="#7-verify-vscode-features" title="Permanent link">&para;</a></h3>
+<p><strong>Test integrated terminal:</strong>
+1. Open terminal in VSCode (<code>Ctrl+`</code>)
+2. Verify virtual environment is activated (prompt shows <code>.venv</code> or <code>(venv)</code>)
+3. Run: <code>python --version</code></p>
+<p><strong>Test testing integration:</strong>
+1. Open Testing panel (beaker icon in sidebar)
+2. Click "Refresh Tests"
+3. All 15 tests should appear
+4. Run tests from panel</p>
+<p><strong>Test formatting:</strong>
+1. Open any Python file
+2. Make a formatting change
+3. Save file (<code>Ctrl+S</code>)
+4. Verify Black auto-formats the file</p>
+<h2 id="cross-platform-compatibility">Cross-Platform Compatibility<a class="headerlink" href="#cross-platform-compatibility" title="Permanent link">&para;</a></h2>
+<h3 id="path-separators">Path Separators<a class="headerlink" href="#path-separators" title="Permanent link">&para;</a></h3>
+<p>VSCode settings use forward slashes (<code>/</code>) which work on all platforms:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;python.defaultInterpreterPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/.venv/bin/python&quot;</span>
+</code></pre></div>
+
+<p>On Windows, this automatically translates to:</p>
+<div class="codehilite"><pre><span></span><code>C:\path\to\project\.venv\Scripts\python.exe
+</code></pre></div>
+
+<h3 id="pythonpath-configuration">PYTHONPATH Configuration<a class="headerlink" href="#pythonpath-configuration" title="Permanent link">&para;</a></h3>
+<p>The <code>.vscode/settings.json</code> sets PYTHONPATH for all platforms:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;terminal.integrated.env.linux&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;PYTHONPATH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/src&quot;</span>
+<span class="p">},</span>
+<span class="nt">&quot;terminal.integrated.env.osx&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;PYTHONPATH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/src&quot;</span>
+<span class="p">},</span>
+<span class="nt">&quot;terminal.integrated.env.windows&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;PYTHONPATH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/src&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="virtual-environment-activation">Virtual Environment Activation<a class="headerlink" href="#virtual-environment-activation" title="Permanent link">&para;</a></h3>
+<p><strong>Windows:</strong>
+- PowerShell: <code>.\.venv\Scripts\Activate.ps1</code>
+- Command Prompt: <code>.\.venv\Scripts\activate.bat</code></p>
+<p><strong>macOS/Linux:</strong>
+- Bash/Zsh: <code>source .venv/bin/activate</code></p>
+<h2 id="github-copilot-integration">GitHub Copilot Integration<a class="headerlink" href="#github-copilot-integration" title="Permanent link">&para;</a></h2>
+<h3 id="verify-copilot-extensions">Verify Copilot Extensions<a class="headerlink" href="#verify-copilot-extensions" title="Permanent link">&para;</a></h3>
+<p><strong>Required extensions:</strong>
+- <code>GitHub.copilot</code>
+- <code>GitHub.copilot-chat</code></p>
+<p><strong>Check if installed:</strong>
+1. Press <code>Ctrl+Shift+X</code> (Extensions panel)
+2. Search for "GitHub Copilot"
+3. Verify both extensions are installed and enabled</p>
+<h3 id="copilot-settings-in-vscode">Copilot Settings in VSCode<a class="headerlink" href="#copilot-settings-in-vscode" title="Permanent link">&para;</a></h3>
+<p>The project includes Copilot-specific settings in <code>.vscode/settings.json</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;github.copilot.enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;*&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;yaml&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;plaintext&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;markdown&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;python&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="p">},</span>
+<span class="nt">&quot;github.copilot.editor.enableAutoCompletions&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</code></pre></div>
+
+<h3 id="copilot-instructions">Copilot Instructions<a class="headerlink" href="#copilot-instructions" title="Permanent link">&para;</a></h3>
+<p>The project includes <code>.github/copilot-instructions.md</code> which provides:
+- Project architecture overview
+- Code style guidelines
+- Testing conventions
+- Common patterns</p>
+<p>This helps Copilot provide better suggestions specific to this project.</p>
+<h3 id="test-copilot">Test Copilot<a class="headerlink" href="#test-copilot" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Open a Python file</li>
+<li>Start typing a function</li>
+<li>Copilot should suggest completions (gray text)</li>
+<li>Press <code>Tab</code> to accept</li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="issue-module-not-found-errors">Issue: "Module not found" errors<a class="headerlink" href="#issue-module-not-found-errors" title="Permanent link">&para;</a></h3>
+<p><strong>Solution:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Verify PYTHONPATH includes src directory</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$PYTHONPATH</span><span class="w">  </span><span class="c1"># macOS/Linux</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$env</span>:PYTHONPATH<span class="w">  </span><span class="c1"># Windows PowerShell</span>
+
+<span class="c1"># Should show: /path/to/project/src</span>
+
+<span class="c1"># If not set, reload VSCode or manually set:</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">/src&quot;</span><span class="w">  </span><span class="c1"># macOS/Linux</span>
+<span class="nv">$env</span>:PYTHONPATH<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">\src&quot;</span><span class="w">  </span><span class="c1"># Windows PowerShell</span>
+</code></pre></div>
+
+<h3 id="issue-tests-not-discovered-in-vscode">Issue: Tests not discovered in VSCode<a class="headerlink" href="#issue-tests-not-discovered-in-vscode" title="Permanent link">&para;</a></h3>
+<p><strong>Solution:</strong>
+1. Open Command Palette (<code>Ctrl+Shift+P</code>)
+2. Run: "Python: Configure Tests"
+3. Select: "pytest"
+4. Select: "tests" directory
+5. Reload window</p>
+<h3 id="issue-formatter-not-working">Issue: Formatter not working<a class="headerlink" href="#issue-formatter-not-working" title="Permanent link">&para;</a></h3>
+<p><strong>Solution:</strong>
+1. Verify Black is installed: <code>pip show black</code>
+2. Install if missing: <code>pip install black</code>
+3. Open Command Palette
+4. Run: "Format Document"
+5. Select: "Black Formatter" as default</p>
+<h3 id="issue-git-shows-unexpected-changes">Issue: Git shows unexpected changes<a class="headerlink" href="#issue-git-shows-unexpected-changes" title="Permanent link">&para;</a></h3>
+<p><strong>Solution:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># View what changed</span>
+git<span class="w"> </span>status
+git<span class="w"> </span>diff
+
+<span class="c1"># Discard changes to specific file</span>
+git<span class="w"> </span>checkout<span class="w"> </span>--<span class="w"> </span>filename
+
+<span class="c1"># Discard all local changes</span>
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD
+</code></pre></div>
+
+<h3 id="issue-permission-denied-on-scripts">Issue: Permission denied on scripts<a class="headerlink" href="#issue-permission-denied-on-scripts" title="Permanent link">&para;</a></h3>
+<p><strong>macOS/Linux:</strong></p>
+<div class="codehilite"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>scripts/*.py
+</code></pre></div>
+
+<h3 id="issue-import-completions-not-working">Issue: Import completions not working<a class="headerlink" href="#issue-import-completions-not-working" title="Permanent link">&para;</a></h3>
+<p><strong>Solution:</strong>
+1. Check Pylance is installed
+2. Verify settings in <code>.vscode/settings.json</code>:
+   <code>json
+   "python.languageServer": "Pylance",
+   "python.analysis.autoImportCompletions": true</code>
+3. Reload window</p>
+<h2 id="advanced-reset-complete-rebuild">Advanced Reset (Complete Rebuild)<a class="headerlink" href="#advanced-reset-complete-rebuild" title="Permanent link">&para;</a></h2>
+<p>For severe issues, perform a complete reset:</p>
+<h3 id="1-backup-any-local-work">1. Backup Any Local Work<a class="headerlink" href="#1-backup-any-local-work" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Backup uncommitted changes</span>
+git<span class="w"> </span>diff<span class="w"> </span>&gt;<span class="w"> </span>my-changes.patch
+
+<span class="c1"># Backup entire folder</span>
+cp<span class="w"> </span>-r<span class="w"> </span>/path/to/SynTechRev-PolyCodCal<span class="w"> </span>/path/to/backup
+</code></pre></div>
+
+<h3 id="2-delete-and-reclone">2. Delete and Reclone<a class="headerlink" href="#2-delete-and-reclone" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Delete local repository</span>
+<span class="nb">cd</span><span class="w"> </span>..
+rm<span class="w"> </span>-rf<span class="w"> </span>SynTechRev-PolyCodCal
+
+<span class="c1"># Clone fresh from GitHub</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/SynTechRev/SynTechRev-PolyCodCal.git
+<span class="nb">cd</span><span class="w"> </span>SynTechRev-PolyCodCal
+</code></pre></div>
+
+<h3 id="3-follow-quick-setup">3. Follow Quick Setup<a class="headerlink" href="#3-follow-quick-setup" title="Permanent link">&para;</a></h3>
+<p>Follow steps 3-7 from "Quick Reset" above.</p>
+<h3 id="4-reapply-your-changes">4. Reapply Your Changes<a class="headerlink" href="#4-reapply-your-changes" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># If you saved a patch</span>
+git<span class="w"> </span>apply<span class="w"> </span>my-changes.patch
+</code></pre></div>
+
+<h2 id="verification-checklist">Verification Checklist<a class="headerlink" href="#verification-checklist" title="Permanent link">&para;</a></h2>
+<p>After reset, verify everything works:</p>
+<ul>
+<li>[ ] Virtual environment activates without errors</li>
+<li>[ ] <code>python --version</code> shows correct version (3.11+)</li>
+<li>[ ] <code>pytest -v</code> shows all 15 tests passing</li>
+<li>[ ] <code>black --check src tests scripts</code> shows no errors</li>
+<li>[ ] <code>ruff check .</code> shows no errors</li>
+<li>[ ] <code>mypy src</code> shows no errors</li>
+<li>[ ] VSCode shows correct Python interpreter in bottom-right</li>
+<li>[ ] VSCode Testing panel shows all 15 tests</li>
+<li>[ ] Auto-format on save works</li>
+<li>[ ] GitHub Copilot provides suggestions</li>
+<li>[ ] Import autocomplete works</li>
+<li>[ ] No git changes shown (unless you made intentional changes)</li>
+</ul>
+<h2 id="post-reset-best-practices">Post-Reset Best Practices<a class="headerlink" href="#post-reset-best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="keep-environment-clean">Keep Environment Clean<a class="headerlink" href="#keep-environment-clean" title="Permanent link">&para;</a></h3>
+<p><strong>Don't commit:</strong>
+- Virtual environment files (<code>.venv/</code>, <code>venv/</code>)
+- Python cache (<code>__pycache__/</code>, <code>*.pyc</code>)
+- Test cache (<code>.pytest_cache/</code>, <code>.coverage</code>)
+- IDE-specific files (<code>.idea/</code>, user-specific VSCode files)</p>
+<p><strong>Do commit:</strong>
+- Source code (<code>src/</code>, <code>tests/</code>, <code>scripts/</code>)
+- Configuration (<code>.vscode/</code> workspace settings, <code>.pre-commit-config.yaml</code>)
+- Documentation (<code>docs/</code>, <code>README.md</code>, etc.)
+- Dependencies (<code>requirements.txt</code>, <code>dev-requirements.txt</code>)</p>
+<h3 id="regular-maintenance">Regular Maintenance<a class="headerlink" href="#regular-maintenance" title="Permanent link">&para;</a></h3>
+<p><strong>Weekly:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Update dependencies</span>
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>-r<span class="w"> </span>dev-requirements.txt
+
+<span class="c1"># Clean cache</span>
+find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;__pycache__&quot;</span><span class="w"> </span>-exec<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span><span class="o">{}</span><span class="w"> </span>+<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+</code></pre></div>
+
+<p><strong>Before starting new work:</strong></p>
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/my-new-feature
+</code></pre></div>
+
+<p><strong>After completing work:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Run all checks</span>
+black<span class="w"> </span>src<span class="w"> </span>tests<span class="w"> </span>scripts
+ruff<span class="w"> </span>check<span class="w"> </span>.
+mypy<span class="w"> </span>src
+pytest<span class="w"> </span>-v
+
+<span class="c1"># Commit and push</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: description of changes&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/my-new-feature
+</code></pre></div>
+
+<h2 id="integration-with-pr-5">Integration with PR #5<a class="headerlink" href="#integration-with-pr-5" title="Permanent link">&para;</a></h2>
+<p>PR #5 introduced comprehensive documentation and VSCode configuration. After reset, you'll have:</p>
+<ul>
+<li><strong>Documentation</strong>: Guides in <code>docs/</code>, <code>QUICKSTART.md</code>, <code>CONTRIBUTING.md</code>, etc.</li>
+<li><strong>VSCode Config</strong>: Optimized settings in <code>.vscode/</code></li>
+<li><strong>Quality Tools</strong>: Pre-configured linters, formatters, type checkers</li>
+<li><strong>Testing</strong>: Integrated pytest with coverage</li>
+<li><strong>Copilot</strong>: Project-specific instructions</li>
+</ul>
+<p>This reset ensures your local environment matches these configurations.</p>
+<h2 id="need-help">Need Help?<a class="headerlink" href="#need-help" title="Permanent link">&para;</a></h2>
+<p>If issues persist after following this guide:</p>
+<ol>
+<li><strong>Check existing documentation:</strong></li>
+<li><code>QUICKSTART.md</code> - Basic setup</li>
+<li><code>CONTRIBUTING.md</code> - Development workflow</li>
+<li><code>docs/DEVELOPMENT_WORKFLOW.md</code> - Detailed processes</li>
+<li>
+<p><code>.vscode/README.md</code> - VSCode-specific help</p>
+</li>
+<li>
+<p><strong>Review recent changes:</strong></p>
+</li>
+<li>Check PR #5 for comprehensive setup details</li>
+<li>
+<p>Review commit messages for recent updates</p>
+</li>
+<li>
+<p><strong>Get support:</strong></p>
+</li>
+<li>Open an issue on GitHub</li>
+<li>Include error messages and steps tried</li>
+<li>Mention you followed this reset guide</li>
+</ol>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>This reset process ensures:
+- Clean virtual environment matching project requirements
+- VSCode properly configured for Python development
+- All tests passing and quality checks working
+- GitHub integration functioning correctly
+- Cross-platform compatibility maintained
+- GitHub Copilot providing project-specific assistance</p>
+<p>Follow the <strong>Quick Reset</strong> for most issues. Use <strong>Advanced Reset</strong> only if problems persist after quick reset.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

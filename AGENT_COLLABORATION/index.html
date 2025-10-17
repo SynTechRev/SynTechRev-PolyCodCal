@@ -1,0 +1,1298 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Agent Collaboration Guide - SynTechRev-PolyCodCal Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#agent-collaboration-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="SynTechRev-PolyCodCal Docs" class="md-header__button md-logo" aria-label="SynTechRev-PolyCodCal Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SynTechRev-PolyCodCal Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Agent Collaboration Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SynTechRev/SynTechRev-PolyCodCal" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SynTechRev-PolyCodCal Docs" class="md-nav__button md-logo" aria-label="SynTechRev-PolyCodCal Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SynTechRev-PolyCodCal Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SynTechRev/SynTechRev-PolyCodCal" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Guides
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PHASE6_INGESTION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 6 Ingestion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DEVELOPMENT_WORKFLOW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development Workflow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-state-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project State Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project State Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repository-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repository Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files-to-track-vs-ignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Files to Track vs Ignore
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branch-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Branch Strategy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Communication Protocols
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication Protocols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-code-comments-for-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Code Comments for Context
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-commit-message-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Commit Message Convention
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pr-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. PR Descriptions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-coordination" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task Coordination
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task Coordination">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequential-tasks-one-agent-at-a-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequential Tasks (One Agent at a Time)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel-tasks-multiple-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallel Tasks (Multiple Agents)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conflict-resolution-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conflict Resolution Protocol
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-platform-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross-Platform Compatibility
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cross-Platform Compatibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#path-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Path Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command Examples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Standards
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quality Standards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#all-agents-must" class="md-nav__link">
+    <span class="md-ellipsis">
+      All Agents Must
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI/CD Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-specific-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tool-Specific Guidelines
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tool-Specific Guidelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-copilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Copilot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-copilot-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Copilot Workspace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-ai-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom AI Tools
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handoff-procedures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handoff Procedures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Handoff Procedures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#completing-your-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      Completing Your Task
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#picking-up-someones-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Picking Up Someone's Work
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Scenarios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-1-feature-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 1: Feature Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-2-bug-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 2: Bug Fix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-3-documentation-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 3: Documentation Update
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-4-refactoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 4: Refactoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#emergency-procedures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emergency Procedures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Emergency Procedures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#critical-bug-in-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      Critical Bug in Main
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-conflict" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge Conflict
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ci-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI Failure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Help
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="agent-collaboration-guide">Agent Collaboration Guide<a class="headerlink" href="#agent-collaboration-guide" title="Permanent link">&para;</a></h1>
+<p>This guide explains how different AI agents and tools can work together effectively on this project, ensuring smooth cross-platform communication and task coordination.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This project is designed to support multiple AI coding agents working together:
+- <strong>GitHub Copilot</strong>: Inline code suggestions and completions
+- <strong>GitHub Copilot Chat</strong>: Conversational assistance and explanations
+- <strong>Copilot Workspace Agents</strong>: Pull request and issue automation
+- <strong>Other AI Tools</strong>: Compatible with any AI tool respecting project conventions</p>
+<h2 id="project-state-management">Project State Management<a class="headerlink" href="#project-state-management" title="Permanent link">&para;</a></h2>
+<h3 id="repository-structure">Repository Structure<a class="headerlink" href="#repository-structure" title="Permanent link">&para;</a></h3>
+<p>The repository maintains clear separation of concerns:</p>
+<div class="codehilite"><pre><span></span><code><span class="nv">SynTechRev</span><span class="o">-</span><span class="nv">PolyCodCal</span><span class="o">/</span>
+├──<span class="w"> </span><span class="nv">src</span><span class="o">/</span><span class="w">                      </span>#<span class="w"> </span><span class="nv">Source</span><span class="w"> </span><span class="nv">code</span><span class="w"> </span><span class="ss">(</span><span class="nv">all</span><span class="w"> </span><span class="nv">agents</span><span class="w"> </span><span class="nv">can</span><span class="w"> </span><span class="nv">modify</span><span class="ss">)</span>
+├──<span class="w"> </span><span class="nv">tests</span><span class="o">/</span><span class="w">                    </span>#<span class="w"> </span><span class="nv">Test</span><span class="w"> </span><span class="nv">suite</span><span class="w"> </span><span class="ss">(</span><span class="nv">all</span><span class="w"> </span><span class="nv">agents</span><span class="w"> </span><span class="nv">can</span><span class="w"> </span><span class="nv">modify</span><span class="ss">)</span>
+├──<span class="w"> </span><span class="nv">scripts</span><span class="o">/</span><span class="w">                  </span>#<span class="w"> </span><span class="nv">CLI</span><span class="w"> </span><span class="nv">utilities</span><span class="w"> </span><span class="ss">(</span><span class="nv">all</span><span class="w"> </span><span class="nv">agents</span><span class="w"> </span><span class="nv">can</span><span class="w"> </span><span class="nv">modify</span><span class="ss">)</span>
+├──<span class="w"> </span><span class="nv">docs</span><span class="o">/</span><span class="w">                     </span>#<span class="w"> </span><span class="nv">Documentation</span><span class="w"> </span><span class="ss">(</span><span class="nv">all</span><span class="w"> </span><span class="nv">agents</span><span class="w"> </span><span class="nv">can</span><span class="w"> </span><span class="nv">modify</span><span class="ss">)</span>
+├──<span class="w"> </span>.<span class="nv">vscode</span><span class="o">/</span><span class="w">                  </span>#<span class="w"> </span><span class="nv">VSCode</span><span class="w"> </span><span class="nv">settings</span><span class="w"> </span><span class="ss">(</span><span class="nv">tracked</span>,<span class="w"> </span><span class="nv">collaborative</span><span class="ss">)</span>
+├──<span class="w"> </span>.<span class="nv">github</span><span class="o">/</span><span class="w">                  </span>#<span class="w"> </span><span class="nv">GitHub</span><span class="w"> </span><span class="nv">workflows</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="nv">agent</span><span class="w"> </span><span class="nv">instructions</span>
+│<span class="w">   </span>├──<span class="w"> </span><span class="nv">copilot</span><span class="o">-</span><span class="nv">instructions</span>.<span class="nv">md</span><span class="w">  </span>#<span class="w"> </span><span class="nv">Instructions</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">Copilot</span>
+│<span class="w">   </span>└──<span class="w"> </span><span class="nv">workflows</span><span class="o">/</span><span class="w">           </span>#<span class="w"> </span><span class="nv">CI</span><span class="o">/</span><span class="nv">CD</span><span class="w"> </span><span class="nv">configurations</span>
+└──<span class="w"> </span><span class="nv">examples</span><span class="o">/</span><span class="w">                </span>#<span class="w"> </span><span class="nv">Example</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="nv">files</span>
+</code></pre></div>
+
+<h3 id="files-to-track-vs-ignore">Files to Track vs Ignore<a class="headerlink" href="#files-to-track-vs-ignore" title="Permanent link">&para;</a></h3>
+<p><strong>Always tracked</strong> (commit these):
+- Source code: <code>src/</code>, <code>tests/</code>, <code>scripts/</code>
+- Configuration: <code>.vscode/</code> workspace settings, <code>pyproject.toml</code>, <code>mypy.ini</code>
+- Documentation: <code>docs/</code>, <code>README.md</code>, <code>CONTRIBUTING.md</code>, etc.
+- Dependencies: <code>requirements.txt</code>, <code>dev-requirements.txt</code>
+- CI/CD: <code>.github/workflows/</code></p>
+<p><strong>Never tracked</strong> (<code>.gitignore</code> excludes these):
+- Virtual environments: <code>.venv/</code>, <code>venv/</code>
+- Python cache: <code>__pycache__/</code>, <code>*.pyc</code>
+- Test artifacts: <code>.pytest_cache/</code>, <code>htmlcov/</code>, <code>.coverage</code>
+- Build artifacts: <code>dist/</code>, <code>build/</code>, <code>*.egg-info/</code>
+- IDE user settings: <code>.vscode/*.code-workspace</code> (workspace-specific)</p>
+<h3 id="branch-strategy">Branch Strategy<a class="headerlink" href="#branch-strategy" title="Permanent link">&para;</a></h3>
+<p><strong>Main branches:</strong>
+- <code>main</code>: Production-ready code, always stable
+- <code>feature/*</code>: New feature development
+- <code>fix/*</code>: Bug fixes
+- <code>docs/*</code>: Documentation updates
+- <code>copilot/*</code>: Copilot-generated branches</p>
+<p><strong>Agent collaboration pattern:</strong>
+1. Create feature branch from <code>main</code>
+2. Make changes in isolated commits
+3. Push regularly for CI verification
+4. Create PR when ready
+5. Merge after approval and passing checks</p>
+<h2 id="communication-protocols">Communication Protocols<a class="headerlink" href="#communication-protocols" title="Permanent link">&para;</a></h2>
+<h3 id="1-code-comments-for-context">1. Code Comments for Context<a class="headerlink" href="#1-code-comments-for-context" title="Permanent link">&para;</a></h3>
+<p>Agents should use specific comment patterns for communication:</p>
+<p><strong>Task handoff:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># TODO(agent-name): Task description</span>
+<span class="c1"># Example: TODO(copilot): Implement error handling for edge case</span>
+</code></pre></div>
+
+<p><strong>Design decisions:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># DESIGN: Why this approach was chosen</span>
+<span class="c1"># Example: DESIGN: Using deque for O(1) window management</span>
+</code></pre></div>
+
+<p><strong>Cross-agent notes:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># NOTE(to-next-agent): Context or warning</span>
+<span class="c1"># Example: NOTE(to-next-agent): This function is used by CLI, don&#39;t change signature</span>
+</code></pre></div>
+
+<p><strong>Issues requiring human input:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># FIXME(human-needed): Describe what needs human decision</span>
+<span class="c1"># Example: FIXME(human-needed): Choose between approach A or B for performance</span>
+</code></pre></div>
+
+<h3 id="2-commit-message-convention">2. Commit Message Convention<a class="headerlink" href="#2-commit-message-convention" title="Permanent link">&para;</a></h3>
+<p>All agents should follow Conventional Commits:</p>
+<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span><span class="n">type</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">scope</span><span class="o">&gt;</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span>
+
+<span class="p">[</span><span class="n">optional</span><span class="w"> </span><span class="n">body</span><span class="p">]</span>
+
+<span class="p">[</span><span class="n">optional</span><span class="w"> </span><span class="n">footer</span><span class="p">]</span>
+</code></pre></div>
+
+<p><strong>Types:</strong>
+- <code>feat</code>: New feature
+- <code>fix</code>: Bug fix
+- <code>docs</code>: Documentation only
+- <code>test</code>: Adding or updating tests
+- <code>refactor</code>: Code restructuring
+- <code>style</code>: Formatting changes
+- <code>chore</code>: Maintenance tasks</p>
+<p><strong>Examples:</strong></p>
+<div class="codehilite"><pre><span></span><code>feat<span class="o">(</span>monitor<span class="o">)</span>:<span class="w"> </span>add<span class="w"> </span>percentile<span class="w"> </span>tracking<span class="w"> </span>to<span class="w"> </span>FeedbackMonitor
+fix<span class="o">(</span>core<span class="o">)</span>:<span class="w"> </span>correct<span class="w"> </span>timezone<span class="w"> </span>handling<span class="w"> </span><span class="k">in</span><span class="w"> </span>timestamp<span class="w"> </span>conversion
+docs<span class="o">(</span>readme<span class="o">)</span>:<span class="w"> </span>update<span class="w"> </span>installation<span class="w"> </span>instructions
+test<span class="o">(</span>monitor<span class="o">)</span>:<span class="w"> </span>add<span class="w"> </span>edge<span class="w"> </span><span class="k">case</span><span class="w"> </span>tests<span class="w"> </span><span class="k">for</span><span class="w"> </span>empty<span class="w"> </span>window
+</code></pre></div>
+
+<h3 id="3-pr-descriptions">3. PR Descriptions<a class="headerlink" href="#3-pr-descriptions" title="Permanent link">&para;</a></h3>
+<p>Use this template for consistency:</p>
+<div class="codehilite"><pre><span></span><code><span class="gu">## Summary</span>
+Brief description of changes
+
+<span class="gu">## Changes Made</span>
+<span class="k">- [ ]</span> Task 1
+<span class="k">- [ ]</span> Task 2
+<span class="k">- [x]</span> Task 3 (completed)
+
+<span class="gu">## Testing</span>
+<span class="k">-</span><span class="w"> </span>How changes were tested
+<span class="k">-</span><span class="w"> </span>Test results
+
+<span class="gu">## Agent Notes</span>
+<span class="k">-</span><span class="w"> </span>Context for next agent or reviewer
+<span class="k">-</span><span class="w"> </span>Dependencies or considerations
+</code></pre></div>
+
+<h2 id="task-coordination">Task Coordination<a class="headerlink" href="#task-coordination" title="Permanent link">&para;</a></h2>
+<h3 id="sequential-tasks-one-agent-at-a-time">Sequential Tasks (One Agent at a Time)<a class="headerlink" href="#sequential-tasks-one-agent-at-a-time" title="Permanent link">&para;</a></h3>
+<p><strong>Pattern:</strong> Each agent completes a full task before next agent starts</p>
+<p><strong>Example workflow:</strong>
+1. <strong>Agent A</strong>: Implements feature
+   - Writes code
+   - Writes tests
+   - Updates docs
+   - Commits: "feat: add new feature"</p>
+<ol>
+<li><strong>Agent B</strong>: Reviews and enhances</li>
+<li>Adds edge case handling</li>
+<li>Improves error messages</li>
+<li>
+<p>Commits: "refactor: improve error handling"</p>
+</li>
+<li>
+<p><strong>Agent C</strong>: Documentation</p>
+</li>
+<li>Updates user guide</li>
+<li>Adds examples</li>
+<li>Commits: "docs: add usage examples"</li>
+</ol>
+<h3 id="parallel-tasks-multiple-agents">Parallel Tasks (Multiple Agents)<a class="headerlink" href="#parallel-tasks-multiple-agents" title="Permanent link">&para;</a></h3>
+<p><strong>Pattern:</strong> Different agents work on independent files/features</p>
+<p><strong>Safe for parallel work:</strong>
+- Different modules in <code>src/</code>
+- Different test files
+- Different documentation files
+- Independent scripts</p>
+<p><strong>Requires coordination:</strong>
+- Same source file
+- Shared configuration
+- Test dependencies</p>
+<p><strong>Merge strategy:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Agent A&#39;s work</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/agent-a-task
+<span class="c1"># ... make changes ...</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: implement feature A&quot;</span>
+
+<span class="c1"># Agent B&#39;s work (parallel)</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/agent-b-task
+<span class="c1"># ... make changes ...</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: implement feature B&quot;</span>
+
+<span class="c1"># Merge both</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>merge<span class="w"> </span>feature/agent-a-task
+git<span class="w"> </span>merge<span class="w"> </span>feature/agent-b-task
+<span class="c1"># Resolve conflicts if any</span>
+</code></pre></div>
+
+<h3 id="conflict-resolution-protocol">Conflict Resolution Protocol<a class="headerlink" href="#conflict-resolution-protocol" title="Permanent link">&para;</a></h3>
+<p>When changes conflict:</p>
+<ol>
+<li><strong>Automatic resolution (if possible):</strong></li>
+<li>Accept formatting changes from most recent agent</li>
+<li>Merge non-overlapping changes</li>
+<li>
+<p>Preserve all functionality</p>
+</li>
+<li>
+<p><strong>Human escalation (if needed):</strong>
+   <code>python
+   # CONFLICT: Agent A added X, Agent B added Y
+   # HUMAN-DECISION: Which approach to use?
+   # Option A: (show code)
+   # Option B: (show code)</code></p>
+</li>
+</ol>
+<h2 id="cross-platform-compatibility">Cross-Platform Compatibility<a class="headerlink" href="#cross-platform-compatibility" title="Permanent link">&para;</a></h2>
+<h3 id="path-handling">Path Handling<a class="headerlink" href="#path-handling" title="Permanent link">&para;</a></h3>
+<p><strong>Always use forward slashes in config files:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;python.defaultInterpreterPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/.venv/bin/python&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>This works on all platforms (VSCode translates on Windows).</p>
+<p><strong>In Python code, use <code>pathlib</code>:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># Good - cross-platform</span>
+<span class="n">project_root</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span>
+<span class="n">config_file</span> <span class="o">=</span> <span class="n">project_root</span> <span class="o">/</span> <span class="s2">&quot;config&quot;</span> <span class="o">/</span> <span class="s2">&quot;settings.json&quot;</span>
+
+<span class="c1"># Avoid - platform-specific</span>
+<span class="n">config_file</span> <span class="o">=</span> <span class="s2">&quot;config</span><span class="se">\\</span><span class="s2">settings.json&quot;</span>  <span class="c1"># Windows only</span>
+</code></pre></div>
+
+<h3 id="command-examples">Command Examples<a class="headerlink" href="#command-examples" title="Permanent link">&para;</a></h3>
+<p>Provide cross-platform alternatives:</p>
+<div class="codehilite"><pre><span></span><code><span class="gs">**Windows (PowerShell):**</span>
+```powershell
+.\.venv\Scripts\Activate.ps1
+</code></pre></div>
+
+<p><strong>macOS/Linux:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1">### Environment Variables</span>
+
+<span class="n">Set</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">platform</span><span class="o">-</span><span class="n">specific</span><span class="w"> </span><span class="n">way</span><span class="p">:</span>
+
+<span class="err">```</span><span class="n">bash</span>
+<span class="c1"># Linux/macOS</span>
+<span class="k">export</span><span class="w"> </span><span class="n">PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;${PWD}/src&quot;</span>
+
+<span class="c1"># Windows PowerShell</span>
+<span class="o">$</span><span class="n">env</span><span class="p">:</span><span class="n">PYTHONPATH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;${PWD}\src&quot;</span>
+
+<span class="c1"># Windows Command Prompt</span>
+<span class="n">set</span><span class="w"> </span><span class="n">PYTHONPATH</span><span class="o">=%</span><span class="n">CD</span><span class="o">%</span>\<span class="n">src</span>
+</code></pre></div>
+
+<p>VSCode settings handle this automatically:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;terminal.integrated.env.linux&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;PYTHONPATH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/src&quot;</span><span class="p">},</span>
+<span class="nt">&quot;terminal.integrated.env.osx&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;PYTHONPATH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/src&quot;</span><span class="p">},</span>
+<span class="nt">&quot;terminal.integrated.env.windows&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;PYTHONPATH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/src&quot;</span><span class="p">}</span>
+</code></pre></div>
+
+<h2 id="quality-standards">Quality Standards<a class="headerlink" href="#quality-standards" title="Permanent link">&para;</a></h2>
+<h3 id="all-agents-must">All Agents Must<a class="headerlink" href="#all-agents-must" title="Permanent link">&para;</a></h3>
+<p><strong>Before committing:</strong>
+- [ ] Run tests: <code>pytest -v</code>
+- [ ] Format code: <code>black src tests scripts</code>
+- [ ] Check linting: <code>ruff check .</code>
+- [ ] Type check: <code>mypy src</code>
+- [ ] Update relevant docs</p>
+<p><strong>Code standards:</strong>
+- Type hints on all functions
+- Docstrings for public APIs
+- Test coverage for new code
+- No breaking changes to existing APIs</p>
+<p><strong>Documentation standards:</strong>
+- Update README if adding features
+- Add examples for new functionality
+- Keep CHANGELOG.md current
+- Cross-reference related docs</p>
+<h3 id="cicd-integration">CI/CD Integration<a class="headerlink" href="#cicd-integration" title="Permanent link">&para;</a></h3>
+<p>All changes are automatically verified:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># .github/workflows/ci.yml</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests on Python 3.11, 3.12, 3.13</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Check formatting with Black</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lint with Ruff</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Type check with mypy</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Calculate coverage</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Report to Codecov</span>
+</code></pre></div>
+
+<p><strong>Wait for CI before merging:</strong>
+- ✅ All checks must pass
+- ✅ Coverage must not decrease
+- ✅ No new linting errors</p>
+<h2 id="tool-specific-guidelines">Tool-Specific Guidelines<a class="headerlink" href="#tool-specific-guidelines" title="Permanent link">&para;</a></h2>
+<h3 id="github-copilot">GitHub Copilot<a class="headerlink" href="#github-copilot" title="Permanent link">&para;</a></h3>
+<p><strong>Usage:</strong>
+- Read <code>.github/copilot-instructions.md</code> for project context
+- Use inline suggestions for routine code
+- Use Copilot Chat for explanations and refactoring
+- Respect existing patterns and conventions</p>
+<p><strong>Best practices:</strong>
+- Accept suggestions that match project style
+- Modify suggestions to add type hints if missing
+- Verify suggestions with tests
+- Don't blindly accept - understand the code</p>
+<h3 id="github-copilot-workspace">GitHub Copilot Workspace<a class="headerlink" href="#github-copilot-workspace" title="Permanent link">&para;</a></h3>
+<p><strong>When creating PRs:</strong>
+- Use descriptive branch names: <code>copilot/feature-description</code>
+- Include task checklist in PR description
+- Reference related issues
+- Add "Ready for Review" when complete</p>
+<p><strong>When addressing reviews:</strong>
+- Create commits addressing each comment
+- Use "fix(review): address feedback on X"
+- Update PR description with progress</p>
+<h3 id="custom-ai-tools">Custom AI Tools<a class="headerlink" href="#custom-ai-tools" title="Permanent link">&para;</a></h3>
+<p><strong>Integration requirements:</strong>
+- Respect <code>.gitignore</code>
+- Follow commit message convention
+- Run quality checks before committing
+- Update documentation with code changes</p>
+<p><strong>Configuration:</strong>
+Read these files for context:
+- <code>.github/copilot-instructions.md</code> - Code style and patterns
+- <code>CONTRIBUTING.md</code> - Workflow and standards
+- <code>CODE_REPAIR_STRATEGY.md</code> - Quality methodology
+- <code>docs/ENVIRONMENT_RESET.md</code> - Setup procedures</p>
+<h2 id="handoff-procedures">Handoff Procedures<a class="headerlink" href="#handoff-procedures" title="Permanent link">&para;</a></h2>
+<h3 id="completing-your-task">Completing Your Task<a class="headerlink" href="#completing-your-task" title="Permanent link">&para;</a></h3>
+<p><strong>Before passing to next agent:</strong></p>
+<ol>
+<li>
+<p><strong>Verify your changes:</strong>
+   <code>bash
+   pytest -v                    # All tests pass
+   black --check src tests      # Formatting correct
+   ruff check .                 # No linting errors
+   mypy src                     # Type checking passes</code></p>
+</li>
+<li>
+<p><strong>Update documentation:</strong></p>
+</li>
+<li>Code comments for complex logic</li>
+<li>Docstrings for new functions</li>
+<li>README if feature added</li>
+<li>
+<p>CHANGELOG with entry</p>
+</li>
+<li>
+<p><strong>Commit with context:</strong>
+   ```bash
+   git add .
+   git commit -m "feat: description</p>
+</li>
+<li>
+<p>Detail 1</p>
+</li>
+<li>Detail 2</li>
+</ol>
+<p>Next steps: [describe what's needed next]"
+   ```</p>
+<ol>
+<li><strong>Push and notify:</strong>
+   <code>bash
+   git push origin feature/your-branch</code></li>
+</ol>
+<h3 id="picking-up-someones-work">Picking Up Someone's Work<a class="headerlink" href="#picking-up-someones-work" title="Permanent link">&para;</a></h3>
+<p><strong>Before starting:</strong></p>
+<ol>
+<li>
+<p><strong>Understand context:</strong>
+   <code>bash
+   git log --oneline -10        # Recent commits
+   git diff main...HEAD         # What changed</code></p>
+</li>
+<li>
+<p><strong>Check for notes:</strong></p>
+</li>
+<li>Read commit messages</li>
+<li>Look for TODO/NOTE comments</li>
+<li>
+<p>Review PR description</p>
+</li>
+<li>
+<p><strong>Verify environment:</strong>
+   <code>bash
+   pytest -v                    # Tests pass
+   python --version             # Python 3.11+
+   pip list                     # Dependencies installed</code></p>
+</li>
+<li>
+<p><strong>Continue work:</strong></p>
+</li>
+<li>Make incremental changes</li>
+<li>Test frequently</li>
+<li>Commit regularly</li>
+<li>Document as you go</li>
+</ol>
+<h2 id="common-scenarios">Common Scenarios<a class="headerlink" href="#common-scenarios" title="Permanent link">&para;</a></h2>
+<h3 id="scenario-1-feature-implementation">Scenario 1: Feature Implementation<a class="headerlink" href="#scenario-1-feature-implementation" title="Permanent link">&para;</a></h3>
+<p><strong>Agent workflow:</strong>
+1. Create branch: <code>feature/add-percentile-tracking</code>
+2. Implement feature in <code>src/</code>
+3. Add tests in <code>tests/</code>
+4. Update docstring and README
+5. Run quality checks
+6. Commit: <code>feat(monitor): add percentile tracking</code>
+7. Push and create PR</p>
+<h3 id="scenario-2-bug-fix">Scenario 2: Bug Fix<a class="headerlink" href="#scenario-2-bug-fix" title="Permanent link">&para;</a></h3>
+<p><strong>Agent workflow:</strong>
+1. Create branch: <code>fix/timezone-handling</code>
+2. Add failing test demonstrating bug
+3. Fix the bug
+4. Verify test passes
+5. Run full test suite
+6. Commit: <code>fix(core): correct timezone handling</code>
+7. Push and create PR</p>
+<h3 id="scenario-3-documentation-update">Scenario 3: Documentation Update<a class="headerlink" href="#scenario-3-documentation-update" title="Permanent link">&para;</a></h3>
+<p><strong>Agent workflow:</strong>
+1. Create branch: <code>docs/improve-quickstart</code>
+2. Update documentation files
+3. Verify examples still work
+4. Check links and formatting
+5. Commit: <code>docs: improve quickstart guide</code>
+6. Push and create PR</p>
+<h3 id="scenario-4-refactoring">Scenario 4: Refactoring<a class="headerlink" href="#scenario-4-refactoring" title="Permanent link">&para;</a></h3>
+<p><strong>Agent workflow:</strong>
+1. Create branch: <code>refactor/extract-validation</code>
+2. Write tests for current behavior
+3. Refactor code
+4. Verify all tests still pass
+5. Check no API changes
+6. Commit: <code>refactor(monitor): extract validation logic</code>
+7. Push and create PR</p>
+<h2 id="emergency-procedures">Emergency Procedures<a class="headerlink" href="#emergency-procedures" title="Permanent link">&para;</a></h2>
+<h3 id="critical-bug-in-main">Critical Bug in Main<a class="headerlink" href="#critical-bug-in-main" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Create hotfix branch: <code>fix/critical-bug</code></li>
+<li>Minimal fix only</li>
+<li>Add test for bug</li>
+<li>Fast-track review</li>
+<li>Merge immediately after CI passes</li>
+</ol>
+<h3 id="merge-conflict">Merge Conflict<a class="headerlink" href="#merge-conflict" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Fetch latest: <code>git fetch origin main</code></li>
+<li>Attempt merge: <code>git merge origin/main</code></li>
+<li>If conflicts, mark for human:
+   <code>python
+   # MERGE-CONFLICT: Description
+   # HUMAN-NEEDED: Resolve conflict between X and Y</code></li>
+<li>Create issue with details</li>
+<li>Wait for human resolution</li>
+</ol>
+<h3 id="ci-failure">CI Failure<a class="headerlink" href="#ci-failure" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Check failure logs in GitHub Actions</li>
+<li>Reproduce locally: <code>pytest -v</code> or <code>ruff check .</code></li>
+<li>Fix issue</li>
+<li>Commit: <code>fix(ci): resolve test failure</code></li>
+<li>Push for re-verification</li>
+</ol>
+<h2 id="best-practices-summary">Best Practices Summary<a class="headerlink" href="#best-practices-summary" title="Permanent link">&para;</a></h2>
+<p><strong>Do:</strong>
+- ✅ Follow existing patterns and conventions
+- ✅ Write comprehensive tests
+- ✅ Update documentation with code
+- ✅ Use type hints consistently
+- ✅ Run quality checks before committing
+- ✅ Make small, focused commits
+- ✅ Provide context in commit messages
+- ✅ Test cross-platform compatibility</p>
+<p><strong>Don't:</strong>
+- ❌ Commit generated files (.venv, <strong>pycache</strong>, etc.)
+- ❌ Make breaking changes without discussion
+- ❌ Skip tests or quality checks
+- ❌ Remove working code without justification
+- ❌ Mix multiple unrelated changes in one commit
+- ❌ Leave TODO comments without context
+- ❌ Assume Windows-only or Linux-only</p>
+<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Setup</strong>: <code>QUICKSTART.md</code>, <code>GETTING_STARTED.md</code></li>
+<li><strong>Contributing</strong>: <code>CONTRIBUTING.md</code></li>
+<li><strong>Workflow</strong>: <code>docs/DEVELOPMENT_WORKFLOW.md</code></li>
+<li><strong>Quality</strong>: <code>CODE_REPAIR_STRATEGY.md</code></li>
+<li><strong>Environment</strong>: <code>docs/ENVIRONMENT_RESET.md</code></li>
+<li><strong>VSCode</strong>: <code>.vscode/README.md</code></li>
+<li><strong>Copilot</strong>: <code>.github/copilot-instructions.md</code></li>
+</ul>
+<h2 id="getting-help">Getting Help<a class="headerlink" href="#getting-help" title="Permanent link">&para;</a></h2>
+<p><strong>For agents:</strong>
+- Read relevant documentation files
+- Check commit history for context
+- Look for TODO/NOTE comments
+- Review PR descriptions</p>
+<p><strong>For humans:</strong>
+- Open an issue with "agent-question" label
+- Tag "agent-coordination" for workflow questions
+- Provide context: what agent, what task, what error</p>
+<hr />
+<p>This collaboration framework ensures smooth coordination between AI agents, maintainers, and contributors while maintaining code quality and project consistency across all platforms.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
