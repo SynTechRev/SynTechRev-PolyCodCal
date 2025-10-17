@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2025-10-17
+
+### Fixed
+- Windows-safe filename sanitization in legal generator normalization to prevent case writes from failing on Windows (affects USC and SCOTUS normalization; ensures ingest picks up files)
+
+### Changed
+- Release workflow: add version guard against tags, fetch tags (fetch-depth: 0), use twine `--skip-existing --verbose`, and add post-publish verification step that installs from TestPyPI and runs smoke checks
+
 ## [0.2.0] - 2025-10-17
 
 Final release of Phase 7. No changes from 0.2.0rc1.

@@ -3,11 +3,22 @@ name: Release
 on:
   push:
     tags:
-      - 'v*'
+      - 'v*.*.*'
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  packages: write
+  metadata: read
 
 env:
   TAG_NAME: ${{ github.ref_name }}
   TAG_VERSION: ${{ github.ref_name == '' && '' || (github.ref_name.startsWith('v') ? github.ref_name.substring(1) : github.ref_name) }}
+  # disable interactive git prompts in runners
+  GIT_TERMINAL_PROMPT: '0'
 
 jobs:
   build-and-publish:
@@ -60,6 +71,19 @@ jobs:
           fi
           python -m twine upload --repository-url https://test.pypi.org/legacy/ \
             --skip-existing --verbose -u "${TWINE_USERNAME}" -p "${TWINE_PASSWORD}" dist/*
+
+      - name: Publish to PyPI (skip if secret missing)
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        run: |
+          if [ -z "${TWINE_PASSWORD:-}" ]; then
+            echo "Skipping PyPI publish: PYPI_API_TOKEN not set"
+            exit 0
+          fi
+          python -m pip install --upgrade twine
+          echo "Uploading artifacts to PyPI..."
+          python -m twine upload --verbose -u "${TWINE_USERNAME}" -p "${TWINE_PASSWORD}" dist/*
 
   post-publish-verify:
     needs: build-and-publish

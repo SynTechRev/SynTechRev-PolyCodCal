@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import re
 import json
 import pathlib
 from typing import Iterable, List, Mapping, Optional
@@ -53,6 +54,23 @@ def _compute_id(case_name: str, summary: str) -> str:
     h.update(b"\n")
     h.update(summary.encode("utf-8"))
     return h.hexdigest()
+
+
+def _safe_stem(name: str, default: str = "case") -> str:
+    """Convert an arbitrary title into a filesystem-safe stem.
+
+    - Replace any character not in [A-Za-z0-9._-] with underscore
+    - Trim leading/trailing dots/underscores
+    - Limit length to 120 chars
+    - Fallback to provided default if empty after sanitization
+    """
+    # Replace path separators first for clarity (even though regex covers them)
+    name = name.replace("/", "-").replace("\\", "-")
+    # Replace illegal/problematic characters (e.g., ':' on Windows) and others
+    name = re.sub(r"[^A-Za-z0-9._-]+", "_", name)
+    name = name.strip("._")
+    name = name[:120]
+    return name or default
 
 
 def normalize_scotus(
@@ -118,12 +136,7 @@ def normalize_scotus(
             payload["source"] = source_tag
 
         # Derive filename from case name (safe-ish)
-        stem = (
-            case_name.replace(" ", "_").replace("/", "-").replace("\\", "-").strip("._")
-            or "case"
-        )
-        # Avoid overly long filenames
-        stem = stem[:120]
+        stem = _safe_stem(case_name, default="case")
         out_path = out / f"{stem}.json"
 
         if dry_run:
@@ -209,10 +222,7 @@ def normalize_uscode(
         if source_tag:
             payload["source"] = source_tag
 
-        stem = (
-            case_name.replace(" ", "_").replace("/", "-").replace("\\", "-").strip("._")
-            or "usc_section"
-        )[:120]
+        stem = _safe_stem(case_name, default="usc_section")
         out_path = out / f"{stem}.json"
         if dry_run:
             count += 1
