@@ -26,18 +26,25 @@ jobs:
         run: |
           python -m build
 
-      - name: Publish to TestPyPI
-        if: ${{ secrets.TEST_PYPI_API_TOKEN != '' }}
+      - name: Publish to TestPyPI (skip if secret missing)
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }}
         run: |
-          python -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+          if [ -z "${TWINE_PASSWORD:-}" ]; then
+            echo "Skipping TestPyPI publish: TEST_PYPI_API_TOKEN not set"
+            exit 0
+          fi
+          python -m twine upload \
+            --repository-url https://test.pypi.org/legacy/ dist/*
 
-      - name: Publish to PyPI
-        if: ${{ secrets.PYPI_API_TOKEN != '' }}
+      - name: Publish to PyPI (skip if secret missing)
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
         run: |
+          if [ -z "${TWINE_PASSWORD:-}" ]; then
+            echo "Skipping PyPI publish: PYPI_API_TOKEN not set"
+            exit 0
+          fi
           python -m twine upload dist/*
