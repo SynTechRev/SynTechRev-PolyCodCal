@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0rc1] - 2025-10-17
+
+Pre-release to exercise packaging and TestPyPI publishing pipeline.
+
+### Added
+- Legal data normalization/ingestion/retrieval pipeline (Phase 6)
+- New CLIs: `genesis-gateway` and `legal-generator`
+- MkDocs documentation site and homepage
+- GitHub Actions workflows: CI matrix, release (TestPyPI/PyPI), docs deploy
+
+### Changed
+- Switched to setuptools src-layout with PEP 621 metadata
+- Updated README with Install & CLI Quickstart
+
+### Fixed
+- Windows Python 3.13 NumPy DLL issue documented with workaround (use 3.12)
+
 ### Added - Phase 6 Complete
 - Legal Generator module with comprehensive data ingestion capabilities
 - Genesis Gateway module with CLI interface and processing pipeline
