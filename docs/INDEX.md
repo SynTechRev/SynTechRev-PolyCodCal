@@ -107,6 +107,21 @@ pytest
   - Best practices
   - Common issues and solutions
 
+- **[PHASE7_READINESS.md](../PHASE7_READINESS.md)** - Phase 7 readiness report
+  - Prerequisites checklist
+  - Packaging infrastructure status
+  - Console scripts verification
+  - Test results and quality checks
+  - Implementation roadmap
+  - Success criteria
+
+- **[PHASE7_KICKOFF.md](../PHASE7_KICKOFF.md)** - Phase 7 kickoff and scope
+  - Goal and deliverables
+  - Acceptance criteria
+  - Implementation tasks
+  - Constraints and risks
+  - Definition of done
+
 - **[TAGGING_GUIDE.md](../TAGGING_GUIDE.md)** - Repository tagging and release guide
   - Creating release tags
   - Repository cleanup procedures
@@ -482,7 +497,7 @@ See [CONTRIBUTING.md](../CONTRIBUTING.md) for how to submit changes.
 
 ---
 
-**Last Updated**: 2025-10-11
-**Version**: 0.1.0-dev
+**Last Updated**: 2025-10-17
+**Version**: 0.2.0rc1 (Phase 7 Ready)
 
 For the latest documentation, visit the [repository](https://github.com/SynTechRev/SynTechRev-PolyCodCal).
