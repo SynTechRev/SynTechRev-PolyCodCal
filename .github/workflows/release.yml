@@ -5,12 +5,49 @@ on:
     tags:
       - 'v*.*.*'
 
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  packages: write
+  metadata: read
+
+env:
+  TAG_NAME: ${{ github.ref_name }}
+  TAG_VERSION: ${{ github.ref_name == '' && '' || (github.ref_name.startsWith('v') ? github.ref_name.substring(1) : github.ref_name) }}
+  # disable interactive git prompts in runners
+  GIT_TERMINAL_PROMPT: '0'
+
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout (fetch tags)
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify version matches tag
+        id: version-check
+        run: |
+          python - <<'PY'
+          import tomllib,sys
+          data = tomllib.loads(open('pyproject.toml','rb').read())
+          pkg_version = data['project']['version']
+          tag = "${{ github.ref_name }}"
+          tag_ver = tag[1:] if tag.startswith('v') else tag
+          print("pyproject version:", pkg_version)
+          print("tag version:", tag_ver)
+          if pkg_version != tag_ver:
+              print("ERROR: Version mismatch between pyproject.toml and tag")
+              sys.exit(1)
+          print("Version guard OK")
+          PY
+
+      - name: Clean previous build artifacts
+        run: rm -rf dist build *.egg-info || true
 
       - name: Set up Python
         uses: actions/setup-python@v5
