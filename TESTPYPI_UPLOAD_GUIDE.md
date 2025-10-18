@@ -30,16 +30,7 @@ git checkout main
 git pull origin main
 
 # 2. Create annotated tag
-git tag -a v0.2.1 -m "Release version 0.2.1 - Phase 7 complete
-
-✅ All Phase 7 objectives achieved
-✅ Package metadata PEP 621 compliant
-✅ Console scripts configured (3 entry points)
-✅ Release workflow with version guard
-✅ Documentation builds successfully
-✅ All quality checks passing (51/51 tests)
-
-Ready for TestPyPI publication and Phase 8."
+git tag -a v0.2.1 -m "Release version 0.2.1 - Phase 7 complete"
 
 # 3. Push tag (triggers release workflow)
 git push origin v0.2.1
@@ -245,10 +236,20 @@ pip install --index-url https://test.pypi.org/simple/ \
 
 **Cause:** Known NumPy 2.3.3+ issue on Windows Python 3.13
 
-**Solution:** Use Python 3.12:
+**Solution (Windows):** Use Python 3.12:
 ```bash
+# Windows
 py -3.12 -m venv testpypi-verify
 testpypi-verify\Scripts\activate
+pip install --index-url https://test.pypi.org/simple/ \
+    --extra-index-url https://pypi.org/simple/ \
+    syntechrev-polycodcal==0.2.1
+```
+
+**Solution (Linux/Mac):** Should not encounter this issue, but use Python 3.12 if needed:
+```bash
+python3.12 -m venv testpypi-verify
+source testpypi-verify/bin/activate
 pip install ...
 ```
 
