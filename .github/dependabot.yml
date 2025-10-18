@@ -4,7 +4,23 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "automated"
+    allow:
+      - dependency-type: "all"
+    ignore:
+      # Example: ignore noisy package major updates (edit or remove as needed)
+      - dependency-name: "some-noise-package"
+        update-types: ["version-update:semver-major"]
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - "github-actions"
+    allow:
+      - dependency-type: "direct"
