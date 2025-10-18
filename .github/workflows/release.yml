@@ -54,74 +54,100 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Install build tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install build twine
+
+      - name: Verify version matches tag
+        run: |
+          echo "Verifying that pyproject.toml version matches the tag..."
+          RUN_VERSION=$(python -c "import tomllib,sys;print(tomllib.loads(open('pyproject.toml','rb').read())['project']['version'])")
+          TAG_VERSION=${GITHUB_REF#refs/tags/v}
+          echo "pyproject.toml version: $RUN_VERSION"
+          echo "Tag version (without 'v'): $TAG_VERSION"
+          if [ "$RUN_VERSION" != "$TAG_VERSION" ]; then
+            echo "ERROR: Version mismatch between pyproject.toml ($RUN_VERSION) and tag ($TAG_VERSION)"
+            exit 1
+          fi
+          echo "Version check passed: $RUN_VERSION == $TAG_VERSION"
+          echo "TAG_VERSION=$TAG_VERSION" >> $GITHUB_ENV
+
+      - name: Clean build artifacts
+        run: |
+          echo "Cleaning stale build artifacts..."
+          rm -rf dist build *.egg-info
+          echo "Build directory cleaned."
+
       - name: Build sdist and wheel
         run: |
-          python -m pip install --upgrade build
+          echo "Building package with --no-isolation..."
           python -m build --no-isolation
+          echo "Build completed. Contents of dist/:"
+          ls -lh dist/
 
-      - name: Publish to TestPyPI
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }}
+      - name: Publish to TestPyPI (skip if secret missing)
         run: |
-          python -m pip install --upgrade twine
-          if [ -z "${TWINE_PASSWORD:-}" ]; then
+          if [ -z "${{ secrets.TEST_PYPI_API_TOKEN }}" ]; then
             echo "Skipping TestPyPI publish: TEST_PYPI_API_TOKEN not set"
             exit 0
           fi
-          python -m twine upload --repository-url https://test.pypi.org/legacy/ \
-            --skip-existing --verbose -u "${TWINE_USERNAME}" -p "${TWINE_PASSWORD}" dist/*
+          echo "Uploading to TestPyPI with --skip-existing..."
+          python -m twine upload \
+            --repository-url https://test.pypi.org/legacy/ \
+            --skip-existing \
+            --verbose \
+            -u __token__ \
+            -p "${{ secrets.TEST_PYPI_API_TOKEN }}" \
+            dist/*
+          echo "TestPyPI upload completed."
 
       - name: Publish to PyPI (skip if secret missing)
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
         run: |
-          if [ -z "${TWINE_PASSWORD:-}" ]; then
+          if [ -z "${{ secrets.PYPI_API_TOKEN }}" ]; then
             echo "Skipping PyPI publish: PYPI_API_TOKEN not set"
             exit 0
           fi
-          python -m pip install --upgrade twine
-          echo "Uploading artifacts to PyPI..."
-          python -m twine upload --verbose -u "${TWINE_USERNAME}" -p "${TWINE_PASSWORD}" dist/*
+          echo "Uploading to PyPI with --skip-existing..."
+          python -m twine upload \
+            --skip-existing \
+            --verbose \
+            -u __token__ \
+            -p "${{ secrets.PYPI_API_TOKEN }}" \
+            dist/*
+          echo "PyPI upload completed."
 
-  post-publish-verify:
-    needs: build-and-publish
+  verify-testpypi-install:
     runs-on: ubuntu-latest
-    env:
-      TAG_VERSION: ${{ github.ref_name == '' && '' || (github.ref_name.startsWith('v') ? github.ref_name.substring(1) : github.ref_name) }}
+    needs: build-and-publish
     steps:
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Create venv and upgrade pip
+      - name: Extract tag version
         run: |
-          python -m venv venv
-          source venv/bin/activate
-          python -m pip install --upgrade pip
+          TAG_VERSION=${GITHUB_REF#refs/tags/v}
+          echo "TAG_VERSION=$TAG_VERSION" >> $GITHUB_ENV
+          echo "Tag version: $TAG_VERSION"
 
       - name: Install package from TestPyPI
         run: |
-          source venv/bin/activate
+          echo "Creating virtual environment..."
+          python -m venv test_venv
+          source test_venv/bin/activate
+          echo "Installing syntechrev-polycodcal version ${{ env.TAG_VERSION }} from TestPyPI..."
           pip install --index-url https://test.pypi.org/simple/ \
-              --extra-index-url https://pypi.org/simple/ \
-              syntechrev-polycodcal==${{ env.TAG_VERSION }}
+            --extra-index-url https://pypi.org/simple/ \
+            syntechrev-polycodcal==${{ env.TAG_VERSION }}
+          echo "Installation completed."
 
-      - name: Import smoke test
+      - name: Verify import and CLI entrypoint
         run: |
-          source venv/bin/activate
-          python - <<'PY'
-          try:
-              import syntechrev_polycodcal
-              print("import OK")
-          except Exception as e:
-              print("Import failed:", e)
-              raise
-          PY
-
-      - name: CLI sanity check
-        run: |
-          source venv/bin/activate
+          source test_venv/bin/activate
+          echo "Testing package import..."
+          python -c "import syntechrev_polycodcal; print(f'Successfully imported syntechrev_polycodcal version {syntechrev_polycodcal.__version__ if hasattr(syntechrev_polycodcal, \"__version__\") else \"unknown\"}')"
+          echo "Testing CLI entrypoint syntech-monitor..."
           syntech-monitor --help
+          echo "All verification tests passed!"
