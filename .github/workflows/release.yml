@@ -16,18 +16,34 @@ permissions:
 
 env:
   TAG_NAME: ${{ github.ref_name }}
-  TAG_VERSION: ${{ github.ref_name == '' && '' || (github.ref_name.startsWith('v') ? github.ref_name.substring(1) : github.ref_name) }}
   # disable interactive git prompts in runners
   GIT_TERMINAL_PROMPT: '0'
 
 jobs:
   build-and-publish:
+    # Extra safety: only run this job for version tags
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
+    outputs:
+      tag_version: ${{ steps.compute_tag.outputs.tag_version }}
+      testpypi_published: ${{ steps.publish_testpypi.outputs.published || 'false' }}
     steps:
       - name: Checkout (fetch tags)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Compute tag version (strip leading 'v')
+        id: compute_tag
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          if [ "${TAG#v}" != "$TAG" ]; then
+            VER="${TAG#v}"
+          else
+            VER="$TAG"
+          fi
+          echo "Detected tag: $TAG -> version: $VER"
+          echo "tag_version=$VER" >> "$GITHUB_OUTPUT"
 
       - name: Verify version matches tag
         id: version-check
@@ -87,9 +103,11 @@ jobs:
           ls -lh dist/
 
       - name: Publish to TestPyPI (skip if secret missing)
+        id: publish_testpypi
         run: |
           if [ -z "${{ secrets.TEST_PYPI_API_TOKEN }}" ]; then
             echo "Skipping TestPyPI publish: TEST_PYPI_API_TOKEN not set"
+            echo "published=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           echo "Uploading to TestPyPI with --skip-existing..."
@@ -101,6 +119,7 @@ jobs:
             -p "${{ secrets.TEST_PYPI_API_TOKEN }}" \
             dist/*
           echo "TestPyPI upload completed."
+          echo "published=true" >> "$GITHUB_OUTPUT"
 
       - name: Publish to PyPI (skip if secret missing)
         run: |
@@ -117,9 +136,11 @@ jobs:
             dist/*
           echo "PyPI upload completed."
 
-  verify-testpypi-install:
-    runs-on: ubuntu-latest
+  post-publish-verify:
     needs: build-and-publish
+    # Only verify if we actually published to TestPyPI
+    if: needs.build-and-publish.outputs.testpypi_published == 'true'
+    runs-on: ubuntu-latest
     steps:
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -139,8 +160,8 @@ jobs:
           source test_venv/bin/activate
           echo "Installing syntechrev-polycodcal version ${{ env.TAG_VERSION }} from TestPyPI..."
           pip install --index-url https://test.pypi.org/simple/ \
-            --extra-index-url https://pypi.org/simple/ \
-            syntechrev-polycodcal==${{ env.TAG_VERSION }}
+              --extra-index-url https://pypi.org/simple/ \
+              syntechrev-polycodcal==${{ needs.build-and-publish.outputs.tag_version }}
           echo "Installation completed."
 
       - name: Verify import and CLI entrypoint
