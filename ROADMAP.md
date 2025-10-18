@@ -75,16 +75,26 @@ Notes:
 - Optional Cython / Rust micro-optimization exploration (E)
 
 ## Phase 7 – Packaging & Distribution (P1)
-- Normalize packaging: migrate from `[tool.poetry]` to PEP 621 `[project]` or adopt full Poetry workflow consistently
-- Add console script entry point (`syntech-monitor`)
-- Prepare PyPI publish workflow (tag-driven GitHub Action)
-- Generate API docs (mkdocs or pdoc) + GitHub Pages deployment
+Status: COMPLETE (2025-10-17)
+
+Delivered:
+- PEP 621 `[project]` packaging with src-layout and console scripts (`syntech-monitor`, `genesis-gateway`, `legal-generator`)
+- Tag-driven release workflow with version guard, TestPyPI publish, and post-install verification
+- Docs site build and deploy to GitHub Pages
+
+Notes:
+- Release v0.2.1 finalized; workflow hardened for future releases
 
 ## Phase 8 – Quality & Governance (P2)
-- Add `SECURITY.md`, `CODE_OF_CONDUCT.md`
-- Issue / PR templates for feature, bug, performance
-- Dependabot configuration for dependency update PRs
-- CodeQL security scanning workflow
+Status: COMPLETE (2025-10-18)
+
+Delivered:
+- `SECURITY.md`, `CODE_OF_CONDUCT.md`, `LICENSE_COMPLIANCE.md`, `GOVERNANCE.md`
+- `.github/dependabot.yml` configured for pip and GitHub Actions (weekly)
+- `.github/workflows/codeql.yml` for CodeQL analysis on push/PR
+
+Notes:
+- Dependabot and CodeQL pipelines enabled; governance and conduct aligned with project’s ethical-theological orientation
 
 ## Phase 9 – Advanced Features (P2 / E)
 - Sliding percentile latency tracking (if latency incorporated into events)
@@ -118,4 +128,4 @@ Each feature PR must include:
 - No drop in coverage
 
 ---
-Last updated: 2025-10-11
+Last updated: 2025-10-18
