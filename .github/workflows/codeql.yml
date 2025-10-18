@@ -45,7 +45,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
-          persist-credentials: true
+          persist-credentials: false
       
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
