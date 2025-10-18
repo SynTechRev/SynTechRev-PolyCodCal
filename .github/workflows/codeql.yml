@@ -1,0 +1,63 @@
+name: CodeQL Security Analysis
+
+# Top-level permissions required by CodeQL and checkout
+permissions:
+  contents: read
+  security-events: write
+
+on:
+  # Use pull_request_target so the workflow runs in the base repo context
+  # with access to secrets and permissions needed for CodeQL analysis
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+  push:
+    branches: [main]
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ['python']
+    
+    steps:
+      # SECURITY NOTE: pull_request_target runs in the base repository context
+      # and has access to repository secrets. This checkout uses the base ref
+      # to ensure we analyze trusted code, not potentially malicious PR code.
+      # 
+      # For maintainers: To analyze PR head code (not recommended for untrusted PRs),
+      # you would need a second checkout step like:
+      # - name: Checkout PR head (for analysis only, no secrets)
+      #   uses: actions/checkout@v4
+      #   with:
+      #     repository: ${{ github.event.pull_request.head.repo.full_name }}
+      #     ref: ${{ github.event.pull_request.head.sha }}
+      #     fetch-depth: 0
+      #     persist-credentials: false
+      # 
+      # WARNING: Never run untrusted PR code with elevated privileges or secrets!
+      
+      - name: Checkout repository (base repo context)
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+          persist-credentials: true
+      
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          # Autobuild for Python is usually sufficient
+          # If you need custom build steps, replace autobuild with them
+      
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+      
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{ matrix.language }}"
