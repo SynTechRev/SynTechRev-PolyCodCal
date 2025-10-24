@@ -21,6 +21,7 @@ jobs:
     # Job-level permissions are redundant with the top-level block but kept for clarity
     permissions:
       security-events: write
+      contents: read
 
     strategy:
       fail-fast: false
