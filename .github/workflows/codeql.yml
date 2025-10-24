@@ -6,10 +6,14 @@ permissions:
   security-events: write
 
 on:
-  # Use pull_request_target so the workflow runs in the base repo context
+  # Use pull_request for PRs from the same repository
+  pull_request:
+    branches: [main]
+  # Use pull_request_target for PRs from forks (runs in base repo context)
   # with access to secrets and permissions needed for CodeQL analysis
   pull_request_target:
     types: [opened, synchronize, reopened]
+    branches: [main]
   push:
     branches: [main]
 
@@ -24,26 +28,25 @@ jobs:
         language: ['python']
     
     steps:
-      # SECURITY NOTE: pull_request_target runs in the base repository context
-      # and has access to repository secrets. This checkout uses the base ref
-      # to ensure we analyze trusted code, not potentially malicious PR code.
+      # SECURITY NOTE: For pull_request_target (forks), we checkout the PR head
+      # to analyze the actual changes, but we do NOT persist credentials or run
+      # untrusted code with write access. The workflow itself runs in the base
+      # repository context with the necessary permissions to upload results.
       # 
-      # For maintainers: To analyze PR head code (not recommended for untrusted PRs),
-      # you would need a second checkout step like:
-      # - name: Checkout PR head (for analysis only, no secrets)
-      #   uses: actions/checkout@v4
-      #   with:
-      #     repository: ${{ github.event.pull_request.head.repo.full_name }}
-      #     ref: ${{ github.event.pull_request.head.sha }}
-      #     fetch-depth: 0
-      #     persist-credentials: false
+      # For pull_request (same repo), we checkout normally since it's trusted code.
       # 
-      # WARNING: Never run untrusted PR code with elevated privileges or secrets!
+      # The ref is automatically set correctly:
+      # - pull_request: checks out the PR merge commit
+      # - pull_request_target: checks out the base branch by default, but we override
+      #   to check out the PR head for analysis
+      # - push: checks out the pushed commit
       
-      - name: Checkout repository (base repo context)
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # For pull_request_target, explicitly checkout the PR head
+          # For pull_request and push, use the default ref
+          ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.sha || github.ref }}
           fetch-depth: 0
           persist-credentials: false
       
