@@ -8,6 +8,7 @@ permissions:
 on:
   # Use pull_request for PRs from the same repository
   pull_request:
+    types: [opened, synchronize, reopened]
     branches: [main]
   # Use pull_request_target for PRs from forks (runs in base repo context)
   # with access to secrets and permissions needed for CodeQL analysis
@@ -29,9 +30,13 @@ jobs:
     
     steps:
       # SECURITY NOTE: For pull_request_target (forks), we checkout the PR head
-      # to analyze the actual changes, but we do NOT persist credentials or run
-      # untrusted code with write access. The workflow itself runs in the base
-      # repository context with the necessary permissions to upload results.
+      # to analyze the actual changes. This is SAFE because:
+      # 1. CodeQL performs static analysis only - it does not execute the code
+      # 2. The workflow itself runs in the base repository context with necessary
+      #    permissions to upload results, but credentials are NOT persisted to the
+      #    checked out code (persist-credentials: false)
+      # 3. This allows us to analyze contributions from forks while maintaining
+      #    security by not exposing secrets or write permissions to untrusted code
       # 
       # For pull_request (same repo), we checkout normally since it's trusted code.
       # 
