@@ -6,7 +6,7 @@ If you discover a vulnerability, please do NOT open a public issue. Instead repo
 
 - Email: security@syntechrev.org (PGP available — see below)
 - GitHub: Create a private GitHub Security Advisory in this repository (recommended)
-- If you need to send encrypted details, use our PGP key: <paste-or-link-your-armor-here>
+- If you need to send encrypted details, use our PGP key: https://syntechrev.org/pgp-key.asc
 
 When reporting, please include:
 - A short summary of the issue and potential impact
