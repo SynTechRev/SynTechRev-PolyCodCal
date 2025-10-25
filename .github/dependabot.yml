@@ -11,9 +11,6 @@ updates:
     allow:
       - dependency-type: "all"
     ignore:
-      # Example: ignore noisy package major updates (edit or remove as needed)
-      - dependency-name: "some-noise-package"
-        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: "github-actions"
     directory: "/"
