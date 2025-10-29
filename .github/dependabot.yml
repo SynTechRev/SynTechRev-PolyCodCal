@@ -1,23 +1,11 @@
 version: 2
 updates:
   - package-ecosystem: "pip"
-    directory: "/"
+    directory: "/" # Location of your requirements.txt or pyproject.toml
     schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 5
+      interval: "daily"
+    ignore: [] # Empty array to satisfy Dependabot validation
+    commit-message:
+      prefix: "chore(deps):"
     labels:
       - "dependencies"
-      - "automated"
-    allow:
-      - dependency-type: "all"
-    ignore:
-
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 5
-    labels:
-      - "github-actions"
-    allow:
-      - dependency-type: "direct"
