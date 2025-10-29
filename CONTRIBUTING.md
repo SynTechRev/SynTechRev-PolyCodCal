@@ -10,6 +10,7 @@ Thank you for your interest in contributing to SynTechRev-PolyCodCal! This guide
 - [Testing Requirements](#testing-requirements)
 - [Submitting Changes](#submitting-changes)
 - [Code Review Process](#code-review-process)
+- [Code Scanning and Pull Request Guidance](#code-scanning-and-pull-request-guidance)
 
 ## Getting Started
 
@@ -335,6 +336,70 @@ How you tested these changes:
 - All CI checks must pass
 - Merge conflicts must be resolved
 - Squash commits or merge as appropriate
+
+## Code Scanning and Pull Request Guidance
+
+### Understanding CodeQL and Security Scanning
+
+This repository uses [CodeQL](https://codeql.github.com/) for automated security analysis. CodeQL requires specific repository-level permissions to upload code scanning results and access code-scanning endpoints.
+
+### Important Limitations for Fork-Based Pull Requests
+
+For security reasons, GitHub restricts the `GITHUB_TOKEN` permissions for pull requests originating from forked repositories. This means:
+
+- **Fork PRs cannot upload CodeQL results**: When you create a pull request from a fork, the CodeQL workflow will run but cannot upload security scanning results to the repository.
+- **The workflow may show as failed**: You may see errors like "Resource not accessible by integration" for fork-based PRs. This is expected behavior and does not indicate a problem with your code.
+
+### Best Practices for Contributors
+
+To ensure code scanning runs successfully:
+
+1. **For External Contributors (Fork-Based PRs)**:
+   - Open your pull request normally from your fork
+   - The CodeQL analysis will run but may not be able to upload results
+   - Repository maintainers will review your code and can run additional scans if needed
+   - Don't worry if the CodeQL check shows as failed - maintainers can verify security separately
+
+2. **For Project Members (Branch-Based PRs)**:
+   - Create a branch within this repository instead of using a fork
+   - This ensures the CodeQL workflow has proper permissions to upload results
+   - All security checks will complete successfully
+
+### For Maintainers
+
+When reviewing pull requests from forks:
+
+1. **Manual Security Review**: Review code changes for potential security issues before merging
+2. **Create Internal Branch**: If extensive security scanning is needed:
+   ```bash
+   # Fetch the fork PR
+   git fetch origin pull/<PR_NUMBER>/head:review-pr-<PR_NUMBER>
+   git checkout review-pr-<PR_NUMBER>
+   git push -u origin review-pr-<PR_NUMBER>
+   ```
+   This creates an internal branch where CodeQL can run with full permissions.
+
+3. **Post-Merge Scanning**: After merging, CodeQL will run on the main branch and catch any issues
+4. **Repository Settings**: Ensure the following settings are configured:
+   - Code scanning is enabled in repository settings
+   - Required status checks include CodeQL (if desired)
+   - Branch protection rules are properly configured
+
+### Technical Details
+
+The CodeQL workflow requires these permissions:
+- `actions: read` - To read workflow metadata
+- `contents: read` - To checkout repository code
+- `security-events: write` - To upload SARIF results to code scanning
+
+These permissions are automatically available for workflows running on repository branches but are restricted for workflows triggered by fork-based pull requests.
+
+### Questions or Issues?
+
+If you encounter problems with code scanning or have questions about security analysis:
+- Open an issue with the `security` label
+- Contact repository maintainers
+- Refer to [GitHub's documentation on CodeQL](https://docs.github.com/en/code-security/code-scanning)
 
 ## Tips for Success
 
