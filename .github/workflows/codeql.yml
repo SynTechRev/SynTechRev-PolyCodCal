@@ -2,6 +2,7 @@ name: CodeQL Security Analysis
 
 # Top-level permissions required by CodeQL and checkout
 permissions:
+  actions: read
   contents: read
   security-events: write
 
