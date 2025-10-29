@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "syntechrev-polycodcal"
-version = "0.2.1"
+version = "0.3.0.dev0"
 description = "Feedback monitoring system with sliding-window aggregation and alerting capabilities"
 readme = "README.md"
 requires-python = ">=3.11"

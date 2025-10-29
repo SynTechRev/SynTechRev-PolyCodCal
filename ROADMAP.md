@@ -81,9 +81,31 @@ Acceptance:
 Notes:
 - Dependabot and CodeQL pipelines enabled; governance and conduct aligned with project’s ethical-theological orientation
 
-## Phase 9 – Advanced Features (P2 / E)
-- Sliding percentile latency tracking (if latency incorporated into events)
-- Further optimization and feature expansions as prioritized by roadmap
+## Phase 9 – Ethical AI & Transparency Manifesto Integration (P1)
+Goal: Establish explicit ethical AI principles, transparency commitments, and provenance practices for SynTechRev-PolyCodCal.
+Status: IN PROGRESS (2025-10-29)
+
+Planned Items:
+1. Ethical AI & Transparency Manifesto (docs/ETHICAL_AI_TRANSPARENCY.md)
+   - Purpose, scope, and values (aligned with project’s ethical-theological orientation)
+   - Acceptable use and prohibited misuse
+   - Safety, fairness, and harm minimization posture
+   - Governance and escalation pathways
+
+2. Transparency & Provenance
+   - Data usage and provenance statement
+   - Model and dataset cards (templates, if applicable)
+   - Auditability commitments and review cadence
+
+3. Operationalization
+   - Link manifesto in README and docs index
+   - Add CI check to ensure manifesto presence (later)
+   - Document process for periodic review and updates
+
+Acceptance:
+- Manifesto present, reviewed, and linked from README/docs
+- Clear statements on acceptable use, safety, and provenance
+- Roadmap updated and CHANGELOG includes Unreleased entry for Phase 9
 
 ---
-Last updated: 2025-10-18
+Last updated: 2025-10-29
